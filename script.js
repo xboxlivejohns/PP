@@ -62,3 +62,27 @@ if ('IntersectionObserver' in window) {
 } else {
   revealElements.forEach((element) => element.classList.add('visible'));
 }
+
+const beforeAfterSliders = document.querySelectorAll('.ba-slider');
+
+beforeAfterSliders.forEach((slider) => {
+  const range = slider.querySelector('.ba-range');
+
+  if (!range) return;
+
+  const updateSlider = (value) => {
+    const percentage = Math.max(0, Math.min(100, Number(value)));
+    slider.style.setProperty('--pos', `${percentage}%`);
+    range.value = String(percentage);
+  };
+
+  range.addEventListener('input', () => updateSlider(range.value));
+
+  slider.addEventListener('pointermove', (event) => {
+    if (event.buttons !== 1 && event.pointerType === 'mouse') return;
+
+    const bounds = slider.getBoundingClientRect();
+    const position = ((event.clientX - bounds.left) / bounds.width) * 100;
+    updateSlider(position);
+  });
+});

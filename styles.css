@@ -315,3 +315,130 @@ ul { list-style: none; }
     scroll-snap-align: center;
   }
 }
+
+.before-after {
+  margin-top: 72px;
+}
+
+.ba-slider {
+  --pos: 50%;
+  position: relative;
+  width: min(980px, 100%);
+  aspect-ratio: 16 / 10;
+  min-height: 340px;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid rgba(142, 227, 136, 0.34);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  touch-action: none;
+  isolation: isolate;
+}
+
+.ba-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.ba-before {
+  z-index: 1;
+}
+
+.ba-after-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+  transition: clip-path 0.08s linear;
+}
+
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  z-index: 4;
+  width: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.55);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.ba-range {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.ba-badge {
+  position: absolute;
+  top: 18px;
+  z-index: 6;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(18, 18, 18, 0.78);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
+.ba-badge-before {
+  left: 18px;
+}
+
+.ba-badge-after {
+  right: 18px;
+  background: rgba(59, 154, 72, 0.82);
+}
+
+@media (max-width: 760px) {
+  .before-after {
+    margin-top: 52px;
+  }
+
+  .ba-slider {
+    aspect-ratio: 4 / 3;
+    min-height: 280px;
+    border-radius: 18px;
+  }
+
+  .ba-handle {
+    width: 50px;
+    height: 50px;
+  }
+}
