@@ -39,10 +39,9 @@ img { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--line);
 }
 .navbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -0.03em; }
-.brand-mark { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; background: var(--logo-accent); color: #102714; box-shadow: 0 14px 30px rgba(142, 227, 136, 0.18); font-size: 0.78rem; font-weight: 900; text-transform: uppercase; }
-.brand-text { font-size: 1.05rem; }
-.brand-text strong { color: var(--accent); }
+.brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.site-logo { display: block; width: auto; max-height: 44px; object-fit: contain; }
+.footer-brand .site-logo { max-height: 50px; }
 .nav-menu { display: flex; align-items: center; gap: 26px; color: var(--muted); font-weight: 700; }
 .nav-menu a:hover { color: var(--text); }
 .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
@@ -151,7 +150,6 @@ ul { list-style: none; }
   .nav-menu { position: fixed; inset: 78px 14px auto; display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 22px; background: rgba(18, 18, 18, 0.98); transform: translateY(-18px); opacity: 0; pointer-events: none; box-shadow: var(--shadow); }
   .nav-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .nav-menu a { padding: 12px; }
-  .brand-text { font-size: 0.95rem; }
   .hero-actions, .cta-card, .footer-bottom { align-items: stretch; flex-direction: column; }
   .btn { width: 100%; }
   .portfolio-grid, .pricing-grid { grid-template-columns: 1fr; }
