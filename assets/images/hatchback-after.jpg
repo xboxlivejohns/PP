@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Glossy hatchback paintwork after detailing">
+  <defs><linearGradient id="bg" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#102415"/><stop offset="1" stop-color="#121212"/></linearGradient><linearGradient id="car" x1="0" x2="1"><stop stop-color="#1e7a35"/><stop offset=".5" stop-color="#38a84e"/><stop offset="1" stop-color="#145b28"/></linearGradient></defs>
+  <rect width="1200" height="750" fill="url(#bg)"/><rect y="520" width="1200" height="230" fill="#18301d"/>
+  <path d="M230 455 315 335 515 285 760 305 925 410 990 455 950 520 270 520Z" fill="url(#car)"/>
+  <path d="M365 345 520 305 715 320 835 405 320 405Z" fill="#0d2113"/><path d="M835 405 950 432 990 455 925 410Z" fill="#18702f"/>
+  <g fill="#090909"><circle cx="360" cy="535" r="62"/><circle cx="845" cy="535" r="62"/></g><g fill="#777"><circle cx="360" cy="535" r="36"/><circle cx="845" cy="535" r="36"/></g>
+  <rect x="908" y="430" width="66" height="18" rx="4" fill="#eee59b"/>
+  <g fill="none" stroke-linecap="round"><path d="M300 375C475 320 735 340 910 435" stroke="#bcffc2" stroke-width="10" opacity=".8"/><path d="M380 455C530 430 710 440 860 475" stroke="#eaffec" stroke-width="7" opacity=".85"/><path d="M455 342 795 405" stroke="#d4ffd8" stroke-width="6" opacity=".75"/></g>
+  <text x="50" y="78" fill="#fff" font-family="Inter,Arial" font-size="42" font-weight="800">After: restored glossy paintwork</text>
+</svg>

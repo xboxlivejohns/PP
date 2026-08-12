@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Dull hatchback paintwork before detailing">
+  <defs><linearGradient id="bg" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#222"/><stop offset="1" stop-color="#111"/></linearGradient></defs>
+  <rect width="1200" height="750" fill="url(#bg)"/><rect y="520" width="1200" height="230" fill="#2b2b2b"/>
+  <path d="M230 455 315 335 515 285 760 305 925 410 990 455 950 520 270 520Z" fill="#686862"/>
+  <path d="M365 345 520 305 715 320 835 405 320 405Z" fill="#303336"/><path d="M835 405 950 432 990 455 925 410Z" fill="#555550"/>
+  <g fill="#111"><circle cx="360" cy="535" r="62"/><circle cx="845" cy="535" r="62"/></g><g fill="#555"><circle cx="360" cy="535" r="36"/><circle cx="845" cy="535" r="36"/></g>
+  <rect x="908" y="430" width="66" height="18" rx="4" fill="#8f8352"/>
+  <g stroke="#99998f" stroke-width="2" opacity=".65"><path d="M300 390l110 7M390 445l160-8M515 360l230 26M620 470l230-10M285 495l180-22M720 365l115 30M530 505l130-16"/></g>
+  <text x="50" y="78" fill="#ddd" font-family="Inter,Arial" font-size="42" font-weight="800">Before: dull paintwork</text>
+</svg>

@@ -184,6 +184,25 @@
           <article class="video-card reveal"><img src="https://placehold.co/600x800/181818/8EE388?text=Paint+Correction" alt="Paint correction video placeholder"><div><span>▶</span><h3>Gloss Restoration</h3><p>Swirl reduction and clarity boost</p></div></article>
           <article class="video-card reveal"><img src="https://placehold.co/600x800/121212/CCCCCC?text=Ceramic+Coating" alt="Ceramic coating video placeholder"><div><span>▶</span><h3>Ceramic Protection</h3><p>Hydrophobic finish and lasting shine</p></div></article>
         </div>
+        <div class="before-after reveal" aria-labelledby="ba-title">
+          <div class="section-heading">
+            <p class="eyebrow">Before &amp; After</p>
+            <h2 id="ba-title">Slide to reveal a hatchback gloss transformation.</h2>
+            <p>Drag across the image to compare dull, tired paintwork with the restored glossy finish after careful detailing.</p>
+          </div>
+          <div class="ba-slider" style="--pos: 50%;">
+            <img class="ba-image ba-before" src="assets/images/hatchback-before.jpg" alt="Hatchback exterior before detailing with dull, marked paintwork">
+            <div class="ba-after-wrap" aria-hidden="true">
+              <img class="ba-image ba-after" src="assets/images/hatchback-after.jpg" alt="">
+            </div>
+            <span class="ba-badge ba-badge-before">Before</span>
+            <span class="ba-badge ba-badge-after">After</span>
+            <div class="ba-divider" aria-hidden="true"><span class="ba-handle">↔</span></div>
+            <label class="sr-only" for="ba-range">Compare before and after paintwork</label>
+            <input id="ba-range" class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal after image percentage">
+          </div>
+        </div>
+
       </div>
     </section>
 
