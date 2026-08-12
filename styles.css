@@ -194,3 +194,17 @@ ul { list-style: none; }
   .hero-contact a { width: 100%; }
   .footer-social { flex-wrap: wrap; }
 }
+
+.booking-page { min-height: 100vh; display: grid; align-items: center; }
+.booking-cta { min-height: 100vh; display: grid; align-items: center; }
+.booking-card { padding: 48px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(135deg, rgba(59, 154, 72, 0.2), rgba(34, 34, 34, 0.94)); box-shadow: var(--shadow); text-align: center; }
+.booking-card h1 { margin-inline: auto; font-size: clamp(2.4rem, 6vw, 5rem); }
+.booking-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 34px; }
+.whatsapp-button { background: #25d366; box-shadow: 0 18px 44px rgba(37, 211, 102, 0.32); }
+.booking-phone { margin-top: 22px; color: var(--muted); font-weight: 700; }
+.booking-phone a { color: var(--logo-accent); }
+
+@media (max-width: 760px) {
+  .booking-card { padding: 32px 20px; }
+  .booking-actions { align-items: stretch; flex-direction: column; }
+}
