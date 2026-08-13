@@ -77,8 +77,8 @@ h3 { font-size: 1.25rem; }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 .trust-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
 .trust-strip span { padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(34, 34, 34, 0.78); font-size: 0.9rem; font-weight: 700; }
-.hero-card { position: relative; border: 1px solid var(--line); border-radius: 18px; padding: 14px; background: linear-gradient(180deg, rgba(59, 154, 72, 0.16), rgba(34, 34, 34, 0.86)); box-shadow: var(--shadow); width: min(560px, 100%); }
-.hero-card img { border-radius: 25px; width: 100%; aspect-ratio: 0.82; object-fit: cover; }
+.hero-card { position: relative; border: 1px solid rgba(142, 227, 136, 0.26); border-radius: 24px; padding: 12px; background: linear-gradient(180deg, rgba(59, 154, 72, 0.16), rgba(34, 34, 34, 0.86)); box-shadow: var(--shadow); width: min(980px, 100%); }
+.hero-card img { border-radius: 18px; width: 100%; aspect-ratio: 33 / 14; object-fit: cover; object-position: center; }
 .floating-stat { position: absolute; border: 1px solid var(--line); border-radius: 20px; padding: 16px 18px; background: rgba(18, 18, 18, 0.88); backdrop-filter: blur(12px); box-shadow: var(--shadow); }
 .floating-stat strong { display: block; color: var(--accent); font-size: 1.65rem; line-height: 1; }
 .floating-stat span { color: var(--muted); font-size: 0.82rem; font-weight: 700; }
@@ -139,7 +139,7 @@ ul { list-style: none; }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-grid, .equipment-grid, .footer-grid { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
-  .hero-card { max-width: 560px; margin-inline: auto; }
+  .hero-card { max-width: 920px; margin-inline: auto; }
 }
 
 @media (max-width: 760px) {
@@ -154,6 +154,8 @@ ul { list-style: none; }
   .btn { width: 100%; }
   .portfolio-grid, .pricing-grid { grid-template-columns: 1fr; }
   .price-card.featured { transform: none; }
+  .hero-card { padding: 8px; border-radius: 18px; }
+  .hero-card img { border-radius: 12px; aspect-ratio: 16 / 9; }
   .floating-stat { position: static; margin-top: 12px; }
 }
 
