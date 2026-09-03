@@ -3,20 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Polished & Pristine Mobile</title>
+  <title>Portfolio | Polished &amp; Pristine Mobile</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="top">
     <nav class="navbar container" aria-label="Primary navigation">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Polished and Pristine Mobile home">
         <img src="assets/images/logo.png" alt="Polished &amp; Pristine Mobile Logo" class="site-logo">
       </a>
+      <div class="header-social" aria-label="Social and review links">
+        <a class="social-link" href="https://g.page/r/CdCapvxgK3U1EBM/review" target="_blank" rel="noopener" aria-label="Review Polished and Pristine Mobile on Google">G</a>
+        <a class="social-link" href="https://www.facebook.com/share/1BPcDUgDEs/" target="_blank" rel="noopener" aria-label="Visit Polished and Pristine Mobile on Facebook">f</a>
+        <a class="social-link" href="https://www.instagram.com/polishedpristinemobile" target="_blank" rel="noopener" aria-label="Visit Polished and Pristine Mobile on Instagram">◎</a>
+        <a class="social-link" href="https://www.tiktok.com/@polished_pristine?_r=1&amp;_t=ZN-98F7IayqF54" target="_blank" rel="noopener" aria-label="Visit Polished and Pristine Mobile on TikTok">♪</a>
+        <a class="social-link" href="https://www.yell.com/biz/polished-and-pristine-mobile-darlington-10931334/" target="_blank" rel="noopener" aria-label="View Polished and Pristine Mobile on Yell">Y</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <div class="nav-menu" id="primary-menu">
         <a href="index.html">Home</a>
-        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
+        <a class="btn btn-small btn-primary" href="https://wa.me/447468286651?text=Hi%20John,%20I'd%20like%20to%20get%20a%20quote%20for%20a%20detail">Book Online</a>
       </div>
     </nav>
   </header>
@@ -29,7 +40,6 @@
           <h2>Real detailing results captured fresh off the machine.</h2>
         </div>
         <div class="video-grid">
-          <!-- Card 1 -->
           <div class="video-card reveal">
             <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/coating-thumb.jpg">
               <source src="assets/videos/coating.mp4" type="video/mp4">
@@ -40,8 +50,6 @@
               <h3>3-Year Gloss Protection</h3>
             </div>
           </div>
-
-          <!-- Card 2 -->
           <div class="video-card reveal">
             <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/polishing-thumb.jpg">
               <source src="assets/videos/polishing.mp4" type="video/mp4">
@@ -52,8 +60,6 @@
               <h3>Swirl Removal &amp; Gloss Pull</h3>
             </div>
           </div>
-
-          <!-- Card 3 -->
           <div class="video-card reveal">
             <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/interior-thumb.jpg">
               <source src="assets/videos/interior.mp4" type="video/mp4">
@@ -82,4 +88,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+```
 
+This is the version I'd use. It keeps your original structure and only changes the navigation.
