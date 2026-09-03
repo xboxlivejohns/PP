@@ -100,21 +100,6 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 
 .hero-cta-group { display: flex; flex-direction: column; align-items: center; gap: 24px; }
 
-.address-form { 
-  display: flex; 
-  width: min(580px, 100%); 
-  padding: 8px; 
-  background: #ffffff;
-  border: 1px solid var(--line);
-  border-radius: 18px; 
-  box-shadow: var(--shadow);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.address-form:focus-within { border-color: rgba(59, 154, 72, 0.4); box-shadow: 0 0 0 4px rgba(59, 154, 72, 0.1); }
-
-.address-field { flex: 1; display: flex; align-items: center; gap: 12px; padding: 0 16px; }
-.address-field input { font-size: 1rem; border: none; outline: none; width: 100%; color: var(--text); height: 52px; }
-
 .view-packages-link { 
   font-weight: 600; 
   color: var(--muted); 
@@ -221,9 +206,6 @@ ul { list-style: none; }
 }
 
 @media (max-width: 760px) {
-  .address-form { flex-direction: column; padding: 12px; gap: 8px; }
-  .address-field { padding: 0; }
-  .address-form .btn { width: 100%; }
   .hero-meta { flex-direction: column; align-items: center; }
   .hero-contact { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .hero-contact .sep { display: none; }
