@@ -50,6 +50,30 @@ img { display: block; max-width: 100%; }
 .menu-toggle.active span:nth-child(2) { opacity: 0; }
 .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+.sticky-booking-bar {
+  position: fixed;
+  top: 78px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: linear-gradient(135deg, rgba(45, 122, 54, 0.95), rgba(30, 82, 36, 0.95));
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(59, 154, 72, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.sticky-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.sticky-bar-content span {
+  color: #ffffff;
+}
+
 .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: var(--radius); font-weight: 700; border: 1px solid transparent; transition: all 0.2s ease; cursor: pointer; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); }
 .btn-primary { background: var(--accent); color: #ffffff; box-shadow: 0 10px 25px rgba(59, 154, 72, 0.2); }
@@ -142,7 +166,7 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 ul { list-style: none; }
 .price-card ul { display: grid; gap: 10px; margin: 24px 0 26px; }
 .price-card li { position: relative; padding-left: 25px; color: var(--muted); }
-.price-card li::before { content: "?"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
+.price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 900; }
 
 .equipment { background: var(--bg-deep); }
 .equipment-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 38px; align-items: start; }
@@ -225,6 +249,8 @@ ul { list-style: none; }
   .floating-stat span { font-size: 0.75rem; }
   .top-stat { top: 16px; left: 16px; }
   .bottom-stat { right: 16px; bottom: 16px; left: auto; }
+  .sticky-bar-content { flex-direction: column; gap: 12px; }
+  .sticky-bar-content span { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -238,6 +264,7 @@ ul { list-style: none; }
 .reviews { background: radial-gradient(circle at top right, rgba(59, 154, 72, 0.05), transparent 28rem); }
 .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .review-card { padding: 28px; }
+.review-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .review-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
 .stars { color: #fbbc04; letter-spacing: 0.08em; font-size: 1.05rem; }
 .google-badge { padding: 6px 10px; border-radius: 999px; background: #f1f3f5; color: #4285f4; font-weight: 800; font-size: 0.8rem; border: 1px solid var(--line); }
@@ -271,7 +298,6 @@ ul { list-style: none; }
   .booking-actions { align-items: stretch; flex-direction: column; }
 }
 
-/* Video Showcase Styles - Light Theme */
 .video-showcase-section {
   padding: 80px 20px;
   background-color: #f8f9fa;
@@ -306,7 +332,6 @@ ul { list-style: none; }
   background-color: #ffffff;
   border: 1px solid var(--line);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .video-card:hover {
@@ -353,6 +378,7 @@ ul { list-style: none; }
   margin: 0;
   line-height: 1.3;
 }
+
 @media (max-width: 768px) {
   .video-grid {
     display: flex;
@@ -369,7 +395,6 @@ ul { list-style: none; }
   }
 }
 
-/* Before/After Slider - Light Theme */
 .ba-slider {
   --pos: 50%;
   position: relative;
@@ -385,20 +410,24 @@ ul { list-style: none; }
   touch-action: none;
   isolation: isolate;
 }
+
 .ba-badge {
   background: rgba(255, 255, 255, 0.9);
   color: var(--text);
   border: 1px solid var(--line);
 }
+
 .ba-badge-after {
   background: var(--accent);
   color: #ffffff;
 }
+
 .ba-handle {
   background: #ffffff;
   color: var(--accent);
   border: 3px solid var(--accent);
 }
+
 .ba-divider { background: #ffffff; }
 
 @media (max-width: 760px) {
@@ -406,3 +435,4 @@ ul { list-style: none; }
   .ba-handle { width: 50px; height: 50px; }
 }
 
+.eyebrow { font-size: 0.85rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }

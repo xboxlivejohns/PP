@@ -48,6 +48,13 @@
     </nav>
   </header>
 
+  <div class="sticky-booking-bar" id="stickyBookingBar" style="display: none;">
+    <div class="container sticky-bar-content">
+      <span style="color: var(--muted); font-weight: 600;">Limited availability this week</span>
+      <a class="btn btn-small btn-primary" href="https://wa.me/447468286651?text=Hi%20John,%20I'd%20like%20to%20get%20a%20quote%20for%20a%20detail">Check Availability</a>
+    </div>
+  </div>
+
   <main>
     <section class="hero section-pad">
       <div class="container hero-grid">
@@ -81,8 +88,52 @@
         </div>
         <div class="hero-card reveal" aria-label="Premium detailing showcase">
           <img src="assets/images/hero.png" alt="Mobile detailing van and premium car care setup" fetchpriority="high">
-                    <div class="floating-stat top-stat"><strong>5★</strong><span>Rated Service</span></div>
+                    <a href="https://g.page/r/CdCapvxgK3U1EBM/review" target="_blank" rel="noopener" class="floating-stat top-stat" style="text-decoration: none; cursor: pointer; transition: transform 0.2s ease;" title="View our Google reviews"><strong>5★</strong><span>Rated Service</span></a>
           <div class="floating-stat bottom-stat"><strong>25 mi</strong><span>Coverage radius</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews section-pad" id="reviews">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Trusted by 20+ Five-Star Reviews</p>
+          <h2>See what our customers say</h2>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card reveal">
+            <div class="review-top">
+              <div>
+                <div class="stars">★★★★★</div>
+                <p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Google Reviews</p>
+              </div>
+            </div>
+            <p style="margin: 12px 0; font-style: italic; color: var(--muted);">"Professional, meticulous, exceeded expectations. The attention to detail is remarkable."</p>
+            <h3 style="margin: 0; font-size: 14px;">Sarah M.</h3>
+          </div>
+          <div class="review-card reveal">
+            <div class="review-top">
+              <div>
+                <div class="stars">★★★★★</div>
+                <p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Google Reviews</p>
+              </div>
+            </div>
+            <p style="margin: 12px 0; font-style: italic; color: var(--muted);">"Amazing service. My car looks brand new. Will definitely book again. Highly recommend!"</p>
+            <h3 style="margin: 0; font-size: 14px;">James K.</h3>
+          </div>
+          <div class="review-card reveal">
+            <div class="review-top">
+              <div>
+                <div class="stars">★★★★★</div>
+                <p style="font-size: 13px; color: var(--muted); margin: 4px 0 0 0;">Google Reviews</p>
+              </div>
+            </div>
+            <p style="margin: 12px 0; font-style: italic; color: var(--muted);">"Best detailing I've had. The ceramic coating is incredible. No swirls, pure shine."</p>
+            <h3 style="margin: 0; font-size: 14px;">Emma T.</h3>
+          </div>
+        </div>
+        <div class="reviews-cta reveal">
+          <a class="btn btn-secondary" href="https://g.page/r/CdCapvxgK3U1EBM/review" target="_blank" rel="noopener">Read all 20+ reviews on Google →</a>
         </div>
       </div>
     </section>
@@ -99,6 +150,26 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    window.addEventListener('scroll', function() {
+      const stickyBar = document.getElementById('stickyBookingBar');
+      const heroSection = document.querySelector('.hero');
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        if (window.scrollY > heroBottom) {
+          stickyBar.style.display = 'block';
+        } else {
+          stickyBar.style.display = 'none';
+        }
+      }
+    });
+
+    const topStat = document.querySelector('.top-stat');
+    if (topStat) {
+      topStat.addEventListener('hover', function() {
+        this.style.transform = 'translateY(-2px)';
+      });
+    }
+  </script>
 </body>
 </html>
-
