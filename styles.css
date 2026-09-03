@@ -133,6 +133,9 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 
 .section-heading { max-width: 740px; margin: 0 auto 46px; text-align: center; }
 .section-heading.align-left { text-align: left; margin: 0; }
+.section-heading h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); margin-bottom: 18px; }
+.section-heading > p:not(.eyebrow) { color: var(--muted); }
+.service-intro-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px; margin-top: 28px; }
 .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 
 .price-card, .equipment-card, .faq-item, .review-card, .video-card { 
@@ -146,8 +149,10 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .price-card { position: relative; display: flex; flex-direction: column; min-height: 100%; padding: 28px; }
 .price-card.featured { border-color: var(--accent); background: linear-gradient(180deg, #ffffff, #f0fdf4); transform: translateY(-12px); }
 .popular-badge { align-self: flex-start; margin-bottom: 16px; padding: 6px 11px; border-radius: 999px; background: rgba(59, 154, 72, 0.1); color: var(--accent); font-size: 0.78rem; font-weight: 800; }
-.card-top { min-height: 98px; }
+.card-top { min-height: 126px; }
 .price { color: var(--accent); font-weight: 800; font-size: 2rem; margin-top: 12px; }
+.service-time { color: var(--muted); font-size: 0.9rem; font-weight: 700; margin-top: 4px; }
+.card-summary { color: var(--muted); min-height: 74px; }
 .highlight { color: var(--text); font-weight: 800; }
 ul { list-style: none; }
 .price-card ul { display: grid; gap: 10px; margin: 24px 0 26px; }
@@ -223,6 +228,7 @@ ul { list-style: none; }
   .nav-menu a { padding: 12px; }
   .hero-actions, .cta-card, .footer-bottom { align-items: stretch; flex-direction: column; }
   .btn { width: 100%; }
+  .service-intro-actions { align-items: stretch; flex-direction: column; }
   .portfolio-grid, .pricing-grid { grid-template-columns: 1fr; }
   .price-card.featured { transform: none; }
   .hero-card { padding: 8px; border-radius: 18px; position: relative; }
