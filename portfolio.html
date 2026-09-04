@@ -38,44 +38,57 @@
   </header>
 
   <main>
-    <section id="portfolio" class="video-showcase-section section-pad">
+    <section id="portfolio" class="gallery-page section-pad">
+      <div class="container">
+        <div class="section-heading gallery-intro reveal">
+          <p class="eyebrow">Real vehicles. Careful work.</p>
+          <h1>Mobile car detailing results in Darlington</h1>
+          <p>From paint enhancement and protection to deep interior and engine-bay detailing, see the finish customers can expect at home or work.</p>
+        </div>
+
+        <section class="gallery-section" aria-labelledby="featured-results-title">
+          <div class="gallery-section-heading">
+            <div><p class="eyebrow">Featured results</p><h2 id="featured-results-title">A finish worth showing off</h2></div>
+            <p>Premium vehicles and gloss-led results selected to show the standard of the finished detail.</p>
+          </div>
+          <div class="gallery-grid gallery-grid-featured" data-gallery-category="featured"></div>
+        </section>
+
+        <section class="gallery-section gallery-before-after" aria-labelledby="gallery-before-after-title">
+          <div class="gallery-section-heading">
+            <div><p class="eyebrow">Before &amp; after</p><h2 id="gallery-before-after-title">See the transformation from the same angle</h2></div>
+            <p>Drag the divider or use the slider to compare the hatchback before and after its detail.</p>
+          </div>
+          <div class="ba-slider reveal" aria-label="Before and after comparison slider">
+            <img class="ba-image ba-image-before" src="assets/images/hatchback-before.jpg" alt="Black hatchback before professional detailing">
+            <div class="ba-image-after" aria-hidden="true"><img class="ba-image" src="assets/images/hatchback-after.jpg" alt=""></div>
+            <span class="ba-badge ba-badge-before">Before</span><span class="ba-badge ba-badge-after">After</span>
+            <div class="ba-divider" aria-hidden="true"><span class="ba-handle">↔</span></div>
+            <label class="sr-only" for="portfolio-before-after-range">Move comparison divider</label>
+            <input class="ba-range" id="portfolio-before-after-range" type="range" min="0" max="100" value="50">
+          </div>
+        </section>
+
+        <section class="gallery-section" aria-labelledby="specialist-work-title">
+          <div class="gallery-section-heading">
+            <div><p class="eyebrow">Detailing &amp; specialist work</p><h2 id="specialist-work-title">The details customers do not always see</h2></div>
+            <p>Process-led images that show the care behind a clean, protected vehicle.</p>
+          </div>
+          <div class="gallery-grid gallery-grid-specialist" data-gallery-category="specialist"></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="video-showcase-section section-pad" aria-labelledby="process-title">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">Recent Transformations</p>
-          <h1>Mobile car detailing results in Darlington</h1>
-          <p>Real detailing results captured fresh off the machine.</p>
+          <p class="eyebrow">Process in motion</p><h2 id="process-title">See the work as it happens</h2>
+          <p>Short clips from ceramic coating, paint correction and deep interior cleaning work.</p>
         </div>
         <div class="video-grid">
-          <div class="video-card reveal">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="Ceramic coating detailing result">
-              <source src="assets/videos/coating.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="video-overlay">
-              <span class="badge">Ceramic Coating</span>
-              <h3>3-Year Gloss Protection</h3>
-            </div>
-          </div>
-          <div class="video-card reveal">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="Paint correction detailing result">
-              <source src="assets/videos/polishing.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="video-overlay">
-              <span class="badge">Paint Correction</span>
-              <h3>Swirl Removal &amp; Gloss Pull</h3>
-            </div>
-          </div>
-          <div class="video-card reveal">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="Deep interior cleaning detailing result">
-              <source src="assets/videos/interior.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-            </video>
-            <div class="video-overlay">
-              <span class="badge">Deep Clean</span>
-              <h3>Leather &amp; Fabric Extraction</h3>
-            </div>
-          </div>
+          <div class="video-card reveal"><video autoplay muted loop playsinline preload="metadata" aria-label="Ceramic coating detailing process"><source src="assets/videos/coating.mp4" type="video/mp4">Your browser does not support HTML5 video.</video><div class="video-overlay"><span class="badge">Ceramic coating</span><h3>Gloss protection</h3></div></div>
+          <div class="video-card reveal"><video autoplay muted loop playsinline preload="metadata" aria-label="Paint correction detailing process"><source src="assets/videos/polishing.mp4" type="video/mp4">Your browser does not support HTML5 video.</video><div class="video-overlay"><span class="badge">Paint correction</span><h3>Swirl removal &amp; gloss</h3></div></div>
+          <div class="video-card reveal"><video autoplay muted loop playsinline preload="metadata" aria-label="Deep interior cleaning detailing process"><source src="assets/videos/interior.mp4" type="video/mp4">Your browser does not support HTML5 video.</video><div class="video-overlay"><span class="badge">Deep clean</span><h3>Leather &amp; fabric care</h3></div></div>
         </div>
       </div>
     </section>

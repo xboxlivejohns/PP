@@ -46,6 +46,94 @@ faqButtons.forEach((button) => {
   });
 });
 
+const galleryItems = [
+  {
+    file: 'finished car.jpg',
+    category: 'featured',
+    title: 'Exterior detailing',
+    description: 'A clean, refined finish across the full vehicle.',
+    alt: 'Silver vehicle with a clean finish after detailing',
+    featured: true
+  },
+  {
+    file: 'blue porshe.jpg',
+    category: 'featured',
+    title: 'Gloss and protection',
+    description: 'Premium paintwork presented with a deep, even gloss.',
+    alt: 'Blue Porsche with glossy paint after detailing',
+    featured: true
+  },
+  {
+    file: 'black gle shiney.jpg',
+    category: 'featured',
+    title: 'Paint enhancement',
+    description: 'Clarity and reflection brought back to a black Mercedes GLE.',
+    alt: 'Black Mercedes GLE with deep glossy paint after detailing',
+    featured: true
+  },
+  {
+    file: 'seat finished car.jpg',
+    category: 'featured',
+    title: 'Careful finishing',
+    description: 'A freshly detailed SEAT, finished with attention to every panel.',
+    alt: 'SEAT car with a clean finished exterior after detailing',
+    featured: true
+  },
+  {
+    file: 'finished car 2.jpg',
+    category: 'featured',
+    title: 'Full exterior finish',
+    description: 'A bright, even finish across a larger family vehicle.',
+    alt: 'Silver family SUV with a clean finish after detailing',
+    featured: true
+  },
+  {
+    file: 'iron fallout removal.jpg',
+    category: 'specialist',
+    title: 'Iron fallout removal',
+    description: 'The purple reaction shows embedded iron contamination being safely dissolved.',
+    alt: 'Purple iron fallout remover reacting on white vehicle paint'
+  },
+  {
+    file: 'gle interior.jpg',
+    category: 'specialist',
+    title: 'Interior deep clean',
+    description: 'Careful cleaning for a fresher, more cared-for cabin.',
+    alt: 'Clean Mercedes GLE interior after detailing'
+  },
+  {
+    file: 'engine bay clean.jpg',
+    category: 'specialist',
+    title: 'Engine bay detailing',
+    description: 'A clean, presentable engine bay to complete the detail.',
+    alt: 'Clean engine bay after professional detailing'
+  },
+  {
+    file: 'egine bay clean.jpg',
+    category: 'specialist',
+    title: 'Engine bay finishing',
+    description: 'A second view showing the finish across the engine bay.',
+    alt: 'Detailed engine bay shown from a second angle'
+  }
+];
+
+document.querySelectorAll('[data-gallery-category]').forEach((gallery) => {
+  const category = gallery.dataset.galleryCategory;
+  gallery.innerHTML = galleryItems
+    .filter((item) => item.category === category)
+    .map((item) => `
+      <article class="gallery-card${item.featured ? ' gallery-card-featured' : ''} reveal">
+        <img src="assets/images/${item.file}" alt="${item.alt}" loading="lazy" decoding="async">
+        <div class="gallery-card-copy">
+          <p class="gallery-card-label">Detailing result</p>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        </div>
+      </article>
+    `)
+    .join('');
+});
+
 const revealElements = document.querySelectorAll('.reveal');
 
 if ('IntersectionObserver' in window) {
