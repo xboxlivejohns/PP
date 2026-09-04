@@ -330,13 +330,17 @@ ul { list-style: none; }
   display: block;
 }
 
-.video-overlay {
+.video-card .video-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  inset: auto 0 0;
   padding: 30px 16px 16px 16px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  background: #000000;
+  border-radius: 0;
+  backdrop-filter: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -344,17 +348,21 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-.video-overlay .badge {
-  background-color: rgba(20, 24, 21, 0.96);
-  color: #ffffff;
+.video-card .video-overlay .badge {
+  display: inline;
+  width: auto;
+  height: auto;
+  background: transparent;
+  color: #d9f0dc;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 7px 11px;
-  border: 1px solid var(--accent);
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
 }
 
 .video-overlay h3 {
