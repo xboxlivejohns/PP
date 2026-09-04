@@ -103,7 +103,7 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .floating-stat { position: absolute; border: 1px solid var(--line); border-radius: 20px; padding: 16px 18px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); box-shadow: var(--shadow); z-index: 2; }
 .floating-stat strong { display: block; color: var(--accent); font-size: 1.65rem; line-height: 1; }
 .floating-stat span { color: var(--muted); font-size: 0.82rem; font-weight: 700; }
-.top-stat { top: 24px; left: 16px; }
+.top-stat { bottom: 24px; left: 16px; }
 .bottom-stat { right: 16px; bottom: 24px; }
 
 .trust-bar {
@@ -236,7 +236,7 @@ ul { list-style: none; }
   .floating-stat { position: absolute; margin-top: 0; padding: 10px 14px; }
   .floating-stat strong { font-size: 1.25rem; }
   .floating-stat span { font-size: 0.75rem; }
-  .top-stat { top: 16px; left: 16px; }
+  .top-stat { bottom: 16px; left: 16px; }
   .bottom-stat { right: 16px; bottom: 16px; left: auto; }
   .trust-bar { padding: 20px 0; }
   .trust-bar-grid { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
