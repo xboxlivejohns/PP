@@ -160,7 +160,7 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
   height: 34px;
   color: var(--accent);
 }
-.trust-point-icon svg { width: 24px; height: 24px; fill: currentColor; }
+.trust-point-icon svg { display: block; width: 24px; height: 24px; max-width: 24px; max-height: 24px; fill: currentColor; }
 .trust-point h2 { font-size: 0.95rem; line-height: 1.25; font-weight: 700; }
 .trust-point p { margin-top: 3px; color: var(--muted); font-size: 0.78rem; line-height: 1.35; }
 .trust-point-link { transition: color 0.2s ease; }
