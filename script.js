@@ -123,7 +123,7 @@ document.querySelectorAll('[data-gallery-category]').forEach((gallery) => {
     .filter((item) => item.category === category)
     .map((item) => `
       <article class="gallery-card${item.featured ? ' gallery-card-featured' : ''} reveal">
-        <img src="assets/images/${item.file}" alt="${item.alt}" loading="lazy" decoding="async">
+        <img src="/assets/images/${item.file}" alt="${item.alt}" loading="lazy" decoding="async">
         <div class="gallery-card-copy">
           <p class="gallery-card-label">Detailing result</p>
           <h3>${item.title}</h3>

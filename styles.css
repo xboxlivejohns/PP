@@ -97,8 +97,8 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .hero-text { font-size: 1.15rem; font-weight: 400; color: var(--muted); max-width: 680px; margin: 0 auto 28px; line-height: 1.5; }
 .hero-copy .btn::after { content: " →"; }
 
-.hero-card { margin-top: 0; border-radius: 32px; padding: 0; border: none; overflow: hidden; position: relative; }
-.hero-card img { aspect-ratio: 21 / 9; border-radius: 32px; object-fit: cover; object-position: center; width: 100%; display: block; }
+.hero-card { width: min(100%, 980px); margin: 0 auto; border-radius: 32px; padding: 0; border: none; overflow: hidden; position: relative; }
+.hero-card img { height: auto; border-radius: 32px; object-fit: contain; object-position: center; width: 100%; display: block; }
 
 .floating-stat { position: absolute; border: 1px solid var(--line); border-radius: 20px; padding: 16px 18px; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); box-shadow: var(--shadow); z-index: 2; }
 .floating-stat strong { display: block; color: var(--accent); font-size: 1.65rem; line-height: 1; }
@@ -108,9 +108,10 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 
 .trust-bar {
   padding: 28px 0;
-  background: var(--surface);
+  background: linear-gradient(135deg, var(--surface-soft), #f7faf7);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 .trust-bar-grid {
   display: grid;
@@ -169,7 +170,6 @@ ul { list-style: none; }
 .equipment-card { padding: 26px; display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; }
 .equipment-card .icon { grid-row: span 2; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 18px; background: #f0fdf4; color: var(--accent); }
 
-.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .video-card { position: relative; overflow: hidden; min-height: 430px; border: none; }
 .video-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: transform 0.35s ease, opacity 0.35s ease; }
 .video-card:hover img { transform: scale(1.04); opacity: 1; }
@@ -229,10 +229,10 @@ ul { list-style: none; }
   .nav-menu a { padding: 12px; }
   .cta-card, .footer-bottom { align-items: stretch; flex-direction: column; }
   .btn { width: 100%; }
-  .portfolio-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
   .price-card.featured { transform: none; }
   .hero-card { padding: 8px; border-radius: 18px; position: relative; }
-  .hero-card img { border-radius: 12px; aspect-ratio: 16 / 9; object-position: center; }
+  .hero-card img { border-radius: 12px; height: auto; object-position: center; }
   .floating-stat { position: absolute; margin-top: 0; padding: 10px 14px; }
   .floating-stat strong { font-size: 1.25rem; }
   .floating-stat span { font-size: 0.75rem; }
