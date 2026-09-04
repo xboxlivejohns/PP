@@ -107,7 +107,7 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .bottom-stat { right: 16px; bottom: 24px; }
 
 .trust-bar {
-  padding: 28px 0;
+  padding: 30px 0;
   background: var(--surface);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -115,6 +115,7 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .trust-bar-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
 }
 .trust-point {
   display: flex;
@@ -122,6 +123,7 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
   justify-content: center;
   gap: 12px;
   min-width: 0;
+  min-height: 58px;
   padding: 6px 24px;
   border-right: 1px solid var(--line);
 }
@@ -132,12 +134,15 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
   place-items: center;
   width: 34px;
   height: 34px;
+  border-radius: 50%;
+  background: rgba(45, 122, 54, 0.09);
   color: var(--accent);
 }
 .trust-point-icon svg { width: 24px; height: 24px; fill: currentColor; }
-.trust-point h2 { font-size: 0.95rem; line-height: 1.25; font-weight: 700; }
-.trust-point p { margin-top: 3px; color: var(--muted); font-size: 0.78rem; line-height: 1.35; }
+.trust-point h2 { font-size: 0.95rem; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; }
+.trust-point p { margin-top: 4px; color: var(--muted); font-size: 0.78rem; line-height: 1.35; }
 .trust-point-link { transition: color 0.2s ease; }
+.trust-point-link:hover .trust-point-icon { background: rgba(45, 122, 54, 0.16); }
 .trust-point-link:hover h2 { color: var(--accent); }
 
 .section-heading { max-width: 740px; margin: 0 auto 46px; text-align: center; }
@@ -238,9 +243,9 @@ ul { list-style: none; }
   .floating-stat span { font-size: 0.75rem; }
   .top-stat { top: 16px; left: 16px; }
   .bottom-stat { right: 16px; bottom: 16px; left: auto; }
-  .trust-bar { padding: 20px 0; }
+  .trust-bar { padding: 22px 0; }
   .trust-bar-grid { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
-  .trust-point { justify-content: flex-start; gap: 8px; padding: 4px 8px; }
+  .trust-point { justify-content: flex-start; gap: 8px; min-height: 48px; padding: 4px 8px; }
   .trust-point-icon { flex-basis: 30px; width: 30px; height: 30px; }
   .trust-point-icon svg { width: 21px; height: 21px; }
   .trust-point h2 { font-size: 0.85rem; }
