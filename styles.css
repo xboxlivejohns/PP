@@ -132,6 +132,40 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .top-stat { top: 24px; left: 16px; }
 .bottom-stat { right: 16px; bottom: 24px; }
 
+.trust-bar {
+  padding: 28px 0;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.trust-bar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.trust-point {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 6px 24px;
+  border-right: 1px solid var(--line);
+}
+.trust-point:last-child { border-right: 0; }
+.trust-point-icon {
+  display: grid;
+  flex: 0 0 34px;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--accent);
+}
+.trust-point-icon svg { width: 24px; height: 24px; fill: currentColor; }
+.trust-point h2 { font-size: 0.95rem; line-height: 1.25; font-weight: 700; }
+.trust-point p { margin-top: 3px; color: var(--muted); font-size: 0.78rem; line-height: 1.35; }
+.trust-point-link { transition: color 0.2s ease; }
+.trust-point-link:hover h2 { color: var(--accent); }
+
 .section-heading { max-width: 740px; margin: 0 auto 46px; text-align: center; }
 .section-heading.align-left { text-align: left; margin: 0; }
 .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -233,6 +267,15 @@ ul { list-style: none; }
   .floating-stat span { font-size: 0.75rem; }
   .top-stat { top: 16px; left: 16px; }
   .bottom-stat { right: 16px; bottom: 16px; left: auto; }
+  .trust-bar { padding: 20px 0; }
+  .trust-bar-grid { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
+  .trust-point { justify-content: flex-start; gap: 8px; padding: 4px 8px; }
+  .trust-point-icon { flex-basis: 30px; width: 30px; height: 30px; }
+  .trust-point-icon svg { width: 21px; height: 21px; }
+  .trust-point h2 { font-size: 0.85rem; }
+  .trust-point p { font-size: 0.72rem; }
+  .trust-point:nth-child(2) { border-right: 0; }
+  .trust-point:nth-child(3), .trust-point:nth-child(4) { border-top: 1px solid var(--line); padding-top: 14px; }
   .sticky-bar-content { flex-direction: column; gap: 12px; }
   .sticky-bar-content span { font-size: 13px; }
 }
