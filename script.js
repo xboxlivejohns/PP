@@ -69,6 +69,7 @@ beforeAfterSliders.forEach((slider) => {
   const range = slider.querySelector('.ba-range');
 
   if (!range) return;
+  let isDragging = false;
 
   const updateSlider = (value) => {
     const percentage = Math.max(0, Math.min(100, Number(value)));
@@ -78,11 +79,20 @@ beforeAfterSliders.forEach((slider) => {
 
   range.addEventListener('input', () => updateSlider(range.value));
 
-  slider.addEventListener('pointermove', (event) => {
-    if (event.buttons !== 1 && event.pointerType === 'mouse') return;
-
+  const updateFromPointer = (event) => {
     const bounds = slider.getBoundingClientRect();
     const position = ((event.clientX - bounds.left) / bounds.width) * 100;
     updateSlider(position);
+  };
+
+  slider.addEventListener('pointerdown', (event) => {
+    isDragging = true;
+    slider.setPointerCapture(event.pointerId);
+    updateFromPointer(event);
   });
+  slider.addEventListener('pointermove', (event) => {
+    if (isDragging) updateFromPointer(event);
+  });
+  slider.addEventListener('pointerup', () => { isDragging = false; });
+  slider.addEventListener('pointercancel', () => { isDragging = false; });
 });
