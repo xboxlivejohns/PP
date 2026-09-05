@@ -172,10 +172,11 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .service-finder-detail-heading { max-width: 670px; margin: 30px 0 24px; }
 .service-finder-detail-heading h3 { margin-bottom: 10px; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.1; }
 .service-finder-detail-heading > p:last-child { color: var(--muted); }
+.service-finder-services-label { margin-bottom: 12px; color: var(--accent-light); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .service-finder-services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.service-finder-service { display: flex; flex-direction: column; gap: 18px; min-height: 160px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(37, 42, 43, 0.9), rgba(18, 20, 22, 0.72)); transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+.service-finder-service { display: flex; flex-direction: column; gap: 18px; min-height: 174px; padding: 22px; border: 1px solid var(--line); border-top: 2px solid rgba(131, 201, 138, 0.42); border-radius: 16px; background: linear-gradient(145deg, rgba(37, 42, 43, 0.96), rgba(18, 20, 22, 0.82)); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease; }
 .service-finder-service:hover, .service-finder-service:focus-visible { transform: translateY(-3px); border-color: rgba(131, 201, 138, 0.62); background: linear-gradient(145deg, #1d2820, rgba(18, 20, 22, 0.82)); outline: none; }
-.service-finder-service h4 { margin-bottom: 6px; font-size: 1.02rem; }
+.service-finder-service h4 { margin-bottom: 8px; font-size: 1.08rem; line-height: 1.25; }
 .service-finder-service p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
 .service-finder-service-action { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; color: var(--accent-light); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.03em; }
 .service-finder-service-action span { font-size: 1.1rem; line-height: 1; transition: transform 0.25s ease; }
