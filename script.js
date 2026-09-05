@@ -19,6 +19,7 @@ if (serviceFinder) {
   const detailIntro = serviceFinder.querySelector('#service-finder-detail-intro');
   const services = serviceFinder.querySelector('#service-finder-services');
   const note = serviceFinder.querySelector('#service-finder-note');
+  let activeOption = null;
   const categories = {
     appearance: {
       label: 'A cleaner, fresher car',
@@ -51,8 +52,8 @@ if (serviceFinder) {
       services: [
         ['Ceramic Coating', 'A three-year ceramic coating for paint protection and a cared-for finish.'],
         ['Wheel Coating', 'Professional ceramic protection for your wheels, helping repel contamination and making them easier to maintain.'],
-        ['Glass Protection', 'Specialist protection for exterior glass, helping water and contamination shed more easily.'],
-        ['PPF (Paint Protection Film)', 'A protective film option for selected painted areas of the vehicle.']
+        ['Glass Protection', 'Professional protection for exterior glass, helping water and contamination shed more easily.'],
+        ['PPF', 'A protective film option for selected painted areas of the vehicle.']
       ]
     },
     maintenance: {
@@ -86,7 +87,7 @@ if (serviceFinder) {
 
     options.forEach((option) => {
       option.hidden = true;
-      option.setAttribute('aria-expanded', 'false');
+      option.setAttribute('aria-expanded', String(option === activeOption));
     });
     details.hidden = false;
     serviceFinder.classList.add('service-finder-expanded');
@@ -94,7 +95,10 @@ if (serviceFinder) {
   };
 
   options.forEach((option) => {
-    option.addEventListener('click', () => showCategory(option.dataset.serviceCategory));
+    option.addEventListener('click', () => {
+      activeOption = option;
+      showCategory(option.dataset.serviceCategory);
+    });
   });
 
   backButton.addEventListener('click', () => {
@@ -104,6 +108,7 @@ if (serviceFinder) {
       option.hidden = false;
       option.setAttribute('aria-expanded', 'false');
     });
+    if (activeOption) activeOption.focus();
   });
 }
 
