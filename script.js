@@ -8,6 +8,105 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const serviceFinder = document.querySelector('.service-finder');
+
+if (serviceFinder) {
+  const options = serviceFinder.querySelectorAll('.service-finder-option');
+  const details = serviceFinder.querySelector('.service-finder-details');
+  const backButton = serviceFinder.querySelector('.service-finder-back');
+  const categoryLabel = serviceFinder.querySelector('#service-finder-category-label');
+  const detailTitle = serviceFinder.querySelector('#service-finder-detail-title');
+  const detailIntro = serviceFinder.querySelector('#service-finder-detail-intro');
+  const services = serviceFinder.querySelector('#service-finder-services');
+  const note = serviceFinder.querySelector('#service-finder-note');
+  const categories = {
+    appearance: {
+      label: 'A cleaner, fresher car',
+      title: 'Make it look better',
+      intro: 'A good place to start when your car needs a complete clean-up, inside, outside or both.',
+      note: 'We can recommend the most suitable level after seeing your vehicle’s condition.',
+      services: [
+        ['Essential Clean / Mini Valet', 'A practical clean for a car that needs a tidy, refreshed finish.'],
+        ['Full Valet', 'A more thorough clean inside and out for a deeper overall reset.'],
+        ['Interior Deep Clean', 'Focused cleaning for built-up dirt and grime in the cabin.']
+      ]
+    },
+    paint: {
+      label: 'More gloss and clarity',
+      title: 'Improve the paint',
+      intro: 'For paintwork that looks dull, feels rough or has swirls and more noticeable defects.',
+      note: 'The right polishing approach depends on the paint condition and the finish you want to achieve.',
+      services: [
+        ['Paint Enhancement', 'Improve gloss, clarity and the overall appearance of the paint.'],
+        ['Paint Correction', 'More intensive machine polishing for swirls, scratches and noticeable defects.'],
+        ['Paint Decontamination', 'Remove embedded contamination so the paint is cleaner and better prepared.'],
+        ['Headlight Restoration', 'Improve the appearance of tired or cloudy headlight lenses.']
+      ]
+    },
+    protection: {
+      label: 'Protection for the finish',
+      title: 'Protect it',
+      intro: 'Add protection where it matters, from the painted panels to the wheels and glass.',
+      note: 'Ceramic coating is Autosmart Matrix Blue and all coatings offered are three-year coatings.',
+      services: [
+        ['3-Year Autosmart Matrix Blue Ceramic Coating', 'A three-year ceramic coating for paint protection and a cared-for finish.'],
+        ['Wheel Coating', 'Matrix Blue can also be used on wheels, applied as two coats.'],
+        ['Glass Protection', 'Matrix Blue can also be used to provide protection for exterior glass.'],
+        ['PPF (Paint Protection Film)', 'A protective film option for selected painted areas of the vehicle.']
+      ]
+    },
+    maintenance: {
+      label: 'Ongoing professional care',
+      title: 'Keep it looking good',
+      intro: 'A recurring maintenance programme for existing customers who want their car cared for throughout the year.',
+      note: 'Choose a visit every 4, 6 or 8 weeks and receive approximately 15% loyalty saving.',
+      services: [
+        ['Maintenance Valet', 'Regular professional maintenance to keep a previously detailed car looking good.'],
+        ['Every 4 weeks', 'The most frequent option for cars that need consistent attention.'],
+        ['Every 6 weeks', 'A balanced schedule for keeping your finish in good condition.'],
+        ['Every 8 weeks', 'A less frequent maintenance rhythm for vehicles that are already well cared for.']
+      ]
+    }
+  };
+
+  const showCategory = (key) => {
+    const category = categories[key];
+    if (!category) return;
+
+    categoryLabel.textContent = category.label;
+    detailTitle.textContent = category.title;
+    detailIntro.textContent = category.intro;
+    note.textContent = category.note;
+    services.innerHTML = category.services.map(([title, description]) => `
+      <article class="service-finder-service">
+        <span class="service-finder-check" aria-hidden="true">✓</span>
+        <div><h4>${title}</h4><p>${description}</p></div>
+      </article>
+    `).join('');
+
+    options.forEach((option) => {
+      option.hidden = true;
+      option.setAttribute('aria-expanded', 'false');
+    });
+    details.hidden = false;
+    serviceFinder.classList.add('service-finder-expanded');
+    serviceFinder.querySelector('.service-finder-back').focus();
+  };
+
+  options.forEach((option) => {
+    option.addEventListener('click', () => showCategory(option.dataset.serviceCategory));
+  });
+
+  backButton.addEventListener('click', () => {
+    details.hidden = true;
+    serviceFinder.classList.remove('service-finder-expanded');
+    options.forEach((option) => {
+      option.hidden = false;
+      option.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 if (menuToggle && navMenu) {
   menuToggle.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('open');
