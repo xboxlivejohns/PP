@@ -172,11 +172,14 @@ h1 { font-size: clamp(3.2rem, 8vw, 5.2rem); font-weight: 800; letter-spacing: -0
 .service-finder-detail-heading { max-width: 670px; margin: 30px 0 24px; }
 .service-finder-detail-heading h3 { margin-bottom: 10px; font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.1; }
 .service-finder-detail-heading > p:last-child { color: var(--muted); }
-.service-finder-services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.service-finder-service { display: flex; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: rgba(18, 20, 22, 0.55); }
-.service-finder-check { display: grid; flex: 0 0 24px; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(59, 154, 72, 0.18); color: var(--accent-light); font-weight: 800; }
-.service-finder-service h4 { margin-bottom: 4px; font-size: 0.98rem; }
+.service-finder-services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.service-finder-service { display: flex; flex-direction: column; gap: 18px; min-height: 160px; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(37, 42, 43, 0.9), rgba(18, 20, 22, 0.72)); transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+.service-finder-service:hover, .service-finder-service:focus-visible { transform: translateY(-3px); border-color: rgba(131, 201, 138, 0.62); background: linear-gradient(145deg, #1d2820, rgba(18, 20, 22, 0.82)); outline: none; }
+.service-finder-service h4 { margin-bottom: 6px; font-size: 1.02rem; }
 .service-finder-service p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+.service-finder-service-action { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; color: var(--accent-light); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.03em; }
+.service-finder-service-action span { font-size: 1.1rem; line-height: 1; transition: transform 0.25s ease; }
+.service-finder-service:hover .service-finder-service-action span, .service-finder-service:focus-visible .service-finder-service-action span { transform: translateX(4px); }
 .service-finder-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 .service-finder-footer p { max-width: 620px; color: var(--muted); font-size: 0.86rem; }
 @keyframes service-finder-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }

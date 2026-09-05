@@ -39,7 +39,7 @@ if (serviceFinder) {
       services: [
         ['Paint Enhancement', 'Improve gloss, clarity and the overall appearance of the paint.'],
         ['Paint Correction', 'More intensive machine polishing for swirls, scratches and noticeable defects.'],
-        ['Paint Decontamination', 'Remove embedded contamination so the paint is cleaner and better prepared.'],
+        ['Paint Decontamination', 'Remove embedded or bonded contamination so the paint is cleaner and better prepared.'],
         ['Headlight Restoration', 'Improve the appearance of tired or cloudy headlight lenses.']
       ]
     },
@@ -49,9 +49,9 @@ if (serviceFinder) {
       intro: 'Add protection where it matters, from the painted panels to the wheels and glass.',
       note: 'Ceramic coating is Autosmart Matrix Blue and all coatings offered are three-year coatings.',
       services: [
-        ['3-Year Autosmart Matrix Blue Ceramic Coating', 'A three-year ceramic coating for paint protection and a cared-for finish.'],
-        ['Wheel Coating', 'Matrix Blue can also be used on wheels, applied as two coats.'],
-        ['Glass Protection', 'Matrix Blue can also be used to provide protection for exterior glass.'],
+        ['Ceramic Coating', 'A three-year ceramic coating for paint protection and a cared-for finish.'],
+        ['Wheel Coating', 'Professional ceramic protection for your wheels, helping repel contamination and making them easier to maintain.'],
+        ['Glass Protection', 'Specialist protection for exterior glass, helping water and contamination shed more easily.'],
         ['PPF (Paint Protection Film)', 'A protective film option for selected painted areas of the vehicle.']
       ]
     },
@@ -61,10 +61,7 @@ if (serviceFinder) {
       intro: 'A recurring maintenance programme for existing customers who want their car cared for throughout the year.',
       note: 'Choose a visit every 4, 6 or 8 weeks and receive approximately 15% loyalty saving.',
       services: [
-        ['Maintenance Valet', 'Regular professional maintenance to keep a previously detailed car looking good.'],
-        ['Every 4 weeks', 'The most frequent option for cars that need consistent attention.'],
-        ['Every 6 weeks', 'A balanced schedule for keeping your finish in good condition.'],
-        ['Every 8 weeks', 'A less frequent maintenance rhythm for vehicles that are already well cared for.']
+        ['Maintenance Valet', 'Regular professional maintenance to keep a previously detailed car looking good.']
       ]
     }
   };
@@ -78,10 +75,13 @@ if (serviceFinder) {
     detailIntro.textContent = category.intro;
     note.textContent = category.note;
     services.innerHTML = category.services.map(([title, description]) => `
-      <article class="service-finder-service">
-        <span class="service-finder-check" aria-hidden="true">✓</span>
-        <div><h4>${title}</h4><p>${description}</p></div>
-      </article>
+      <a class="service-finder-service" href="/booking" aria-label="Get a quote for ${title}">
+        <div>
+          <h4>${title}</h4>
+          <p>${description}</p>
+        </div>
+        <span class="service-finder-service-action" aria-hidden="true">Choose this service <span>→</span></span>
+      </a>
     `).join('');
 
     options.forEach((option) => {
