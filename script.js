@@ -50,13 +50,11 @@ if (serviceFinder) {
     protection: {
       label: 'Protection for the finish',
       title: 'Protect it',
-      intro: 'Add protection where it matters, from the painted panels to the wheels and glass.',
+      intro: 'Add ceramic protection to prepared paintwork, with wheel and glass protection included where selected.',
       note: 'Ceramic coating is Autosmart Matrix Blue and all coatings offered are three-year coatings.',
       page: '/protection/',
       services: [
         ['Ceramic Coating', 'A three-year ceramic coating for paint protection and a cared-for finish.', '/protection/#ceramic-coating'],
-        ['Wheel Coating', 'Professional ceramic protection for your wheels, helping repel contamination and making them easier to maintain.', '/protection/#wheel-coating'],
-        ['Glass Protection', 'Professional protection for exterior glass, helping water and contamination shed more easily.', '/protection/#glass-protection'],
         ['PPF', 'A protective film option for selected painted areas of the vehicle.', '/protection/#ppf']
       ]
     },
