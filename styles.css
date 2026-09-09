@@ -274,7 +274,7 @@ ul { list-style: none; }
 .service-page-section-heading p:last-child { color: var(--muted); }
 .service-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .service-card { display: flex; flex-direction: column; min-height: 270px; padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(145deg, var(--surface), rgba(37, 42, 43, 0.52)); }
-.service-card h3 { margin-bottom: 12px; font-size: 1.45rem; }
+.service-card h3 { margin-bottom: 12px; color: var(--accent-light); font-size: 1.45rem; line-height: 1.2; text-shadow: 0 0 16px rgba(131, 201, 138, 0.18); }
 .service-card p { color: var(--muted); }
 .service-card .service-card-meta { margin-top: 18px; color: var(--accent-light); font-size: 0.86rem; font-weight: 700; }
 .service-card .btn { margin-top: auto; align-self: flex-start; }
