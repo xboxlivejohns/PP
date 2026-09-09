@@ -8,6 +8,117 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const serviceFinder = document.querySelector('.service-finder');
+
+if (serviceFinder) {
+  const options = serviceFinder.querySelectorAll('.service-finder-option');
+  const details = serviceFinder.querySelector('.service-finder-details');
+  const backButton = serviceFinder.querySelector('.service-finder-back');
+  const categoryLabel = serviceFinder.querySelector('#service-finder-category-label');
+  const detailTitle = serviceFinder.querySelector('#service-finder-detail-title');
+  const detailIntro = serviceFinder.querySelector('#service-finder-detail-intro');
+  const services = serviceFinder.querySelector('#service-finder-services');
+  const note = serviceFinder.querySelector('#service-finder-note');
+  const pageLink = serviceFinder.querySelector('#service-finder-page-link');
+  let activeOption = null;
+  const categories = {
+    appearance: {
+      label: 'A cleaner, fresher car',
+      title: 'Make it look better',
+      intro: 'A good place to start when your car needs a complete clean-up, inside, outside or both.',
+      note: 'We can recommend the most suitable level after seeing your vehicle’s condition.',
+      page: '/valeting/',
+      services: [
+        ['Essential Clean / Mini Valet', 'A practical clean for a car that needs a tidy, refreshed finish.', '/valeting/#essential-clean'],
+        ['Full Valet', 'A more thorough clean inside and out for a deeper overall reset.', '/valeting/#full-valet'],
+        ['Interior Deep Clean', 'Focused cleaning for built-up dirt and grime in the cabin.', '/valeting/#interior-deep-clean']
+      ]
+    },
+    paint: {
+      label: 'More gloss and clarity',
+      title: 'Improve the paint',
+      intro: 'For paintwork that looks dull, feels rough or has swirls and more noticeable defects.',
+      note: 'The right polishing approach depends on the paint condition and the finish you want to achieve.',
+      page: '/paint-enhancement/',
+      services: [
+        ['Paint Enhancement', 'Improve gloss, clarity and the overall appearance of the paint.', '/paint-enhancement/#paint-enhancement'],
+        ['Paint Correction', 'More intensive machine polishing for swirls, scratches and noticeable defects.', '/paint-enhancement/#paint-correction'],
+        ['Paint Decontamination', 'Remove embedded or bonded contamination so the paint is cleaner and better prepared.', '/paint-enhancement/#paint-decontamination'],
+        ['Headlight Restoration', 'Improve the appearance of tired or cloudy headlight lenses.', '/paint-enhancement/#headlight-restoration']
+      ]
+    },
+    protection: {
+      label: 'Protection for the finish',
+      title: 'Protect it',
+      intro: 'Add protection where it matters, from the painted panels to the wheels and glass.',
+      note: 'Ceramic coating is Autosmart Matrix Blue and all coatings offered are three-year coatings.',
+      page: '/protection/',
+      services: [
+        ['Ceramic Coating', 'A three-year ceramic coating for paint protection and a cared-for finish.', '/protection/#ceramic-coating'],
+        ['Wheel Coating', 'Professional ceramic protection for your wheels, helping repel contamination and making them easier to maintain.', '/protection/#wheel-coating'],
+        ['Glass Protection', 'Professional protection for exterior glass, helping water and contamination shed more easily.', '/protection/#glass-protection'],
+        ['PPF', 'A protective film option for selected painted areas of the vehicle.', '/protection/#ppf']
+      ]
+    },
+    maintenance: {
+      label: 'Ongoing professional care',
+      title: 'Keep it looking good',
+      intro: 'A recurring maintenance programme for existing customers who want their car cared for throughout the year.',
+      note: 'Choose a visit every 4, 6 or 8 weeks and receive approximately 15% loyalty saving.',
+      page: '/maintenance/',
+      services: [
+        ['Maintenance Valet', 'Regular professional maintenance to keep a previously detailed car looking good.', '/maintenance/#maintenance-valet']
+      ]
+    }
+  };
+
+  const showCategory = (key) => {
+    const category = categories[key];
+    if (!category) return;
+
+    categoryLabel.textContent = category.label;
+    detailTitle.textContent = category.title;
+    detailIntro.textContent = category.intro;
+    note.textContent = category.note;
+    pageLink.href = category.page;
+    pageLink.textContent = `Learn more about ${category.title.toLowerCase()} →`;
+    services.innerHTML = category.services.map(([title, description, href]) => `
+     <a class="service-finder-service" href="${href}" aria-label="Learn more about ${title}">
+        <div>
+          <h4>${title}</h4>
+          <p>${description}</p>
+        </div>
+       <span class="service-finder-service-action" aria-hidden="true">Learn more <span>→</span></span>
+      </a>
+    `).join('');
+
+    options.forEach((option) => {
+      option.hidden = true;
+      option.setAttribute('aria-expanded', String(option === activeOption));
+    });
+    details.hidden = false;
+    serviceFinder.classList.add('service-finder-expanded');
+    serviceFinder.querySelector('.service-finder-back').focus();
+  };
+
+  options.forEach((option) => {
+    option.addEventListener('click', () => {
+      activeOption = option;
+      showCategory(option.dataset.serviceCategory);
+    });
+  });
+
+  backButton.addEventListener('click', () => {
+    details.hidden = true;
+    serviceFinder.classList.remove('service-finder-expanded');
+    options.forEach((option) => {
+      option.hidden = false;
+      option.setAttribute('aria-expanded', 'false');
+    });
+    if (activeOption) activeOption.focus();
+  });
+}
+
 if (menuToggle && navMenu) {
   menuToggle.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('open');
