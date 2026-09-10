@@ -315,6 +315,9 @@ ul { list-style: none; }
   .hero-trust-points { gap: 7px 14px; font-size: 0.74rem; }
   .container { width: min(100% - 28px, 1120px); }
   .section-pad { padding: 74px 0; }
+  .navbar { min-height: 64px; gap: 8px; }
+  .brand, .menu-toggle { flex: 0 0 auto; }
+  .site-logo { max-height: 60px; }
   .mobile-trust {
     display: block;
     min-width: 0;
@@ -330,7 +333,7 @@ ul { list-style: none; }
   }
   .mobile-trust-wide { display: inline; }
   .menu-toggle { display: block; }
-  .nav-menu { position: fixed; inset: 78px 14px auto; display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); transform: translateY(-18px); opacity: 0; pointer-events: none; box-shadow: var(--shadow); }
+  .nav-menu { position: fixed; inset: 64px 14px auto; display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); transform: translateY(-18px); opacity: 0; pointer-events: none; box-shadow: var(--shadow); }
   .nav-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .nav-menu a { padding: 12px; }
   .cta-card, .footer-bottom { align-items: stretch; flex-direction: column; }
