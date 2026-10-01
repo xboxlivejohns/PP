@@ -48,7 +48,7 @@ faqButtons.forEach((button) => {
 
 const galleryItems = [
   {
-    file: 'finished car.jpg',
+    file: 'finished-car.jpg',
     category: 'featured',
     title: 'Exterior detailing',
     description: 'A clean, refined finish across the full vehicle.',
@@ -56,7 +56,7 @@ const galleryItems = [
     featured: true
   },
   {
-    file: 'blue porshe.jpg',
+    file: 'blue-porsche.jpg',
     category: 'featured',
     title: 'Gloss and protection',
     description: 'Premium paintwork presented with a deep, even gloss.',
@@ -64,7 +64,7 @@ const galleryItems = [
     featured: true
   },
   {
-    file: 'black gle shiney.jpg',
+    file: 'black-gle-shiney.jpg',
     category: 'featured',
     title: 'Paint enhancement',
     description: 'Clarity and reflection brought back to a black Mercedes GLE.',
@@ -72,7 +72,7 @@ const galleryItems = [
     featured: true
   },
   {
-    file: 'seat finished car.jpg',
+    file: 'seat-finished-car.jpg',
     category: 'featured',
     title: 'Careful finishing',
     description: 'A freshly detailed SEAT, finished with attention to every panel.',
@@ -80,7 +80,7 @@ const galleryItems = [
     featured: true
   },
   {
-    file: 'finished car 2.jpg',
+    file: 'finished-car-2.jpg',
     category: 'featured',
     title: 'Full exterior finish',
     description: 'A bright, even finish across a larger family vehicle.',
@@ -88,28 +88,28 @@ const galleryItems = [
     featured: true
   },
   {
-    file: 'iron fallout removal.jpg',
+    file: 'iron-fallout-removal.jpg',
     category: 'specialist',
     title: 'Iron fallout removal',
     description: 'The purple reaction shows embedded iron contamination being safely dissolved.',
     alt: 'Purple iron fallout remover reacting on white vehicle paint'
   },
   {
-    file: 'gle interior.jpg',
+    file: 'gle-interior.jpg',
     category: 'specialist',
     title: 'Interior deep clean',
     description: 'Careful cleaning for a fresher, more cared-for cabin.',
     alt: 'Clean Mercedes GLE interior after detailing'
   },
   {
-    file: 'engine bay clean.jpg',
+    file: 'engine-bay-clean.jpg',
     category: 'specialist',
     title: 'Engine bay detailing',
     description: 'A clean, presentable engine bay to complete the detail.',
     alt: 'Clean engine bay after professional detailing'
   },
   {
-    file: 'egine bay clean.jpg',
+    file: 'engine-bay-clean-2.jpg',
     category: 'specialist',
     title: 'Engine bay finishing',
     description: 'A second view showing the finish across the engine bay.',
@@ -208,6 +208,14 @@ beforeAfterSliders.forEach((slider) => {
   slider.addEventListener('pointermove', (event) => {
     if (isDragging) updateFromPointer(event);
   });
-  slider.addEventListener('pointerup', () => { isDragging = false; });
+    slider.addEventListener('pointerup', () => { isDragging = false; });
   slider.addEventListener('pointercancel', () => { isDragging = false; });
 });
+
+(() => {
+  const bar = document.querySelector('.contact-bar');
+  if (!bar) return;
+  const hero = document.querySelector('.hero');
+  if (!hero || !('IntersectionObserver' in window)) { bar.classList.add('visible'); return; }
+  new IntersectionObserver(([e]) => bar.classList.toggle('visible', !e.isIntersecting)).observe(hero);
+})();
