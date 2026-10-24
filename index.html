@@ -58,6 +58,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
   <header class="site-header" id="top">
@@ -78,23 +79,24 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-card" aria-label="Premium detailing showcase">
-          <img src="assets/images/hero.jpg" alt="Mobile detailing van and premium car care setup" fetchpriority="high">
+          <img src="assets/images/hero.jpg" alt="Black Porsche with a deep, glossy paint finish" fetchpriority="high" width="1264" height="842">
         </div>
         <div class="hero-copy reveal">
           <p class="hero-eyebrow">DARLINGTON &amp; THE NORTH EAST</p>
-          <h1>Professional Car Detailing.<br>At Your Door.</h1>
+          <h1>Professional<br>car detailing.<br><span>At your door.</span></h1>
           <p class="hero-text">Mobile detailing, paint correction &amp; ceramic protection across Darlington &amp; the North East.</p>
           <p class="hero-text hero-text-secondary">No need for a driveway setup. We bring the water, power and professional equipment to you.</p>
                     <div class="hero-actions">
-            <a class="btn btn-primary" href="/booking/">Get a Quote</a>
+            <a class="btn btn-primary" href="/booking/">Get a Quote <span aria-hidden="true">↗</span></a>
             <a class="btn btn-secondary" href="/gallery/">View Our Work <span aria-hidden="true">→</span></a>
           </div>
           <ul class="hero-trust-points"><li>✓ Valets from £45</li><li>✓ Paint correction £200</li><li>✓ 3-year ceramic coating from £250</li></ul>
         </div>
+        <a class="hero-scroll" href="#services-intro"><span>Explore the services</span><span aria-hidden="true">↓</span></a>
       </div>
     </section>
 
@@ -199,8 +201,8 @@
           <div class="ba-image-after" aria-hidden="true">
             <img class="ba-image" src="/assets/images/hatchback-after.jpg" alt="">
           </div>
-          <span class="ba-badge ba-badge-before">Before</span>
           <span class="ba-badge ba-badge-after">After</span>
+          <span class="ba-badge ba-badge-before">Before</span>
           <div class="ba-divider" aria-hidden="true"><span class="ba-handle">↔</span></div>
           <label class="sr-only" for="before-after-range">Move comparison divider</label>
           <input class="ba-range" id="before-after-range" type="range" min="0" max="100" value="50">
@@ -306,6 +308,7 @@
             <figcaption>Gloss and protection</figcaption>
           </figure>
         </div>
+        <div class="work-gallery-action"><a class="btn btn-secondary" href="/gallery/">Explore the full gallery <span aria-hidden="true">↗</span></a></div>
       </div>
         </section>
 

@@ -1,0 +1,4 @@
+Generated with the built-in image-generation tool. Decorative concept artwork, not a customer detailing photograph.
+
+Prompt:
+Use case: stylized-concept. Asset type: decorative automotive detailing website hero illustration, landscape 3:2. Create a premium editorial 3D illustration of the front quarter of a sleek unbranded graphite sports coupe, sculptural glossy panels with finely beaded water droplets and a beautiful pale sage-green reflection tracing the bonnet and wheel arch. Dark charcoal forest-green studio background #101412, restrained sage #b0df98 accents, soft silver light, tactile surfaces, sophisticated automotive campaign art. Car composed centrally with generous dark margins, close three-quarter crop, no scenery. This is conceptual decorative artwork, not a customer job photograph. No lettering, no text, no badges, no brand logos, no watermark, no UI, no collage. Visually striking but quiet and refined, not neon cyberpunk.

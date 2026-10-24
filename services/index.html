@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/services/services.css">
 </head>
 <body>
   <header class="site-header" id="top">
@@ -30,22 +31,39 @@
   <main>
     <section class="section-pad services-directory" aria-labelledby="services-title">
       <div class="container">
+        <div class="services-hero">
         <div class="section-heading reveal">
           <p class="eyebrow">Services &amp; Pricing</p>
-          <h1 id="services-title">The right finish for every vehicle</h1>
-          <p>From a reliable maintenance clean to a full paint transformation, choose the level of care that matches your vehicle and your goals. Prices shown are starting prices where confirmed; vehicle size and condition can affect the final quote.</p>
+          <h1 id="services-title">What does your<br>car need?</h1>
+          <p>A regular clean, a deeper reset or better paintwork? Start with the result you want. We bring our own water and power to your home or workplace.</p>
+          <a class="services-hero-link" href="#picker-title">Find your service <span aria-hidden="true">↓</span></a>
         </div>
+        <div class="services-artwork" aria-hidden="true"><img src="/assets/images/services-artwork.png" alt="" width="1536" height="1024" fetchpriority="high"><span class="artwork-label">Care in every detail.</span></div>
+        </div>
+        <section class="service-picker" aria-labelledby="picker-title">
+          <div class="picker-heading"><h2 id="picker-title">Find your starting point</h2><p>Choose an option to see what’s included.</p></div>
+          <div class="picker-grid">
+            <a href="#essential-clean"><span class="picker-need">It just needs a regular clean</span><strong>Essential Clean <span aria-hidden="true">↗</span></strong><span class="picker-price">From £45 <span>· Inside &amp; out</span></span></a>
+            <a href="#full-valet"><span class="picker-need">It needs a thorough clean</span><strong>Full Valet <span aria-hidden="true">↗</span></strong><span class="picker-price">From £85 <span>· Deep interior + exterior</span></span></a>
+            <a href="#interior-deep-clean"><span class="picker-need">Only the inside needs attention</span><strong>Interior Deep Clean <span aria-hidden="true">↗</span></strong><span class="picker-price">From £80 <span>· Cabin-focused clean</span></span></a>
+            <a href="#restore-refine"><span class="picker-need">The paint is dull or swirled</span><strong>Paint polishing <span aria-hidden="true">↗</span></strong><span class="picker-price">£170 / £200 <span>· Compare the two options</span></span></a>
+            <a href="#ceramic-coating"><span class="picker-need">I want longer-lasting protection</span><strong>Ceramic Coating <span aria-hidden="true">↗</span></strong><span class="picker-price">From £250 <span>· 3-year coating</span></span></a>
+            <a class="picker-help" href="/booking/"><span class="picker-need">Not sure what to choose?</span><strong>Ask us for advice <span aria-hidden="true">↗</span></strong><span class="picker-price">Tell us about your car <span>· We’ll help you choose</span></span></a>
+          </div>
+          <p class="pricing-note">Prices marked “from” are starting prices. Vehicle size and condition can affect your final quote.</p>
+        </section>
         <nav class="service-category-nav reveal" aria-label="Service categories">
-          <a href="#clean-maintain"><span class="service-nav-icon" aria-hidden="true">✦</span>Clean &amp; maintain</a>
-          <a href="#restore-refine"><span class="service-nav-icon" aria-hidden="true">◒</span>Restore &amp; refine</a>
-          <a href="#protect-preserve"><span class="service-nav-icon" aria-hidden="true">◇</span>Protect &amp; preserve</a>
-          <a href="#specialist-care"><span class="service-nav-icon" aria-hidden="true">✧</span>Specialist care</a>
+          <a href="#clean-maintain">01 <span>Cleaning &amp; valeting</span></a>
+          <a href="#restore-refine">02 <span>Paintwork</span></a>
+          <a href="#protect-preserve">03 <span>Ceramic protection</span></a>
+          <a href="#specialist-care">04 <span>Other services</span></a>
         </nav>
 
         <div class="service-category reveal" id="clean-maintain">
+          <div class="service-photo-strip"><img src="/assets/images/gle-interior.jpg" alt="Detailed Mercedes interior with clean seats and cabin" loading="lazy"><span>01 <span>Fresh inside.<br>Pristine outside.</span></span></div>
           <div class="category-heading">
             <div class="category-icon category-icon-clean" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 2c1.5 3.4 5.5 5.8 5.5 11a5.5 5.5 0 0 1-11 0C6.5 7.8 10.5 5.4 12 2Zm0 6.2c-.8 1.6-2.5 2.8-2.5 5a2.5 2.5 0 0 0 5 0c0-2.2-1.7-3.4-2.5-5Z"/></svg></div>
-            <div><p class="eyebrow">01 / Clean &amp; maintain</p><h2>Keep your car feeling cared for</h2><p>Thoughtful interior and exterior cleaning for everyday vehicles, family cars and regular upkeep.</p></div>
+            <div><p class="eyebrow">01 / Cleaning &amp; valeting</p><h2>A clean car, inside and out.</h2><p>Choose Essential Clean for regular upkeep, Full Valet for a deeper clean inside and out, or Interior Deep Clean if you only need the cabin cleaned.</p></div>
           </div>
           <div class="service-cards">
             <article class="service-card price-card" id="essential-clean"><div class="service-card-icon" aria-hidden="true">✦</div><div class="card-top"><h3>Essential Clean</h3><p class="price">From £45</p></div><p>A dependable maintenance valet that brings back a fresh, glossy finish without the time or cost of a deep clean.</p><ul><li>Exterior hand wash, wheels and tyres</li><li>Professional vacuum throughout</li><li>High-SiO₂ spray sealant for gloss</li></ul><p class="service-card-meta">Approx. 2 hours</p><a class="btn btn-card" href="/booking">Book this clean</a></article>
@@ -56,10 +74,12 @@
         </div>
 
         <div class="service-category reveal" id="restore-refine">
+          <div class="service-photo-strip"><img src="/assets/images/black-gle-shiney.jpg" alt="Glossy black Mercedes paintwork after detailing" loading="lazy"><span>02 <span>Bring back<br>the reflection.</span></span></div>
           <div class="category-heading">
             <div class="category-icon category-icon-restore" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m13.6 2 8.4 8.4-2.1 2.1-2-2-4.8 4.8 2 2-2.1 2.1-8.4-8.4 2.1-2.1 2 2 4.8-4.8-2-2L13.6 2ZM5.8 12.9l5.3 5.3-2.3 2.3-5.3-5.3 2.3-2.3Z"/></svg></div>
-            <div><p class="eyebrow">02 / Restore &amp; refine</p><h2>Bring back the gloss and clarity</h2><p>Machine polishing and specialist surface preparation for paintwork that has lost its sharpness.</p></div>
+            <div><p class="eyebrow">02 / Paintwork</p><h2>Cleaner paint. A better finish.</h2><p>Decontamination removes material stuck to the paint. Enhancement brings back gloss and improves lighter defects. Correction tackles more noticeable swirls and suitable paint defects.</p></div>
           </div>
+          <p class="included-note"><strong>No need to book preparation separately.</strong> Paint decontamination is included with Paint Enhancement, Paint Correction and Ceramic Coating.</p>
           <div class="service-cards">
             <article class="service-card price-card" id="paint-decontamination"><div class="service-card-icon" aria-hidden="true">⌁</div><div class="card-top"><h3>Paint Decontamination</h3><p class="price">From £60</p></div><p>Remove bonded contamination such as tar, road grime, bird lime, mould and iron fallout, leaving paint smooth and ready.</p><ul><li>Specialist products for each contaminant</li><li>Clay bar removes remaining bonded debris</li><li>Standalone service or included when required</li></ul><p class="service-card-meta">Duration to be confirmed</p><a class="btn btn-card" href="/booking">Ask about decontamination</a></article>
             <article class="service-card price-card" id="paint-enhancement"><div class="service-card-icon" aria-hidden="true">◒</div><div class="card-top"><h3>Paint Enhancement</h3><p class="price">£170</p></div><p>For tired, dull or lacklustre paintwork. Fine machine polishing restores gloss, clarity and depth for a refined finish.</p><ul><li>Decontamination and machine polishing included</li><li>Focus on lighter surface defects</li><li>Up-to-3-month paint protection applied</li></ul><p class="service-card-meta">Approx. 3–4 hours</p><a class="btn btn-card" href="/booking">Enhance my paintwork</a></article>
@@ -70,7 +90,7 @@
         <div class="service-category service-category-featured reveal" id="protect-preserve">
           <div class="category-heading">
             <div class="category-icon category-icon-protect" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 4 5.5v5.8c0 4.9 3.3 8.9 8 10.7 4.7-1.8 8-5.8 8-10.7V5.5L12 2Zm0 3.2 5 2.2v3.9c0 3.4-2.1 6.3-5 7.8-2.9-1.5-5-4.4-5-7.8V7.4l5-2.2Z"/></svg></div>
-            <div><p class="eyebrow">03 / Protect &amp; preserve</p><h2>Protection that makes the finish last</h2><p>Long-lasting protection starts with careful preparation, then adds easier maintenance and a deep reflective finish.</p></div>
+            <div><p class="eyebrow">03 / Ceramic protection</p><h2>Keep that finish for longer.</h2><p>A complete preparation and protection package. Machine polishing is already included, along with coating for the wheel faces and exterior glass.</p></div>
           </div>
           <article class="service-card service-card-protection price-card featured" id="ceramic-coating"><div class="service-card-icon" aria-hidden="true">◇</div><div><div class="card-top"><h3>3-year Ceramic Coating</h3><p class="price">From £250</p></div><p>Our most complete paint protection service: a full day dedicated to preparation, machine polishing and a 3-year coating system.</p><div class="protection-benefits"><ul><li>Paint decontamination, fallout removal and preparation included</li><li>Machine polishing to improve gloss, clarity and suitable defects</li><li>Wheel faces and all exterior glass coating included</li><li>Water beading, hydrophobic protection and easier maintenance</li></ul><p class="service-card-meta">Approx. one full day · Price depends on vehicle size</p></div><a class="btn btn-primary" href="/booking">Protect my vehicle</a></div></article>
         </div>
@@ -78,7 +98,7 @@
         <div class="service-category reveal" id="specialist-care">
           <div class="category-heading">
             <div class="category-icon category-icon-specialist" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 11h18v2H3v-2Zm2-4h14v2H5V7Zm2 8h10v2H7v-2Z"/></svg></div>
-            <div><p class="eyebrow">04 / Specialist care</p><h2>Focused solutions, assessed properly</h2><p>Small details can make a big difference. These services are designed around a specific problem or a vehicle that needs a tailored conversation.</p></div>
+            <div><p class="eyebrow">04 / Other services</p><h2>Something more specific?</h2><p>Headlight restoration has a set price below. For caravans, motorhomes and paint protection film, get in touch to discuss the work and pricing.</p></div>
           </div>
           <div class="service-cards">
             <article class="service-card price-card" id="headlight-restoration"><div class="service-card-icon" aria-hidden="true">☼</div><div class="card-top"><h3>Headlight Restoration</h3><p class="price">£60</p></div><p>Replace a cloudy, faded appearance with clearer headlights through specialist cleaning, wet sanding, two-stage polishing and protection.</p><ul><li>Progressive wet sanding for oxidation</li><li>Two-stage machine polishing</li><li>3-year ceramic coating protection</li></ul><p class="service-card-meta">Approx. 1–2 hours</p><a class="btn btn-card" href="/booking">Restore my headlights</a></article>
