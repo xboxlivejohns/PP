@@ -9,21 +9,34 @@ if (year) {
 }
 
 if (menuToggle && navMenu) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = navMenu.classList.toggle('open');
+  const mobileNavigation = window.matchMedia('(max-width: 760px)');
+  const setNavigationOpen = (isOpen) => {
+    navMenu.classList.toggle('open', isOpen);
     menuToggle.classList.toggle('active', isOpen);
     menuToggle.setAttribute('aria-expanded', String(isOpen));
     menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-  });
+    navMenu.inert = mobileNavigation.matches && !isOpen;
+  };
+
+  menuToggle.addEventListener('click', () => setNavigationOpen(!navMenu.classList.contains('open')));
 
   navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('open');
-      menuToggle.classList.remove('active');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', 'Open navigation menu');
-    });
+    link.addEventListener('click', () => setNavigationOpen(false));
   });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+      setNavigationOpen(false);
+      menuToggle.focus();
+    }
+  });
+  document.addEventListener('pointerdown', (event) => {
+    if (!event.target.closest('.navbar')) setNavigationOpen(false);
+  });
+  document.addEventListener('focusin', (event) => {
+    if (!event.target.closest('.navbar')) setNavigationOpen(false);
+  });
+  mobileNavigation.addEventListener('change', () => setNavigationOpen(false));
+  setNavigationOpen(false);
 }
 
 faqButtons.forEach((button) => {
