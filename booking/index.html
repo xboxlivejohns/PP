@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/navigation.css">
 </head>
 <body>
   <header class="site-header" id="top">
@@ -18,7 +19,7 @@
       <a class="brand" href="/" aria-label="Polished and Pristine Mobile home">
         <img src="/assets/images/logo.png" alt="Polished &amp; Pristine Mobile Logo" class="site-logo">
       </a>
-      <p class="mobile-trust" aria-label="Why choose Polished and Pristine Mobile"><span class="mobile-trust-wide">★ 5★ Google Rated · ✓ Fully Insured</span><span class="mobile-trust-narrow">★ 5★ Rated · ✓ Insured</span></p>
+      <div class="nav-context"><span class="nav-current">Get a Quote</span><p class="mobile-trust" aria-label="Why choose Polished and Pristine Mobile"><span class="mobile-trust-wide">★ 5★ Google Rated · ✓ Fully Insured</span><span class="mobile-trust-narrow">★ 5★ Rated · ✓ Insured</span></p></div>
             <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -26,7 +27,7 @@
         <a href="/">Home</a>
         <a href="/services/">Services</a>
         <a href="/gallery/">Gallery</a>
-        <a class="btn btn-small btn-primary active" href="/booking/">Get a Quote</a>
+        <a class="btn btn-small btn-primary active" href="/booking/" aria-current="page">Get a Quote</a>
       </div>
     </nav>
   </header>
