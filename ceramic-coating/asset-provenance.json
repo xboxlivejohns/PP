@@ -1,0 +1,61 @@
+{
+  "illustrative": {
+    "vehicle": {
+      "raw": "C:\\ComfyUI\\outputs\\raw\\pp_ceramic_cinematic_vehicle_00001_.png",
+      "workflow": "C:/ComfyUI/workflows/pp_ceramic_cinematic_vehicle.api.json",
+      "seconds": 100.209,
+      "status": {
+        "status_str": "success",
+        "completed": true,
+        "messages": [
+          [
+            "execution_start",
+            {
+              "prompt_id": "0637cf3e-d294-4040-8b9f-814a0281658b",
+              "timestamp": 1793870039300
+            }
+          ],
+          [
+            "execution_cached",
+            {
+              "nodes": [],
+              "prompt_id": "0637cf3e-d294-4040-8b9f-814a0281658b",
+              "timestamp": 1793870039302
+            }
+          ],
+          [
+            "execution_success",
+            {
+              "prompt_id": "0637cf3e-d294-4040-8b9f-814a0281658b",
+              "timestamp": 1793870135168
+            }
+          ]
+        ]
+      },
+      "model": "stabilityai/stable-diffusion-xl-base-1.0",
+      "licence": "CreativeML Open RAIL++-M"
+    },
+    "paint": {
+      "raw": "C:/ComfyUI/ComfyUI/output/sdxl_emerald_paint_00001_.png",
+      "model": "SDXL base 1.0"
+    }
+  },
+  "genuine": [
+    {
+      "source": "../assets/images/blue-porsche.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    },
+    {
+      "source": "../assets/images/black-gle-shiney.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    },
+    {
+      "source": "../assets/images/finished-car.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    },
+    {
+      "source": "../assets/images/iron-fallout-removal.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    }
+  ]
+}

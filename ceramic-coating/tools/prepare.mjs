@@ -1,0 +1,13 @@
+import sharp from 'sharp';
+import {fileURLToPath} from 'node:url';
+import {mkdir,copyFile,readFile,writeFile} from 'node:fs/promises';
+const out=new URL('../assets/',import.meta.url);const vendor=new URL('../vendor/',import.meta.url);
+await mkdir(out,{recursive:true});await mkdir(vendor,{recursive:true});
+for(const [src,dest] of [['gsap/dist/gsap.min.js','gsap.min.js'],['gsap/dist/ScrollTrigger.min.js','ScrollTrigger.min.js'],['lenis/dist/lenis.min.js','lenis.min.js'],['lenis/dist/lenis.css','lenis.css']])await copyFile(new URL('../node_modules/'+src,import.meta.url),new URL(dest,vendor));
+await copyFile(new URL('../node_modules/lenis/LICENSE',import.meta.url),new URL('LENIS-LICENSE.txt',vendor));
+const source=JSON.parse(await readFile(new URL('../.cache-vehicle-path.json',import.meta.url),'utf8'));
+await sharp(source.raw).resize({width:1440,withoutEnlargement:true}).webp({quality:89}).toFile(fileURLToPath(new URL('vehicle.webp',out)));
+await sharp('C:/ComfyUI/ComfyUI/output/sdxl_emerald_paint_00001_.png').resize({width:1024,withoutEnlargement:true}).webp({quality:88}).toFile(fileURLToPath(new URL('paint.webp',out)));
+for(const file of ['blue-porsche','black-gle-shiney','finished-car','iron-fallout-removal'])await sharp(fileURLToPath(new URL('../../assets/images/'+file+'.jpg',import.meta.url))).rotate().resize({width:1100,withoutEnlargement:true}).webp({quality:84}).toFile(fileURLToPath(new URL(file+'.webp',out)));
+await writeFile(new URL('../asset-provenance.json',import.meta.url),JSON.stringify({illustrative:{vehicle:{...source,model:'stabilityai/stable-diffusion-xl-base-1.0',licence:'CreativeML Open RAIL++-M'},paint:{raw:'C:/ComfyUI/ComfyUI/output/sdxl_emerald_paint_00001_.png',model:'SDXL base 1.0'}},genuine:['blue-porsche.jpg','black-gle-shiney.jpg','finished-car.jpg','iron-fallout-removal.jpg'].map(file=>({source:'../assets/images/'+file,evidence:'Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs.'}))},null,2));
+console.log('Prepared local vendor bundles and optimised WebP assets.');
