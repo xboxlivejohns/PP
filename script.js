@@ -132,19 +132,37 @@ const galleryItems = [
 
 document.querySelectorAll('[data-gallery-category]').forEach((gallery) => {
   const category = gallery.dataset.galleryCategory;
-  gallery.innerHTML = galleryItems
+  const cards = document.createDocumentFragment();
+  galleryItems
     .filter((item) => item.category === category)
-    .map((item) => `
-      <article class="gallery-card${item.featured ? ' gallery-card-featured' : ''} reveal">
-        <img src="/assets/images/${item.file}" alt="${item.alt}" loading="lazy" decoding="async">
-        <div class="gallery-card-copy">
-          <p class="gallery-card-label">Detailing result</p>
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-        </div>
-      </article>
-    `)
-    .join('');
+    .forEach((item) => {
+      const card = document.createElement('article');
+      card.className = `gallery-card${item.featured ? ' gallery-card-featured' : ''} reveal`;
+
+      const image = document.createElement('img');
+      image.src = `/assets/images/${item.file}`;
+      image.alt = item.alt;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+
+      const copy = document.createElement('div');
+      copy.className = 'gallery-card-copy';
+
+      const label = document.createElement('p');
+      label.className = 'gallery-card-label';
+      label.textContent = 'Detailing result';
+
+      const title = document.createElement('h3');
+      title.textContent = item.title;
+
+      const description = document.createElement('p');
+      description.textContent = item.description;
+
+      copy.append(label, title, description);
+      card.append(image, copy);
+      cards.append(card);
+    });
+  gallery.replaceChildren(cards);
 });
 
 const revealElements = document.querySelectorAll('.reveal');
