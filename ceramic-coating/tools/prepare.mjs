@@ -1,10 +1,10 @@
 import sharp from 'sharp';
 import {fileURLToPath} from 'node:url';
 import {mkdir,copyFile,readFile,writeFile} from 'node:fs/promises';
-const out=new URL('../assets/',import.meta.url);const vendor=new URL('../vendor/',import.meta.url);
+const out=new URL('../assets/',import.meta.url);const vendor=new URL('../../assets/ceramic-coating/vendor/',import.meta.url);
 await mkdir(out,{recursive:true});await mkdir(vendor,{recursive:true});
 for(const [src,dest] of [['gsap/dist/gsap.min.js','gsap.min.js'],['gsap/dist/ScrollTrigger.min.js','ScrollTrigger.min.js'],['lenis/dist/lenis.min.js','lenis.min.js'],['lenis/dist/lenis.css','lenis.css']])await copyFile(new URL('../node_modules/'+src,import.meta.url),new URL(dest,vendor));
-await copyFile(new URL('../node_modules/lenis/LICENSE',import.meta.url),new URL('LENIS-LICENSE.txt',vendor));
+for(const file of ['LENIS-LICENSE.txt','MOTION-PRIMITIVES-LICENSE.md','REACT-BITS-LICENSE.md','THIRD-PARTY.md'])await copyFile(new URL('../vendor/'+file,import.meta.url),new URL(file,vendor));
 const source=JSON.parse(await readFile(new URL('../.cache-vehicle-path.json',import.meta.url),'utf8'));
 await sharp(source.raw).resize({width:1440,withoutEnlargement:true}).webp({quality:89}).toFile(fileURLToPath(new URL('vehicle.webp',out)));
 await sharp('C:/ComfyUI/ComfyUI/output/sdxl_emerald_paint_00001_.png').resize({width:1024,withoutEnlargement:true}).webp({quality:88}).toFile(fileURLToPath(new URL('paint.webp',out)));

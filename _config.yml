@@ -1,0 +1,35 @@
+# Keep repository-only development helpers out of the GitHub Pages output.
+# Preserve Jekyll 3's defaults because this custom exclude list replaces them.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .git/
+  - .github/
+  - .Continue/
+  - .vscode/
+  - .venv/
+  - .venv-1/
+  - README.md
+  - SERVICES.md
+  - SERVICE_FINDER.md
+  - assets/images/services-artwork-prompt.txt
+  - ceramic-coating/vendor/
+  - ceramic-coating/.gitignore
+  - ceramic-coating/README.md
+  - ceramic-coating/asset-provenance.json
+  - ceramic-coating/package.json
+  - ceramic-coating/package-lock.json
+  - ceramic-coating/preview.cmd
+  - ceramic-coating/tools/
+  - ceramic-coating/node_modules/
+  - ceramic-coating/.cache/
+  - ceramic-coating/.cache-vehicle-path.json
+  - ceramic-coating/qa/
