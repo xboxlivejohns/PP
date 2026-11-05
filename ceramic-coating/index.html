@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../assets/navigation.css">
   <link rel="stylesheet" href="../assets/ceramic-coating/vendor/lenis.css">
   <link rel="stylesheet" href="ceramic.css">
-  <link rel="preload" href="assets/master-vehicle.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/reference-vehicle.webp" as="image" fetchpriority="high">
 </head>
 <body class="ceramic-page">
   <a class="skip-link" href="#real-results">See Real Results ↓</a>
@@ -29,7 +29,7 @@
   <main>
     <section class="ceramic-story" aria-labelledby="ceramic-title">
       <div class="cinema" id="cinema">
-        <img class="cinema-poster" src="assets/master-vehicle.webp" alt="AI-generated emerald green grand touring car in a dark studio; illustrative visual, not a customer vehicle" width="1672" height="941" fetchpriority="high">
+        <img class="cinema-poster" src="assets/reference-vehicle.webp" alt="AI-generated emerald green grand touring car in a dark studio; illustrative visual, not a customer vehicle" width="1672" height="941" fetchpriority="high">
         <canvas id="surface" aria-hidden="true"></canvas>
         <div class="cinema-shade" aria-hidden="true"></div>
         <div class="story-topline"><span>CERAMIC COATING / DARLINGTON</span><a class="results-shortcut" href="#real-results">See Real Results <span aria-hidden="true">↓</span></a></div>
@@ -41,20 +41,22 @@
         <nav class="chapter-rail" aria-label="Cinematic chapters">
           <button type="button" data-chapter="0" aria-label="Finished vehicle" aria-current="step"><span>01</span><i></i></button>
           <button type="button" data-chapter="1" aria-label="Before preparation"><span>A</span><i></i></button>
-          <button type="button" data-chapter="2" aria-label="After decontamination and clay"><span>B</span><i></i></button>
-          <button type="button" data-chapter="3" aria-label="After machine polishing"><span>C</span><i></i></button>
-          <button type="button" data-chapter="4" aria-label="After ceramic coating"><span>D</span><i></i></button>
-          <button type="button" data-chapter="5" aria-label="Hydrophobic water beading"><span>E</span><i></i></button>
-          <button type="button" data-chapter="6" aria-label="Return to the vehicle"><span>07</span><i></i></button>
-          <a href="#real-results" aria-label="Real customer results"><span>08</span><i></i></a>
+          <button type="button" data-chapter="2" aria-label="Clay treatment photograph"><span>CL</span><i></i></button>
+          <button type="button" data-chapter="3" aria-label="After decontamination and clay"><span>B</span><i></i></button>
+          <button type="button" data-chapter="4" aria-label="After machine polishing"><span>C</span><i></i></button>
+          <button type="button" data-chapter="5" aria-label="After ceramic coating"><span>D</span><i></i></button>
+          <button type="button" data-chapter="6" aria-label="Hydrophobic water beading"><span>E</span><i></i></button>
+          <button type="button" data-chapter="7" aria-label="Return to the vehicle"><span>08</span><i></i></button>
+          <a href="#real-results" aria-label="Real customer results"><span>09</span><i></i></a>
         </nav>
       </div>
       <div class="motion-summary container"><h2>One surface. Every stage.</h2><ol class="static-stages">
-        <li><img src="assets/paint-unprepared.webp" width="1672" height="941" loading="lazy" alt="Emerald bonnet with fine swirls and light bonded contamination"><div><p class="kicker">A / THE PAINT PROCESS</p><h3>Before preparation.</h3><p>Fine wash swirls scatter the light. Small bonded contaminants interrupt the emerald finish.</p></div></li>
-        <li><img src="assets/paint-before.webp" width="1672" height="941" loading="lazy" alt="The same clean emerald bonnet, with wash swirls still visible"><div><p class="kicker">B / THE PAINT PROCESS</p><h3>After decontamination & clay.</h3><p>Washing, chemical decontamination and clay remove bonded contamination. Clay does not remove swirl marks.</p></div></li>
-        <li><img src="assets/paint-corrected.webp" width="1672" height="941" loading="lazy" alt="The same bonnet after polishing, with clear reflections and reduced swirls"><div><p class="kicker">C / THE PAINT PROCESS</p><h3>After machine polishing.</h3><p>Machine polishing reduces light swirls and sharpens reflections. Deeper defects may remain.</p></div></li>
-        <li><img src="assets/paint-coated.webp" width="1672" height="941" loading="lazy" alt="The same prepared bonnet with a rich glossy ceramic-coated finish"><div><p class="kicker">D / THE PAINT PROCESS</p><h3>After ceramic coating.</h3><p>After a panel wipe, Autosmart Matrix Blue is applied and levelled. Rich gloss, on properly prepared paint.</p></div></li>
-        <li><img src="assets/paint-beading.webp" width="1672" height="941" loading="lazy" alt="Natural water beads resting on the same ceramic-coated emerald bonnet"><div><p class="kicker">E / THE PAINT PROCESS</p><h3>Hydrophobic protection.</h3><p>After curing, water gathers into tight beads on the hydrophobic surface. Protection that makes maintenance easier.</p></div></li>
+        <li><img src="assets/reference-before.webp" width="1672" height="941" loading="lazy" alt="Emerald bonnet with fine swirls and light bonded contamination"><div><p class="kicker">A / THE PAINT PROCESS</p><h3>Before preparation.</h3><p>Fine wash swirls scatter the light. Small bonded contaminants interrupt the emerald finish.</p></div></li>
+        <li><img src="assets/reference-clay.webp" width="1672" height="941" loading="lazy" alt="Supplied photograph of lubricated clay treatment on emerald paint"><div><p class="kicker">THE CLAY TREATMENT</p><h3>Decontamination &amp; clay.</h3><p>After washing and chemical decontamination, lubricated clay lifts the remaining bonded contamination.</p></div></li>
+        <li><img src="assets/reference-clean.webp" width="1672" height="941" loading="lazy" alt="The same clean emerald bonnet, with wash swirls still visible"><div><p class="kicker">B / THE PAINT PROCESS</p><h3>After decontamination & clay.</h3><p>Washing, chemical decontamination and clay remove bonded contamination. Clay does not remove swirl marks.</p></div></li>
+        <li><img src="assets/reference-polished.webp" width="1672" height="941" loading="lazy" alt="The same bonnet after polishing, with clear reflections and reduced swirls"><div><p class="kicker">C / THE PAINT PROCESS</p><h3>After machine polishing.</h3><p>Machine polishing reduces light swirls and sharpens reflections. Deeper defects may remain.</p></div></li>
+        <li><img src="assets/reference-protected.webp" width="1672" height="941" loading="lazy" alt="The same prepared bonnet with a rich glossy ceramic-coated finish"><div><p class="kicker">D / THE PAINT PROCESS</p><h3>After ceramic coating.</h3><p>After a panel wipe, Autosmart Matrix Blue is applied and levelled. Rich gloss, on properly prepared paint.</p></div></li>
+        <li><img src="assets/reference-hydrophobic.webp" width="1672" height="941" loading="lazy" alt="Natural water beads resting on the same ceramic-coated emerald bonnet"><div><p class="kicker">E / THE PAINT PROCESS</p><h3>Hydrophobic protection.</h3><p>After curing, water gathers into tight beads on the hydrophobic surface. Protection that makes maintenance easier.</p></div></li>
       </ol></div>
     </section>
     <section class="coating-service container" aria-labelledby="service-title">

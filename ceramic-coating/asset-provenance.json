@@ -1,24 +1,22 @@
 {
   "illustrative": {
-    "hero": {
-      "asset": "assets/master-vehicle.webp",
-      "source": "Retained from the existing local prototype"
-    },
-    "paintStates": {
-      "retained": [
-        "assets/paint-before.webp",
-        "assets/paint-corrected.webp",
-        "assets/paint-coated.webp"
-      ],
-      "generated": [
-        "assets/paint-unprepared.webp",
-        "assets/paint-beading.webp"
-      ],
-      "method": "Built-in OpenAI image generation, full opaque images; no ComfyUI",
-      "date": "2026-11-05",
-      "details": "MATCHED-PAINT.md",
-      "composition": "Same 1672 x 941 composition mapped to hero crop x915 y305 width330 height186"
-    }
+    "hero": "assets/reference-vehicle.webp",
+    "supplied": [
+      "assets/Emerald Coupe in Dramatic Studio Light.png",
+      "assets/Emerald Paint Before Ceramic Coating.png",
+      "assets/Clay Detailing on Emerald Green Paint.png"
+    ],
+    "runtime": [
+      "assets/reference-before.webp",
+      "assets/reference-clay.webp",
+      "assets/reference-clean.webp",
+      "assets/reference-polished.webp",
+      "assets/reference-protected.webp",
+      "assets/reference-hydrophobic.webp"
+    ],
+    "method": "Supplied images plus four full opaque condition edits made with the built-in OpenAI image generator; no ComfyUI",
+    "prompts": "reference-image-prompts.json",
+    "details": "MATCHED-PAINT.md"
   },
   "genuine": [
     {
@@ -77,6 +75,27 @@
     "paint": {
       "raw": "C:/ComfyUI/ComfyUI/output/sdxl_emerald_paint_00001_.png",
       "model": "SDXL base 1.0"
+    }
+  },
+  "previousMatchedIllustrative": {
+    "hero": {
+      "asset": "assets/master-vehicle.webp",
+      "source": "Retained from the existing local prototype"
+    },
+    "paintStates": {
+      "retained": [
+        "assets/paint-before.webp",
+        "assets/paint-corrected.webp",
+        "assets/paint-coated.webp"
+      ],
+      "generated": [
+        "assets/paint-unprepared.webp",
+        "assets/paint-beading.webp"
+      ],
+      "method": "Built-in OpenAI image generation, full opaque images; no ComfyUI",
+      "date": "2026-11-05",
+      "details": "MATCHED-PAINT.md",
+      "composition": "Same 1672 x 941 composition mapped to hero crop x915 y305 width330 height186"
     }
   }
 }

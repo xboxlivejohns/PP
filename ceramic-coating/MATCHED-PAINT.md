@@ -1,31 +1,23 @@
-# Matched paint refinement
+﻿# Reference-led paint sequence
 
-The local prototype uses a single fixed bonnet crop (915, 305, 330 × 186) from [the hero photograph](assets/master-vehicle.webp). All five full-frame paint photographs map to that crop, with no per-stage camera drift. Smooth scroll-linked opacity dissolves reveal each state. No hand, tool, scratch, dirt or water overlays are drawn.
+This revision uses the three images supplied by the user as the visual source. It replaces the previous bonnet-crop interpretation.
 
-| State | Complete image |
+| Shot | Source / runtime asset |
 | --- | --- |
-| Before preparation | [paint-unprepared.webp](assets/paint-unprepared.webp) |
-| After decontamination and clay; swirls remain | [paint-before.webp](assets/paint-before.webp) |
-| After polishing | [paint-corrected.webp](assets/paint-corrected.webp) |
-| After coating | [paint-coated.webp](assets/paint-coated.webp) |
-| Hydrophobic result | [paint-beading.webp](assets/paint-beading.webp) |
+| Hero | [Supplied coupe](assets/Emerald%20Coupe%20in%20Dramatic%20Studio%20Light.png), [WebP](assets/reference-vehicle.webp) |
+| Before | [Supplied paint](assets/Emerald%20Paint%20Before%20Ceramic%20Coating.png), [WebP](assets/reference-before.webp) |
+| Clay treatment | [Supplied clay photograph](assets/Clay%20Detailing%20on%20Emerald%20Green%20Paint.png), [WebP](assets/reference-clay.webp) |
+| Clean, still swirled | [Generated edit](assets/reference-clean.webp) |
+| Machine polished | [Generated edit](assets/reference-polished.webp) |
+| Ceramic protected | [Generated edit](assets/reference-protected.webp) |
+| Hydrophobic result | [Generated full image](assets/reference-hydrophobic.webp) |
 
-The hero, swirled, corrected and coated plates were retained from the existing local prototype. The unprepared and water-beading plates were created with the built-in OpenAI image generation tool on 5 November 2026. ComfyUI was not used. Each new image preserves the source composition, and is resized to 1672 × 941 and encoded as an opaque WebP using [prepare-matched-states.mjs](tools/prepare-matched-states.mjs). The beading plate is a complete generated photograph, never a transparent droplet overlay. Existing unused tool assets are not loaded by this page.
+The four missing conditions were generated with the built-in OpenAI image tool, each referencing the supplied before photograph and preserving its perspective, metallic emerald colour and inspection-light reflections. The complete [prompt set](reference-image-prompts.json) is retained. ComfyUI was not used. The water-beading result is one full opaque image, not transparent droplets or a procedural overlay.
 
-Reduced motion and JavaScript-free viewing show all five photographs as a normal document sequence. The real customer gallery remains separate and unchanged.
+The supplied clay photograph appears as a complete treatment image between the before and clean states. Its hand is part of that original photograph; it never moves independently or enters as an overlay. Clay treatment and the clean-but-still-swirled result are separate beats, with accurate short explanations.
 
-## Generation prompts
+The hero camera pushes into the bonnet and dissolves into the supplied close-up. The close-up is a separate reference composition, not claimed to be an exact crop of the hero. Subsequent paint conditions use the same framing and gentle opacity dissolves. Portrait viewports preserve a wider view of the photograph with the caption below. Reduced motion and JavaScript-free viewing show all six process photographs in document order.
 
-### Hydrophobic state
+The existing customer photographs, shortcut, service details and booking destinations are retained. Browser verification covers desktop, tablet, mobile, short landscape, forward/reverse scrubbing, chapter controls, gallery shortcut/dialog, reduced-motion toggling, no JavaScript and failed image/library loading. Run `npm run verify:matched`; results are saved in the ignored QA directory.
 
-Use case: precise-object-edit. Asset type: full-frame photographic hydrophobic paint state for a premium detailing website. Edit target: the attached emerald green paint-coated image. Keep the EXACT camera, crop, panel seams, sharp diagonal crease, metallic emerald colour, lighting and ALL broad white studio reflections in their exact pixel positions. Change only surface wetness: show naturally scattered clean water beads on this same ceramic-coated bonnet, physically plausible high contact angles, varied small bead sizes with a few medium beads, subtle refraction of the existing green paint and white light, real contact shadows. Fairly sparse elegant rainfall beading, clearly visible in the central paint area. Entire output is a complete opaque photograph of the same paint surface with water resting on it. No separate droplets or transparency, no floating droplets, no tools, hands, text, graphics, spray, puddles or change of perspective. Preserve the wide 1672:941 composition. Premium real macro automotive photograph, not CGI.
-
-### Before preparation
-
-Use case: precise-object-edit. Asset type: full-frame BEFORE PREPARATION photograph for a premium detailing website. Edit target: attached emerald green paint-before photograph. Preserve EXACT camera, framing, emerald hue, lighting, ALL white studio reflection shapes and positions, seams and diagonal crease. Keep every existing fine wash swirl and light marring intact. Add only LIGHT realistic bonded contamination: sparse tiny dull grey-brown road fallout flecks and minute tar specks adhering to the paint, scattered irregularly and visibly across the central paint area, subtle accumulated road film. This should still look like an expensive green bonnet, not a filthy or rusty car. Must register closely to reference for a crossfade. Full opaque photograph, same wide 1672:941 composition. No hands, tools, foam, water, text, illustrations, graphics or change in viewpoint. Do not polish away the swirls or move reflections.
-
-## Local verification
-
-Run `node tools/verify-matched-states.mjs` from this directory with the local preview running on port 4173. The check covers desktop, tablet, mobile, short landscape screens, forward/reverse scrubbing, full photographic states, chapter navigation, gallery shortcut and dialog, reduced-motion toggling, JavaScript-free viewing, asset failures and browser errors. Screenshots and a report are written to the ignored QA directory.
-
-This refinement is local only. No push, deployment or publication was performed.
+Local prototype only. No push, merge or deployment.

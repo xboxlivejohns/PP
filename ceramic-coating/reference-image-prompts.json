@@ -1,0 +1,23 @@
+{
+  "tool": "Built-in OpenAI image generation",
+  "date": "2026-11-05",
+  "reference": "assets/Emerald Paint Before Ceramic Coating.png",
+  "outputs": [
+    {
+      "asset": "assets/reference-clean.webp",
+      "prompt": "Edit the supplied emerald paint close-up as a locked-off automotive photograph. Preserve EXACT framing, low oblique perspective, emerald metallic flakes, focus falloff, the broad cool white reflection across the upper left, and the narrow brilliant diagonal inspection light from centre to upper right. No new seam, panel shape, camera change, text, hand, tool or graphic. Output one complete opaque 1672:941 photograph, not a collage. AFTER DECONTAMINATION AND CLAY: remove all bonded dirt, grey-brown flecks and water-spot rings. Keep the existing circular wash swirls around the inspection light clearly visible, in the SAME positions and with the same intensity. Surface clean and dry, still swirled. Change only contamination; no polishing."
+    },
+    {
+      "asset": "assets/reference-polished.webp",
+      "prompt": "Edit the supplied emerald paint close-up as a locked-off automotive photograph. Preserve EXACT framing, low oblique perspective, emerald metallic flakes, focus falloff, the broad cool white reflection across the upper left, and the narrow brilliant diagonal inspection light from centre to upper right. No new seam, panel shape, camera change, text, hand, tool or graphic. Output one complete opaque 1672:941 photograph, not a collage. AFTER MACHINE POLISHING: remove the circular swirls and marring from the clearcoat, remove dirt and water spots. Retain realistic fine emerald metallic flake UNDER a smooth clearcoat. Inspection light reflection is crisp, clean and clear with reduced scattering. Same emerald colour and exposure. Dry paint, no water. Do not change reflection position or framing."
+    },
+    {
+      "asset": "assets/reference-protected.webp",
+      "prompt": "Edit the supplied emerald paint close-up as a locked-off automotive photograph. Preserve EXACT framing, low oblique perspective, emerald metallic flakes, focus falloff, the broad cool white reflection across the upper left, and the narrow brilliant diagonal inspection light from centre to upper right. No new seam, panel shape, camera change, text, hand, tool or graphic. Output one complete opaque 1672:941 photograph, not a collage. AFTER CERAMIC COATING: fully corrected clean glossy emerald metallic paint with no circular swirls, water spots or bonded contamination. Rich deep emerald and beautifully clear sharp inspection-light reflections. Subtly richer depth than uncoated paint without changing hue or making it unnaturally saturated. Maintain original reflection position and scale exactly. Dry paint, no water."
+    },
+    {
+      "asset": "assets/reference-hydrophobic.webp",
+      "prompt": "Edit the supplied emerald paint close-up as a locked-off automotive photograph. Preserve EXACT framing, low oblique perspective, emerald metallic flakes, focus falloff, the broad cool white reflection across the upper left, and the narrow brilliant diagonal inspection light from centre to upper right. No new seam, panel shape, camera change, text, hand, tool or graphic. Output one complete opaque 1672:941 photograph, not a collage. FINAL HYDROPHOBIC RESULT: fully corrected ceramic-coated emerald paint, no swirls or contamination. Natural premium water beading across the surface, varied small and medium domed clear beads resting ON the paint with realistic refraction of that same diagonal inspection light. Clear contact shadows, high contact angles, natural irregular spacing, mostly small beads plus a few medium foreground ones. No puddles or foam, no airborne droplets. Water is integrated into this entire opaque photograph, never separate transparent objects. The exact reference light and colour remain recognisable."
+    }
+  ]
+}

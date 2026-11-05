@@ -5,15 +5,16 @@ const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
 const chapters=[
  ['The finished vehicle.','A closer look at the preparation behind the gloss.'],
  ['Before preparation.','Fine wash swirls scatter the light. Small bonded contaminants interrupt the emerald finish.'],
+ ['Decontamination & clay.','After washing and chemical decontamination, lubricated clay lifts the remaining bonded contamination.'],
  ['Clean. Still swirled.','Washing, chemical decontamination and clay remove bonded contamination. Clay does not remove swirl marks.'],
  ['Clarity, restored.','Machine polishing reduces light swirls and sharpens reflections. Deeper defects may remain.'],
  ['Prepared. Protected.','After a panel wipe, Autosmart Matrix Blue is applied and levelled. Rich gloss, on properly prepared paint.'],
  ['Water beads. Gloss stays.','After curing, water gathers into tight beads on the hydrophobic surface. Protection that makes maintenance easier.'],
  ['The finished vehicle.','Three-year Autosmart Matrix Blue ceramic coating. From £250.']
 ];
-const boundaries=[0,.16,.325,.485,.645,.805,.95];
-const stops=[0,.24,.40,.56,.72,.87,1];
-const labels=['THE FINISHED VEHICLE','A / BEFORE PREPARATION','B / AFTER DECONTAMINATION & CLAY','C / AFTER MACHINE POLISHING','D / AFTER CERAMIC COATING','E / HYDROPHOBIC RESULT','THE FINISHED VEHICLE'];
+const boundaries=[0,.16,.295,.395,.525,.655,.795,.95];
+const stops=[0,.23,.345,.46,.59,.72,.87,1];
+const labels=['THE FINISHED VEHICLE','A / BEFORE PREPARATION','THE CLAY TREATMENT','B / AFTER DECONTAMINATION & CLAY','C / AFTER MACHINE POLISHING','D / AFTER CERAMIC COATING','E / HYDROPHOBIC RESULT','THE FINISHED VEHICLE'];
 let trigger,lenis,timeline,surface,current=0,reduced=motionQuery.matches,lastChapter=-1;
 const playhead={p:0};
 function render(p){
@@ -33,10 +34,10 @@ function render(p){
   if(p>=a&&p<=b){const mid=(a+b)/2;copyAlpha*=p<mid?1-smooth(a,mid,p):smooth(mid,b,p);}
  }
  gsap.set('.chapter-copy',{opacity:copyAlpha});
- gsap.set('.real-callout',{autoAlpha:index===2?1:0});
+ gsap.set('.real-callout',{autoAlpha:index===3?1:0});
  document.querySelector('.scroll-hint').style.opacity=1-smooth(0,.04,p);
  const status=document.querySelector('.surface-status');
- status.textContent=index>0&&index<6?'ONE SURFACE / FIVE STATES':'';
+ status.textContent='';
  stage.style.setProperty('--story-progress',p);
  surface?.draw(reduced?0:p);
 }

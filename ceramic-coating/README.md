@@ -10,13 +10,11 @@ The page loads local browser bundles from the shared [vendor directory](../asset
 
 ## Story and assets
 
-The camera zooms from the emerald hero vehicle into one registered bonnet crop. Five full photographs show before preparation, after decontamination/clay (swirls remain), after machine polishing, after coating, and hydrophobic water beading. Subtle scroll-linked crossfades keep the viewpoint and reflections fixed. The camera then returns to the hero. There are no hand/tool overlays, procedural dirt, scratch graphics or synthetic droplet layers.
+The supplied emerald coupe, before-paint photograph and clay photograph now drive the page. The hero camera pushes towards the bonnet, then dissolves into the supplied inspection-light close-up. The clay image appears as a complete photographic treatment beat. Four condition-only edits show the same composition after cleaning, polishing, coating and wetting. No independently animated hands, tools or water droplets are used.
 
-The new unprepared and beading photographs were edited from the existing matched plates with the built-in OpenAI image generation tool. ComfyUI was not used for this refinement. Water beading is a complete opaque photograph of the entire paint surface. See [matched image paths, prompts and preparation details](MATCHED-PAINT.md). Previous generation records remain under the legacy section in [asset provenance](asset-provenance.json).
+The four missing images were generated with the built-in OpenAI image tool from the supplied before photograph. The hydrophobic result is a full opaque image. ComfyUI was not used. See [asset paths, method and generation prompts](MATCHED-PAINT.md).
 
-GSAP ScrollTrigger pins one scene; one normalised scroll value controls the camera and crossfades. Reverse scrolling reconstructs the same state. Rendering is on demand. All five photographs remain available as a static document sequence with reduced motion, failed animation dependencies or JavaScript disabled.
-
-Gallery and real-work photographs remain optimised copies of the existing customer gallery, described as detailing results without claiming all were ceramic coating jobs.
+A fixed close-up framing and scroll-linked crossfades keep the paint conditions visually matched. Portrait layouts show a wider image above the caption. Reduced motion and JavaScript-free viewing provide a static sequence of all six process photographs. The real customer gallery remains separate and unchanged.
 
 ## Chosen tools and official references
 
@@ -39,7 +37,7 @@ The canvas camera and full-photograph crossfades are page-native code. The React
 ## Accessibility, mobile and safety
 
 - “See Real Results ↓” is always an ordinary anchor; works with JavaScript disabled and bypasses the entire scene. With JS it also focuses the gallery heading area.
-- `prefers-reduced-motion` removes the pin and camera sequence, leaving a static car, all five paint photographs with concise explanations, full service details and gallery. A page-local motion button offers the same option.
+- `prefers-reduced-motion` removes the pin and camera sequence, leaving a static car, all six process photographs with concise explanations, full service details and gallery. A page-local motion button offers the same option.
 - Keyboard-accessible chapter controls and native photo dialog, Escape close, focus restoration. Shared mobile menu/contact bar preserved.
 - Canvas/image-load failure falls back to the static poster and document sequence. Gallery interaction remains available. Canvas pixel ratio is capped at 1.5, with a 1600-pixel width cap. No continuous shader animation, heavy 3D framework or autoplay video.
 - Existing telephone, email, social and WhatsApp destinations reused exactly, including the site's existing distinction between telephone and WhatsApp numbers.
@@ -50,6 +48,6 @@ The canvas camera and full-photograph crossfades are page-native code. The React
 
 Run `npm run dev` for the local preview, `npm run check` for JavaScript syntax checks, and `npm run verify:matched` for the current browser verification suite. The browser checks use the installed Microsoft Edge executable and cover desktop, tablet, mobile, landscape, reverse scrolling, chapter links, gallery dialogs, reduced motion, JavaScript-free viewing and dependency failures. Screenshots and the report are written to the ignored QA directory. Sharp and Playwright are development-only dependencies.
 
-The final images are checked in; regeneration is unnecessary to preview the page. [prepare-matched-states.mjs](tools/prepare-matched-states.mjs) optionally encodes two full generated images supplied on its command line. Older generation/preparation/verification scripts describe superseded prototypes and are not part of the current refinement workflow.
+The final images are checked in; regeneration is unnecessary to preview the page. [prepare-matched-states.mjs](tools/prepare-matched-states.mjs) optionally encodes the three supplied references and four full generated images supplied on its command line. Older generation/preparation/verification scripts describe superseded prototypes and are not part of the current refinement workflow.
 
 Not published. Browser checks use desktop and mobile emulation, not physical mobile hardware.
