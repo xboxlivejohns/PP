@@ -83,6 +83,33 @@ try {
  const noLibs=await browser.newPage({viewport:{width:390,height:844}});
  await noLibs.route('**/vendor/*.js',r=>r.abort());await noLibs.goto(url,{waitUntil:'networkidle'});
  assert(await noLibs.locator('.motion-summary').isVisible());await gallery(noLibs);report.libraryFailureFallback=true;
+ report.navigation={};
+ const pages=[
+  {path:'/',current:'Home'},
+  {path:'/services/',current:'Services'},
+  {path:'/gallery/',current:'Gallery'},
+  {path:'/booking/',current:'Get a Quote'},
+  {path:'/ceramic-coating/',current:'Ceramic Coating'}
+ ];
+ const expectedNav=[['Home','/'],['Services','/services/'],['Gallery','/gallery/'],['Ceramic Coating','/ceramic-coating/'],['Get a Quote','/booking/']];
+ for(const viewport of [{name:'desktop',width:1440},{name:'mobile',width:390}]){
+  const result=report.navigation[viewport.name]={};
+  for(const route of pages){
+   const navPage=await browser.newPage({viewport:{width:viewport.width,height:844}});observe(navPage,`nav-${viewport.name}-${route.path}`);
+   await navPage.goto(new URL(route.path,url).href,{waitUntil:'networkidle'});
+   if(viewport.name==='mobile')await navPage.locator('.menu-toggle').click();
+   const links=await navPage.locator('.nav-menu a').evaluateAll(as=>as.map(a=>[a.textContent.trim().replace(/\s+/g,' '),new URL(a.href).pathname]));
+   assert.deepEqual(links,expectedNav,`${viewport.name} nav mismatch on ${route.path}`);
+   const current=await navPage.locator('.nav-menu a[aria-current="page"]').allTextContents();
+   assert.deepEqual(current,[route.current],`${viewport.name} current-page marker on ${route.path}`);
+   if(viewport.name==='mobile'){
+    assert.equal(await navPage.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
+    await navPage.locator('.nav-menu a[href="/ceramic-coating/"]').click();
+    await navPage.waitForURL('**/ceramic-coating/');
+   }
+   result[route.path]={links:links.length,current:route.current};await navPage.close();
+  }
+ }
  report.assets={};for(const name of ['reference-before','reference-clay','reference-clean','reference-polished','reference-protected','reference-hydrophobic']){
   const m=await sharp(`assets/${name}.webp`).metadata();assert(m.width===1672&&m.height===941&&!m.hasAlpha,name+' full opaque image');report.assets[name]={width:m.width,height:m.height,alpha:m.hasAlpha};
  }
