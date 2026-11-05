@@ -1,5 +1,44 @@
 {
   "illustrative": {
+    "hero": {
+      "asset": "assets/master-vehicle.webp",
+      "source": "Retained from the existing local prototype"
+    },
+    "paintStates": {
+      "retained": [
+        "assets/paint-before.webp",
+        "assets/paint-corrected.webp",
+        "assets/paint-coated.webp"
+      ],
+      "generated": [
+        "assets/paint-unprepared.webp",
+        "assets/paint-beading.webp"
+      ],
+      "method": "Built-in OpenAI image generation, full opaque images; no ComfyUI",
+      "date": "2026-11-05",
+      "details": "MATCHED-PAINT.md",
+      "composition": "Same 1672 x 941 composition mapped to hero crop x915 y305 width330 height186"
+    }
+  },
+  "genuine": [
+    {
+      "source": "../assets/images/blue-porsche.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    },
+    {
+      "source": "../assets/images/black-gle-shiney.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    },
+    {
+      "source": "../assets/images/finished-car.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    },
+    {
+      "source": "../assets/images/iron-fallout-removal.jpg",
+      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
+    }
+  ],
+  "legacyIllustrative": {
     "vehicle": {
       "raw": "C:\\ComfyUI\\outputs\\raw\\pp_ceramic_cinematic_vehicle_00001_.png",
       "workflow": "C:/ComfyUI/workflows/pp_ceramic_cinematic_vehicle.api.json",
@@ -39,23 +78,5 @@
       "raw": "C:/ComfyUI/ComfyUI/output/sdxl_emerald_paint_00001_.png",
       "model": "SDXL base 1.0"
     }
-  },
-  "genuine": [
-    {
-      "source": "../assets/images/blue-porsche.jpg",
-      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
-    },
-    {
-      "source": "../assets/images/black-gle-shiney.jpg",
-      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
-    },
-    {
-      "source": "../assets/images/finished-car.jpg",
-      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
-    },
-    {
-      "source": "../assets/images/iron-fallout-removal.jpg",
-      "evidence": "Existing website galleryItems in script.js; detailing results, not all claimed as ceramic coating jobs."
-    }
-  ]
+  }
 }
