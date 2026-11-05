@@ -42,7 +42,7 @@ The canvas camera and full-photograph crossfades are page-native code. The React
 - Canvas/image-load failure falls back to the static poster and document sequence. Gallery interaction remains available. Canvas pixel ratio is capped at 1.5, with a 1600-pixel width cap. No continuous shader animation, heavy 3D framework or autoplay video.
 - Existing telephone, email, social and WhatsApp destinations reused exactly, including the site's existing distinction between telephone and WhatsApp numbers.
 - Service details use the supplied brief and existing source of truth. No new price tiers, scratch-resistance claims or guarantees.
-- Page remains `noindex, nofollow` during approval. Do not remove the development robots directive or publish without approval. The existing sitemap and robots files were not edited.
+- Publication removes the prototype `noindex` directive and lists the page in the sitemap. The existing site robots policy still allows indexing.
 
 ## Development commands
 
@@ -50,4 +50,4 @@ Run `npm run dev` for the local preview, `npm run check` for JavaScript syntax c
 
 The final images are checked in; regeneration is unnecessary to preview the page. [prepare-matched-states.mjs](tools/prepare-matched-states.mjs) optionally encodes the three supplied references and four full generated images supplied on its command line. Older generation/preparation/verification scripts describe superseded prototypes and are not part of the current refinement workflow.
 
-Not published. Browser checks use desktop and mobile emulation, not physical mobile hardware.
+Published through the repository's GitHub Pages main branch. Browser checks use desktop and mobile emulation, not physical mobile hardware.
