@@ -1,0 +1,161 @@
+---
+import '@fontsource-variable/manrope';
+import '@fontsource/barlow-condensed/500.css';
+import '@fontsource/barlow-condensed/600.css';
+import '@fontsource/barlow-condensed/700.css';
+import displayFont from '@fontsource/barlow-condensed/files/barlow-condensed-latin-600-normal.woff2?url';
+import bodyFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
+import '../styles/global.css';
+import '../styles/art-direction.css';
+import '../styles/header.css';
+import '../styles/detail-progress.css';
+import Brand from '../components/Brand.astro';
+import { business } from '../data/business';
+import Icon from '../components/Icon.astro';
+import ReviewSummary from '../components/ReviewSummary.astro';
+import ServiceNavigation from '../components/ServiceNavigation.astro';
+import DetailProgress from '../components/DetailProgress.astro';
+const {
+  title,
+  description,
+  image = '/media/art-porsche-front-1600.webp',
+  noindex = false,
+  quoteHref = '/booking/',
+  bodyClass = '',
+} = Astro.props;
+const current = Astro.url.pathname;
+const canonical = new URL(current === '/404/' ? '/404.html' : current, Astro.site);
+const links = [
+  ['/gallery/', 'Gallery'],
+  ['/reviews/', 'Reviews'],
+  ['/about/', 'About us'],
+  ['/areas-covered/', 'Areas we cover'],
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutomotiveBusiness',
+  '@id': new URL('/#business', Astro.site).href,
+  name: 'Polished & Pristine Mobile',
+  url: Astro.site?.href,
+  telephone: '+447776732135',
+  email: business.email,
+  sameAs: business.socialProfiles,
+  hasMap: business.googleMaps,
+  description: `Professional mobile car detailing, ceramic coating, paint enhancement, paint correction and valeting based in Darlington. ${business.coverageSummary}`,
+  areaServed: business.areas.map((name) => ({ '@type': 'Place', name })),
+  image: new URL(image, Astro.site).href,
+};
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Polished & Pristine</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#101619" />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Polished & Pristine" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body class:list={[current === '/' ? 'home-page' : 'inner-page', bodyClass]}>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <Brand />
+        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav" hidden>
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="main-nav" aria-label="Main navigation">
+          <ServiceNavigation />
+          {links.map(([href, label]) => (
+            <a href={href} aria-current={current === href ? 'page' : undefined}>
+              {label}
+            </a>
+          ))}
+          <a
+            class="button small"
+            href={quoteHref}
+            aria-current={current === '/booking/' ? 'page' : undefined}
+          >
+            Get a quote{' '}
+            <span class="header-quote-icon">
+              <Icon name="diagonal" size={16} />
+            </span>
+          </a>
+        </nav>
+      </div>
+      <DetailProgress />
+    </header>
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <ReviewSummary />
+      </div>
+      <div class="container footer-grid">
+        <div>
+          <Brand footer />
+          <p>
+            Professional mobile detailing.
+            <br />
+            Darlington and the surrounding North East.
+          </p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <a href="/services/">Services & prices</a>
+          <a href="/valeting/">Valeting & interior cleaning</a>
+          <a href="/paint-correction/">Paint enhancement & correction</a>
+          <a href="/ceramic-coating/">Ceramic coating</a>
+          <a href="/gallery/">Gallery</a>
+          <a href="/reviews/">Customer reviews</a>
+          <a href="/about/">Meet your detailer</a>
+          <a href="/areas-covered/">Areas we cover</a>
+        </div>
+        <div>
+          <h2>Let’s talk cars</h2>
+          <a href={business.phoneHref}>{business.phone}</a>
+          <a href={business.whatsappHref}>Message on WhatsApp</a>
+          <a class="email-link" href={`mailto:${business.email}`}>
+            {business.email}
+          </a>
+        </div>
+      </div>
+      <div class="container footer-signature" aria-hidden="true">
+        Polished <span>&</span> Pristine.
+      </div>
+      <div class="container footer-bottom">
+        <span>© {new Date().getFullYear()} Polished & Pristine Mobile</span>
+        <span>Real cars. Real care. Real results.</span>
+        <a href="/privacy/">Privacy</a>
+      </div>
+    </footer>
+    <div class="mobile-contact">
+      <a href={business.phoneHref}>
+        <Icon name="phone" size={17} /> Call us
+      </a>
+      <a href={quoteHref}>
+        Get a quote <Icon name="diagonal" size={17} />
+      </a>
+    </div>
+    <script>
+      import '../scripts/site.js';
+    </script>
+  </body>
+</html>

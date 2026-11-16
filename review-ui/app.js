@@ -1,0 +1,27 @@
+const inventory=await (await fetch('/inventory.json')).json();
+const assets=inventory.assets.filter(a=>a.type==='photo'||a.type==='video');
+const previews=await fetch('/preview-manifest.json').then(r=>r.ok?r.json():{}).catch(()=>({}));
+const marks=JSON.parse(localStorage.getItem('pp-media-marks')||'{}');
+const $=s=>document.querySelector(s);
+const state={folder:'all'};
+const size=n=>n>1e6?`${(n/1e6).toFixed(1)} MB`:`${Math.round(n/1e3)} KB`;
+const source=a=>'/original/'+a.relativePath.split('/').map(encodeURIComponent).join('/');
+const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const services=a=>{const s=(a.folder+' '+a.filename).toLowerCase();return new Set([/ceramic|coating/.test(s)?'ceramic':null,/range rover|paint|correction|enhance|polish/.test(s)?'paint':null,/interior|seat|inside|taycan/.test(s)?'interior':null,/car|exterior|outside|porsche|bmw|range rover/.test(s)?'exterior':null].filter(Boolean));};
+const folders=[...new Set(assets.map(a=>a.folder))];
+$('#folders').innerHTML='<button data-folder="all" class="active">All jobs</button>'+folders.map(f=>`<button data-folder="${escape(f)}">${escape(f.replaceAll('/', ' / '))}</button>`).join('');
+$('#folders').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;state.folder=b.dataset.folder;document.querySelectorAll('#folders button').forEach(x=>x.classList.toggle('active',x===b));render();});
+for(const sel of ['#search','#type','#service','#marked']) $(sel).addEventListener('input',render);
+function render(){
+ const term=$('#search').value.trim().toLowerCase(),type=$('#type').value,service=$('#service').value,marked=$('#marked').value;
+ const shown=assets.filter(a=>(state.folder==='all'||state.folder===a.folder)&&(type==='all'||a.type===type)&&(service==='all'||services(a).has(service))&&(marked==='all'||marks[a.id]?.[marked])&&(!term||(a.filename+' '+a.folder).toLowerCase().includes(term)));
+ $('#count').textContent=`${shown.length} shown · ${assets.filter(a=>a.type==='photo').length} photos · ${assets.filter(a=>a.type==='video').length} videos`;
+ $('#results').innerHTML=shown.length?folders.map(folder=>{const list=shown.filter(a=>a.folder===folder);if(!list.length)return '';const sheet=inventory.sheets.filter(s=>s.folder===folder);return `<section class="group"><div class="grouphead"><h2>${escape(folder.replaceAll('/',' / '))} <small>(${list.length})</small></h2><div>${sheet.map(s=>`<a href="/${s.path}" target="_blank" rel="noopener">Contact sheet ${s.page}</a>`).join(' · ')}</div></div><div class="grid">${list.map(a=>`<article class="card"><button class="poster" data-open="${a.id}" aria-label="Inspect ${escape(a.filename)}"><img loading="lazy" src="/thumbs/${a.id}.webp" alt=""><span class="badge">${a.type==='video'?'▶ '+a.duration+'s':'Photo'}</span></button><div class="cardbody"><div class="filename" title="${escape(a.filename)}">${escape(a.filename)}</div><div class="meta">${a.width||'?'} × ${a.height||'?'} · ${size(a.sizeBytes)}${a.error?' · Preview error':''}</div><div class="actions"><button data-mark="favourite" data-id="${a.id}" class="${marks[a.id]?.favourite?'on':''}">★ Favourite</button><button data-mark="candidate" data-id="${a.id}" class="${marks[a.id]?.candidate?'on':''}">+ Candidate</button></div></div></article>`).join('')}</div></section>`;}).join(''):'<p class="empty">No assets match these filters.</p>';
+}
+$('#results').addEventListener('click',e=>{const mark=e.target.closest('[data-mark]');if(mark){const m=marks[mark.dataset.id]||{};m[mark.dataset.mark]=!m[mark.dataset.mark];marks[mark.dataset.id]=m;localStorage.setItem('pp-media-marks',JSON.stringify(marks));render();return;}const open=e.target.closest('[data-open]');if(open)show(assets.find(a=>a.id===open.dataset.open));});
+const viewer=$('#viewer');
+function show(a){const preview=previews[a.id];const media=a.type==='video'?`<video src="${preview?'/'+preview.path:source(a)}" poster="/thumbs/${a.id}.webp" controls playsinline preload="metadata"></video><p>${preview?`Quick preview: ${preview.start}–${preview.end}s · <a href="${source(a)}" target="_blank">Play full original</a>`:'Playing original'} · Sampled frames at ${a.sampleTimes.join(', ')}s</p><div class="frame-links">${a.frames.map((f,i)=>`<a href="/${f}" target="_blank"><img src="/${f}" alt="Frame at ${a.sampleTimes[i]} seconds"></a>`).join('')}</div><a href="/video-sheets/${a.id}.jpg" target="_blank">Open video contact sheet</a>`:`<img src="${source(a)}" alt="${escape(a.filename)}">`;
+ $('#viewerContent').innerHTML=`${media}<h2>${escape(a.filename)}</h2><p>${escape(a.relativePath)} · ${a.width} × ${a.height} · ${size(a.sizeBytes)}${a.type==='video'?' · '+a.duration+'s · '+a.frameRate+' fps':''}</p><a href="${source(a)}" target="_blank" rel="noopener">Open original in new tab</a>`;viewer.showModal();}
+$('.close').onclick=()=>viewer.close();viewer.addEventListener('click',e=>{if(e.target===viewer)viewer.close();});viewer.addEventListener('close',()=>{const v=viewer.querySelector('video');if(v)v.pause();});
+$('#export').onclick=()=>{const selected=assets.filter(a=>marks[a.id]?.favourite||marks[a.id]?.candidate).map(a=>({relativePath:a.relativePath,type:a.type,...marks[a.id]}));const url=URL.createObjectURL(new Blob([JSON.stringify({exportedAt:new Date().toISOString(),assets:selected},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='media-marks.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+render();

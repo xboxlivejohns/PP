@@ -1,0 +1,14 @@
+/source-photos/
+/asset-review/
+/node_modules/
+/.npm-cache/
+/website-assets/
+.DS_Store
+Thumbs.db
+/dist/
+/.astro/
+/test-results/
+/playwright-report/
+/.playwright-mcp/
+/.venv/
+/.agents/

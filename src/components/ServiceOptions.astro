@@ -1,0 +1,33 @@
+---
+import data from '../../content/services.json';
+import Icon from './Icon.astro';
+const { ids, guidance = {} } = Astro.props;
+const services = ids.map((id: string) => data.services.find((service) => service.id === id)!);
+---
+
+<div class="category-options">
+  {services.map((service) => (
+    <article class="category-option" id={service.id}>
+      <div class="category-option-title">
+        <h3>{service.name}</h3>
+        <strong>{service.price.display}</strong>
+      </div>
+      {guidance[service.id] && <p class="category-option-fit">{guidance[service.id]}</p>}
+      <p>{service.summary}</p>
+      {service.duration && <p class="category-option-duration">{service.duration}</p>}
+      <details class="inclusions">
+        <summary>
+          What’s included <Icon name="plus" size={17} />
+        </summary>
+        <ul>
+          {service.includes.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </details>
+      <a class="text-link" href={`/booking/?service=${service.id}`}>
+        Enquire about {service.name} <Icon name="diagonal" size={17} />
+      </a>
+    </article>
+  ))}
+</div>

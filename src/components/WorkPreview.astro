@@ -1,0 +1,48 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+---
+
+<section class="section container work-proof" aria-labelledby="work-proof-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Customer cars</p>
+      <h2 id="work-proof-title">Recent work</h2>
+    </div>
+    <a class="text-link" href="/gallery/">
+      Explore the gallery <Icon name="diagonal" />
+    </a>
+  </div>
+  <div class="work-proof-photos">
+    <a href="/gallery/#finished-work">
+      <Photo
+        name="blue-bmw-finish"
+        alt="Blue BMW X5 bonnet and front light reflecting the sky, from the later job footage"
+        sizes="(max-width:760px) 90vw, 50vw"
+      />
+      <span>
+        Finished paintwork <Icon name="diagonal" size={18} />
+      </span>
+    </a>
+    <a href="/gallery/?filter=interiors#finished-work">
+      <Photo
+        name="light-leather-interior"
+        alt="Clean light leather passenger seat and interior door trim"
+        sizes="(max-width:760px) 45vw, 25vw"
+      />
+      <span>
+        Interior cleaning <Icon name="diagonal" size={18} />
+      </span>
+    </a>
+    <a href="/gallery/#finished-work">
+      <Photo
+        name="audi-wheel-finish"
+        alt="Finished white Audi rear quarter and clean alloy wheel"
+        sizes="(max-width:760px) 45vw, 25vw"
+      />
+      <span>
+        Wheels and bodywork <Icon name="diagonal" size={18} />
+      </span>
+    </a>
+  </div>
+</section>

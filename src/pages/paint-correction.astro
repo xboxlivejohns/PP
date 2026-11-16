@@ -1,0 +1,244 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import PaintProcess from '../components/PaintProcess.astro';
+import ServiceOptions from '../components/ServiceOptions.astro';
+import CustomerReview from '../components/CustomerReview.astro';
+import { customerReviews } from '../data/reviews';
+import data from '../../content/services.json';
+import '../styles/service-category.css';
+import '../styles/paint-correction.css';
+const get = (id: string) => data.services.find((service) => service.id === id)!;
+const enhancement = get('paint-enhancement');
+const correction = get('paint-correction');
+const preparation = get('paint-decontamination');
+---
+
+<Layout
+  title="Paint Enhancement & Correction in Darlington"
+  description={`Mobile machine polishing in Darlington. Paint Enhancement ${enhancement.price.display}, Paint Correction ${correction.price.display}. Compare the options and see real preparation and finished work.`}
+  image="/media/blue-bmw-finish-1080.webp"
+>
+  <div class="paint-page">
+    <section class="container category-opening">
+      <div class="category-opening-copy">
+        <nav class="category-breadcrumb" aria-label="Breadcrumb">
+          <a href="/services/">Services & prices</a> / Paintwork
+        </nav>
+        <p class="eyebrow">Paint enhancement & correction</p>
+        <h1>
+          Reduce marks.
+          <br />
+          Improve gloss.
+        </h1>
+        <p>
+          Dull paint or fine circular marks catching the light? Machine polishing can improve gloss
+          and reduce suitable marks. The right approach depends on the condition of your paint.
+        </p>
+        <div class="category-price-intro">
+          <strong>Enhancement {enhancement.price.display}</strong>
+          <strong>Correction {correction.price.display}</strong>
+        </div>
+        <div class="category-actions">
+          <a class="button" href="/booking/?service=not-sure">
+            Discuss your paintwork <Icon name="message" />
+          </a>
+          <a class="text-link" href="#polishing-options">
+            Compare the options <Icon name="arrow" />
+          </a>
+        </div>
+        <a class="paint-process-link" href="#paint-process-title">
+          See the polishing process <Icon name="arrow" />
+        </a>
+      </div>
+      <figure class="category-opening-photo">
+        <Photo
+          name="range-detail"
+          alt="Clear sky reflections on finished grey Range Rover paintwork"
+          eager
+          sizes="(max-width:760px) 90vw, 40vw"
+        />
+        <figcaption>Finished Range Rover paintwork. Real customer work.</figcaption>
+        <div class="paint-opening-detail">
+          <Photo
+            name="polishing"
+            alt="Machine polishing the Range Rover paintwork"
+            sizes="(max-width:760px) 36vw, 16vw"
+          />
+          <span>The work behind the gloss</span>
+        </div>
+      </figure>
+    </section>
+    <div class="category-assurance">
+      <div class="container">
+        <span>
+          <Icon name="pin" /> Mobile from Darlington
+        </span>
+        <span>
+          <Icon name="shield" /> Fully insured
+        </span>
+        <span>
+          <Icon name="check" /> Work and quote agreed first
+        </span>
+      </div>
+    </div>
+    <section
+      class="container category-section category-paint-options"
+      id="polishing-options"
+      aria-labelledby="polishing-title"
+    >
+      <div class="category-section-heading">
+        <h2 id="polishing-title">Enhancement or correction?</h2>
+        <p>
+          Both use machine polishing. Enhancement focuses on lighter marks and gloss; correction is
+          more intensive. Neither is a promise to remove every scratch.
+        </p>
+      </div>
+      <ServiceOptions
+        ids={['paint-enhancement', 'paint-correction']}
+        guidance={{
+          'paint-enhancement': 'For lighter marks and a gloss boost.',
+          'paint-correction': 'For more noticeable swirls and marks, where safe.',
+        }}
+      />
+      <p class="category-proof-note">
+        Fine circular-looking marks are often called swirls. Deeper damage may remain. We inspect
+        the paint and agree the right work and quote before starting.
+      </p>
+      <div class="category-decontamination" id="paint-decontamination">
+        <div>
+          <h3>{preparation.name}</h3>
+          <p>{preparation.summary}</p>
+        </div>
+        <div>
+          <strong>{preparation.price.display}</strong>
+          <p>
+            Removing stubborn contamination is already included in the polishing services above. Ask
+            about this as a separate service if your paint feels rough after washing.
+          </p>
+          <details class="inclusions">
+            <summary>
+              What’s included <Icon name="plus" size={17} />
+            </summary>
+            <ul>
+              {preparation.includes.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </details>
+          <a class="text-link" href="/booking/?service=paint-decontamination">
+            Ask about decontamination <Icon name="diagonal" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <PaintProcess />
+    <section
+      class="container category-section category-paint-result"
+      aria-labelledby="bmw-result-title"
+    >
+      <Photo
+        name="blue-bmw-finish"
+        alt="Blue BMW X5 bonnet and front end with clear reflections, from the later job footage"
+        sizes="(max-width:760px) 90vw, 44vw"
+      />
+      <div>
+        <p class="eyebrow">Another customer car</p>
+        <h2 id="bmw-result-title">
+          A closer look
+          <br />
+          at the finish.
+        </h2>
+        <p>
+          This blue BMW X5 is a separate finished-work example, not another stage of the Range Rover
+          job. Explore more real customer cars in the gallery.
+        </p>
+        <a class="text-link" href="/gallery/#finished-work">
+          See more finished work <Icon name="diagonal" />
+        </a>
+      </div>
+    </section>
+    <section
+      class="container category-section category-fact"
+      aria-labelledby="polish-protect-title"
+    >
+      <h2 id="polish-protect-title">
+        Polish the finish.
+        <br />
+        Then protect it.
+      </h2>
+      <div>
+        <span class="category-fact-accent" aria-hidden="true"></span>
+        <p>
+          Polishing improves the appearance of suitable marks. A ceramic coating adds protection
+          after preparation; it does not remove scratches.
+        </p>
+        <p>
+          The separate three-year ceramic package already includes its stated cleaning and
+          single-stage machine polish. You do not need to add one of the polishing prices above just
+          to receive that included preparation.
+        </p>
+        <a class="text-link" href="/ceramic-coating/">
+          Explore ceramic coating <Icon name="diagonal" />
+        </a>
+      </div>
+    </section>
+    <section class="container category-section paint-review" aria-labelledby="paint-review-title">
+      <div class="category-section-heading">
+        <h2 id="paint-review-title">
+          A paintwork
+          <br />
+          customer review.
+        </h2>
+        <p>
+          Leslie describes their paintwork experience. The review does not specify a named polishing
+          package or relate to the cars shown here.
+        </p>
+      </div>
+      <CustomerReview
+        review={customerReviews.find((review) => review.id === 'leslie-paintwork')!}
+      />
+      <a class="text-link" href="/reviews/">
+        More customer reviews <Icon name="arrow" />
+      </a>
+    </section>
+    <section class="container category-section category-faq">
+      <h2>
+        Common questions
+        <br />
+        about polishing
+      </h2>
+      <FAQ
+        items={[
+          [
+            'Can you remove every scratch?',
+            'No. Some marks are too deep to remove safely. We first inspect the paint and discuss what can realistically be improved.',
+          ],
+          [
+            'Do I need enhancement or correction?',
+            'Enhancement focuses on lighter marks and gloss. Correction uses more intensive polishing for more noticeable swirls and marks where the paint allows. Send photos and tell us what concerns you if you would like help choosing.',
+          ],
+          [
+            'Is preparation included?',
+            'Yes. Paint Enhancement and Paint Correction include deep cleaning to remove stubborn contamination before machine polishing. Both include up to three months of paint protection.',
+          ],
+          [
+            'Does this include a three-year ceramic coating?',
+            'No. These polishing services include their stated short-term paint protection. The three-year ceramic coating is a separate package with its own preparation and single-stage machine polish included.',
+          ],
+          [
+            'How do I arrange the work?',
+            'Send your vehicle details, postcode and the result you want. We discuss the condition, agree the quote and confirm a suitable time and location. An enquiry does not automatically confirm an appointment.',
+          ],
+        ]}
+      />
+    </section>
+    <CTA
+      title="Let’s talk about your paintwork."
+      text="Send a few photos and tell us which marks concern you. We’ll help you choose the right level of care, with the work and price agreed before booking."
+    />
+  </div>
+</Layout>

@@ -1,0 +1,86 @@
+{
+  "porsche": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "porsche-detail": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "porsche-interior": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "range-rover": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "range-detail": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "polishing": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "during"
+  },
+  "john-on-the-job": {
+    "width": 2736,
+    "height": 3648,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "during"
+  },
+  "coating-product": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "during"
+  },
+  "honda-interior": {
+    "width": 4032,
+    "height": 3024,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "taycan-interior": {
+    "width": 3072,
+    "height": 4080,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "mercedes-interior": {
+    "width": 4080,
+    "height": 3072,
+    "widths": [480, 800, 1200, 1600],
+    "stage": "after"
+  },
+  "seat-before": {
+    "width": 1080,
+    "height": 1920,
+    "widths": [480, 800],
+    "stage": "before"
+  },
+  "seat-after": {
+    "width": 1080,
+    "height": 1920,
+    "widths": [480, 800],
+    "stage": "after"
+  },
+  "bmw": {
+    "width": 1080,
+    "height": 1920,
+    "widths": [480, 800],
+    "stage": "after"
+  }
+}

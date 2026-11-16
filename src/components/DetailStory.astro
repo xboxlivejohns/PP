@@ -1,0 +1,59 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+const stages = [
+  {
+    image: 'range-assessment',
+    label: 'Before · Check the paint',
+    alt: 'Fine marks and droplets visible on the Range Rover door before machine preparation',
+    text: 'Direct light reveals the fine marks and helps us choose a safe polishing approach.',
+  },
+  {
+    image: 'polishing',
+    label: 'During · Machine polishing',
+    alt: 'Machine polisher refining the grey Range Rover door during preparation',
+    text: 'Machine polishing improves light marks and gloss before the protective coating is applied.',
+  },
+  {
+    image: 'range-detail',
+    label: 'After · Finished detail',
+    alt: 'Finished Range Rover bonnet and headlight reflecting the sky after the detail',
+    text: 'The finished vehicle from this ceramic-coating job, with the sky reflected in the bonnet.',
+  },
+];
+---
+
+<section class="detail-story section" id="range-rover-story" aria-labelledby="range-story-title">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Range Rover Sport · A real ceramic-coating job</p>
+        <h2 id="range-story-title">How we prepare and coat the paint.</h2>
+      </div>
+      <p>
+        A coating can only look as good as the paint underneath. Follow this job from the first
+        inspection through machine polishing to the finished result.
+      </p>
+    </div>
+    <div class="detail-story-stages">
+      {stages.map((stage) => (
+        <figure>
+          <figcaption>
+            <h3>{stage.label}</h3>
+          </figcaption>
+          <Photo name={stage.image} alt={stage.alt} sizes="(max-width:760px) 90vw, 30vw" />
+          <p>{stage.text}</p>
+        </figure>
+      ))}
+    </div>
+    <div class="detail-story-foot">
+      <p>
+        Photographs from the same job, showing different panels, angles and lighting. They document
+        the work rather than measure a correction percentage.
+      </p>
+      <a class="text-link" href="/booking/?service=ceramic-coating">
+        Discuss a coating for your car <Icon name="diagonal" />
+      </a>
+    </div>
+  </div>
+</section>

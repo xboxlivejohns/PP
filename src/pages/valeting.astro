@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import ServiceOptions from '../components/ServiceOptions.astro';
+import CustomerReview from '../components/CustomerReview.astro';
+import { customerReviews } from '../data/reviews';
+import data from '../../content/services.json';
+import '../styles/service-category.css';
+import '../styles/valeting.css';
+const essential = data.services.find((s) => s.id === 'essential-clean')!;
+const maintenance = data.services.find((s) => s.id === 'maintenance-plans')!;
+---
+
+<Layout
+  title="Mobile Valeting & Interior Cleaning in Darlington"
+  description={`Mobile valeting ${essential.price.display.toLowerCase()} in Darlington. Compare a regular clean, Full Valet and Interior Deep Clean, with genuine work and clear prices.`}
+  image="/media/taycan-interior-1200.webp"
+  bodyClass="valeting-page"
+>
+  <section class="container category-opening">
+    <div class="category-opening-copy">
+      <nav class="category-breadcrumb" aria-label="Breadcrumb">
+        <a href="/services/">Services & prices</a> / Valeting
+      </nav>
+      <p class="eyebrow">Valeting & interior cleaning</p>
+      <h1>
+        A regular refresh.
+        <br />
+        Or a deeper clean.
+      </h1>
+      <p>
+        Everyday dirt, muddy mats or seats that need more attention. Choose a clean that suits your
+        car, at your home or workplace in Darlington and nearby areas.
+      </p>
+      <div class="category-price-intro">
+        <strong>
+          {essential.name} {essential.price.display.toLowerCase()}
+        </strong>
+        <span>{essential.duration}</span>
+      </div>
+      <div class="category-actions">
+        <a class="button" href="/booking/?service=not-sure">
+          Ask about your car <Icon name="message" />
+        </a>
+        <a class="text-link" href="#cleaning-options">
+          Compare cleaning options <Icon name="arrow" />
+        </a>
+      </div>
+    </div>
+    <figure class="category-opening-photo">
+      <Photo
+        name="taycan-interior"
+        alt="Porsche Taycan interior after valeting, with clean black leather and crisp fan-shaped carpet lines in the passenger mat"
+        eager
+        sizes="(max-width:760px) 90vw, 40vw"
+      />
+      <figcaption>A customer’s Porsche Taycan, finished with crisp carpet lines.</figcaption>
+    </figure>
+  </section>
+  <div class="category-assurance">
+    <div class="container">
+      <span>
+        <Icon name="pin" /> Mobile from Darlington
+      </span>
+      <span>
+        <Icon name="shield" /> Fully insured
+      </span>
+      <span>
+        <Icon name="message" /> Deal directly with your detailer
+      </span>
+    </div>
+  </div>
+  <section
+    class="container category-section"
+    id="cleaning-options"
+    aria-labelledby="cleaning-title"
+  >
+    <div class="category-section-heading">
+      <h2 id="cleaning-title">What does your car need?</h2>
+      <p>
+        A regular valet keeps on top of dirt. A deeper clean tackles more of the interior. If you
+        are unsure, send a few photos and we’ll help you choose.
+      </p>
+    </div>
+    <ServiceOptions
+      ids={['essential-clean', 'full-valet', 'interior-deep-clean']}
+      guidance={{
+        'essential-clean': 'For regular inside-and-out upkeep.',
+        'full-valet': 'For a deeper clean, inside and out.',
+        'interior-deep-clean': 'For a cabin that needs more attention.',
+      }}
+    />
+    <p class="category-proof-note">
+      Prices marked “From” are starting prices. Vehicle size and condition may affect the final
+      quote. We agree the service and price with you before work begins.
+    </p>
+    <div class="category-maintenance" id="maintenance-plans">
+      <div>
+        <h3>{maintenance.name}</h3>
+        <p>{maintenance.summary}</p>
+      </div>
+      <div>
+        <strong>{maintenance.price.display}</strong>
+        <p>
+          Start with a Full Valet, then discuss return visits based on an Essential Clean.
+          Frequency, price and visit duration are agreed with you.
+        </p>
+        <a class="text-link" href="/booking/?service=maintenance-plans">
+          Discuss regular care <Icon name="diagonal" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="category-proof category-section" aria-labelledby="interior-proof-title">
+    <div class="container">
+      <div class="category-section-heading">
+        <h2 id="interior-proof-title">
+          A closer look at
+          <br />a real clean.
+        </h2>
+        <p>
+          Cleaning is about the places you sit, touch and use. These photographs show the same
+          passenger seat before and after cleaning, including the wear that remains.
+        </p>
+      </div>
+      <div class="category-seat-pair">
+        <figure>
+          <Photo
+            name="seat-before"
+            alt="Passenger seat before cleaning, with marks on the fabric and debris around the seat rail"
+            sizes="(max-width:360px) 90vw, (max-width:760px) 45vw, 44vw"
+          />
+          <figcaption>Before cleaning</figcaption>
+        </figure>
+        <figure>
+          <Photo
+            name="seat-after"
+            alt="The same passenger seat after cleaning, with existing fabric wear still visible"
+            sizes="(max-width:360px) 90vw, (max-width:760px) 45vw, 44vw"
+          />
+          <figcaption>After cleaning</figcaption>
+        </figure>
+      </div>
+      <p class="category-proof-note">
+        The same vehicle’s passenger seat, photographed from different angles and in different
+        light. No retouching of the fabric or marks.
+      </p>
+      <div class="category-link-row">
+        <a class="text-link" href="/booking/?service=interior-deep-clean">
+          Ask about an interior clean <Icon name="diagonal" />
+        </a>
+        <a class="text-link" href="/gallery/?filter=interiors#finished-work">
+          More interior work <Icon name="arrow" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section
+    class="container category-section category-fact"
+    data-category-fact
+    aria-labelledby="mobile-care-title"
+  >
+    <h2 id="mobile-care-title">
+      Your day carries on.
+      <br />
+      The care comes to you.
+    </h2>
+    <div>
+      <span class="category-fact-accent" aria-hidden="true"></span>
+      <p>
+        We bring our own water, power and professional equipment. Tell us your postcode and where
+        the car will be, so we can discuss a suitable location.
+      </p>
+      <p>
+        A valet cleans the car; it does not remove scratches. If marks in the paint are your main
+        concern, take a look at{' '}
+        <a class="text-link" href="/paint-correction/">
+          paint enhancement and correction
+        </a>
+        .
+      </p>
+    </div>
+  </section>
+  <section class="container category-section" aria-labelledby="valeting-reviews-title">
+    <div class="category-section-heading">
+      <h2 id="valeting-reviews-title">
+        Reviews from
+        <br />
+        our customers
+      </h2>
+      <p>
+        Customers describing their own experience. These reviews are separate from the vehicles
+        pictured above.
+      </p>
+    </div>
+    <div class="category-review-pair">
+      {['gordon-interior', 'nadine-valeting'].map((id) => (
+        <CustomerReview review={customerReviews.find((review) => review.id === id)!} />
+      ))}
+    </div>
+    <a class="text-link" href="/reviews/">
+      Read more customer reviews <Icon name="arrow" />
+    </a>
+  </section>
+  <section class="container category-section category-faq">
+    <h2>
+      A few things
+      <br />
+      worth knowing.
+    </h2>
+    <FAQ
+      items={[
+        [
+          'Which clean should I choose?',
+          'Choose an Essential Clean for regular upkeep, a Full Valet for deeper cleaning inside and out, or an Interior Deep Clean for the cabin only. If you are unsure, tell us about the condition and the result you want.',
+        ],
+        [
+          'Will every stain or mark come out?',
+          'Some stains and existing wear may remain. Send photos of the areas that concern you so we can discuss what is realistic before agreeing the work.',
+        ],
+        [
+          'Can I arrange regular visits?',
+          'Yes. Maintenance starts with an initial Full Valet, followed by upkeep based on an Essential Clean. Frequency, pricing and visit duration are agreed directly.',
+        ],
+        [
+          'How do I arrange a visit?',
+          'Send your vehicle details, postcode and the service you have in mind. We discuss the condition, confirm the quote and agree a suitable time and place. An enquiry does not automatically confirm an appointment.',
+        ],
+      ]}
+    />
+  </section>
+  <CTA
+    title="Ask about valeting."
+    text="Tell us what you drive and what needs attention. We’ll help you choose the right clean and agree the price before you book."
+  />
+</Layout>

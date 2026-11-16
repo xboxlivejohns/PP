@@ -1,0 +1,111 @@
+---
+import { reviewSources, totalReviews } from '../data/reviews';
+import Icon from './Icon.astro';
+---
+
+<section class="review-summary" aria-labelledby="review-summary-heading">
+  <div>
+    <h2 id="review-summary-heading">
+      <a href="/reviews/">
+        {totalReviews} reviews. Read them for yourself. <Icon size={18} />
+      </a>
+    </h2>
+    <p>Across Google, Clean Me and Facebook.</p>
+  </div>
+  <ul>
+    {reviewSources.map((source) => (
+      <li>
+        <a href={source.href} target="_blank" rel="noopener noreferrer">
+          <strong>
+            {source.name} <Icon name="diagonal" size={15} />
+          </strong>
+          <span>
+            {source.count} reviews · {source.rating}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .review-summary {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 32px;
+    padding-bottom: 36px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ffffff26;
+  }
+  .review-summary h2 {
+    font-family: var(--body);
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    text-transform: none;
+    color: #f1f2ef;
+  }
+  .review-summary h2 svg {
+    margin-left: 4px;
+  }
+  .review-summary p {
+    color: #aebac2;
+    font-size: 14px;
+    margin: 8px 0 0;
+  }
+  .review-summary ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .review-summary li {
+    min-width: 0;
+  }
+  .review-summary li a {
+    display: block;
+    padding-block: 4px;
+  }
+  .review-summary strong {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #f1f2ef;
+  }
+  .review-summary li span {
+    display: block;
+    color: #aebac2;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  .review-summary a:hover strong,
+  .review-summary h2 a:hover {
+    color: #a8c1ff;
+  }
+  @media (max-width: 1000px) {
+    .review-summary {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+  }
+  @media (max-width: 500px) {
+    .review-summary ul {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .review-summary li a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      column-gap: 16px;
+      min-height: 44px;
+    }
+    .review-summary li span {
+      margin: 0;
+    }
+  }
+</style>

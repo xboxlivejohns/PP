@@ -1,0 +1,139 @@
+---
+import { business } from '../data/business';
+// Custom Google My Map owned by the business owner. KML backup: content/maps/.
+const embedUrl = business.coverageMapEmbedUrl;
+---
+
+<div class="area-map" data-area-map>
+  <div class="area-map-heading">
+    <h3>See our coverage area.</h3>
+    <button
+      type="button"
+      class="text-button"
+      data-map-toggle
+      aria-expanded="false"
+      aria-controls="darlington-map"
+      hidden
+    >
+      Load Google map
+    </button>
+  </div>
+  <div class="area-map-window">
+    <div class="area-map-placeholder" data-map-placeholder>
+      <strong>Our 18-mile service area</strong>
+      <p>
+        Our custom Google map shows the shaded coverage boundary. Google receives connection
+        information and may use cookies when the map loads.
+      </p>
+      <a href={business.coverageMapUrl} target="_blank" rel="noopener noreferrer">
+        Open the coverage map in Google Maps<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </div>
+    <iframe
+      id="darlington-map"
+      data-map-frame
+      data-src={embedUrl}
+      title="Polished & Pristine Google map showing the shaded 18-mile service area around Darlington"
+      width="600"
+      height="480"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      hidden
+    ></iframe>
+  </div>
+  <p class="area-map-note">
+    The shaded boundary is an 18-mile straight-line radius from a public Darlington reference point,
+    not a driving-distance limit or customer drop-off address. Send your postcode to confirm
+    coverage.
+  </p>
+  <p class="sr-only" data-map-status role="status" aria-live="polite"></p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-area-map]').forEach((map) => {
+    const button = map.querySelector<HTMLButtonElement>('[data-map-toggle]')!;
+    const frame = map.querySelector<HTMLIFrameElement>('[data-map-frame]')!;
+    const placeholder = map.querySelector<HTMLElement>('[data-map-placeholder]')!;
+    const status = map.querySelector<HTMLElement>('[data-map-status]')!;
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      button.setAttribute('aria-expanded', String(open));
+      button.textContent = open ? 'Hide Google map' : 'Load Google map';
+      frame.hidden = !open;
+      placeholder.hidden = open;
+      if (open) frame.src = frame.dataset.src!;
+      else frame.removeAttribute('src');
+      status.textContent = open
+        ? 'Google map enabled. Use the map below or open Google Maps in a new tab.'
+        : 'Google map hidden.';
+    });
+  });
+</script>
+
+<style>
+  .area-map {
+    min-width: 0;
+  }
+  .area-map-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .area-map-heading h3 {
+    font-size: 30px;
+  }
+  .area-map-heading button {
+    color: #234dcc;
+    font-size: 14px;
+  }
+  .area-map-window {
+    min-height: 480px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+  .area-map iframe {
+    display: block;
+    width: 100%;
+    height: 480px;
+    border: 0;
+  }
+  .area-map-placeholder {
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: clamp(24px, 4vw, 48px);
+  }
+  .area-map-placeholder strong {
+    font-family: var(--display);
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .area-map-placeholder p {
+    margin: 20px 0;
+    max-width: 440px;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .area-map-placeholder a {
+    color: #234dcc;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    padding-block: 8px;
+    font-size: 15px;
+  }
+  .area-map-note {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 18px 0 0;
+  }
+</style>

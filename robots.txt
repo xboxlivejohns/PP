@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://polishedpristinedetailing.co.uk/sitemap.xml

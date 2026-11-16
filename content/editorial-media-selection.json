@@ -1,0 +1,220 @@
+{
+  "reviewDate": "2026-11-16",
+  "method": "Reconsidered the three mixed-exterior sheets plus the interior, seat and Range Rover job sheets. Selected frames and original photographs reviewed individually. Extraction, documented crop, resize and encoding only; no defect removal or colour grading.",
+  "assets": [
+    {
+      "name": "vauxhall-finish",
+      "source": "source-photos/cars-1-001/cars/PXL_20250905_175036624.mp4",
+      "frameTime": 0.89,
+      "stage": "after",
+      "crop": {
+        "left": 0,
+        "top": 310,
+        "width": 1080,
+        "height": 1000
+      },
+      "widths": [
+        480,
+        800,
+        1080
+      ],
+      "note": "Clean white Vauxhall Insignia with reflective panels and finished wheels, reviewed at the selected frame. Crop removes surplus foreground pavement. No specific treatment is inferred.",
+      "width": 1080,
+      "height": 1000,
+      "outputs": [
+        {
+          "path": "/media/vauxhall-finish-480.avif",
+          "bytes": 23034
+        },
+        {
+          "path": "/media/vauxhall-finish-480.webp",
+          "bytes": 42648
+        },
+        {
+          "path": "/media/vauxhall-finish-800.avif",
+          "bytes": 44775
+        },
+        {
+          "path": "/media/vauxhall-finish-800.webp",
+          "bytes": 84474
+        },
+        {
+          "path": "/media/vauxhall-finish-1080.avif",
+          "bytes": 66564
+        },
+        {
+          "path": "/media/vauxhall-finish-1080.webp",
+          "bytes": 122316
+        }
+      ]
+    },
+    {
+      "name": "blue-bmw-finish",
+      "source": "source-photos/cars-1-001/cars/PXL_20250825_170110831.mp4",
+      "frameTime": 1,
+      "stage": "after",
+      "widths": [
+        480,
+        800,
+        1080
+      ],
+      "note": "Replacement reviewed 2026-11-16: later footage of the same blue BMW X5, showing the bonnet and front end. Earlier 135325833 footage shows circular bonnet marks; this 170110831 clip shows clearer reflections. Different lighting and angles do not establish quantified defect removal. No coating claim. Supersedes the disputed 170040614 frame throughout the site.",
+      "width": 1080,
+      "height": 1920,
+      "outputs": [
+        {
+          "path": "/media/blue-bmw-finish-480.avif",
+          "bytes": 26329
+        },
+        {
+          "path": "/media/blue-bmw-finish-480.webp",
+          "bytes": 45774
+        },
+        {
+          "path": "/media/blue-bmw-finish-800.avif",
+          "bytes": 57569
+        },
+        {
+          "path": "/media/blue-bmw-finish-800.webp",
+          "bytes": 95142
+        },
+        {
+          "path": "/media/blue-bmw-finish-1080.avif",
+          "bytes": 94218
+        },
+        {
+          "path": "/media/blue-bmw-finish-1080.webp",
+          "bytes": 140286
+        }
+      ]
+    },
+    {
+      "name": "audi-wheel-finish",
+      "source": "source-photos/cars-1-001/cars/PXL_20260424_134358047.mp4",
+      "frameTime": 0.9,
+      "stage": "after",
+      "widths": [
+        480,
+        800,
+        1080
+      ],
+      "note": "White Audi rear quarter and clean dark alloy. Natural brake-disc colour retained; no retouching.",
+      "width": 1080,
+      "height": 1920,
+      "outputs": [
+        {
+          "path": "/media/audi-wheel-finish-480.avif",
+          "bytes": 23604
+        },
+        {
+          "path": "/media/audi-wheel-finish-480.webp",
+          "bytes": 37276
+        },
+        {
+          "path": "/media/audi-wheel-finish-800.avif",
+          "bytes": 42939
+        },
+        {
+          "path": "/media/audi-wheel-finish-800.webp",
+          "bytes": 66320
+        },
+        {
+          "path": "/media/audi-wheel-finish-1080.avif",
+          "bytes": 62719
+        },
+        {
+          "path": "/media/audi-wheel-finish-1080.webp",
+          "bytes": 95494
+        }
+      ]
+    },
+    {
+      "name": "light-leather-interior",
+      "source": "source-photos/finished interiors-1-001/finished interiors/PXL_20260916_124654199.jpg",
+      "stage": "after",
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "note": "Clean light-leather passenger seat and door trim. Existing leather creasing, door-pocket contents and genuine surroundings retained.",
+      "width": 3072,
+      "height": 4080,
+      "outputs": [
+        {
+          "path": "/media/light-leather-interior-480.avif",
+          "bytes": 22778
+        },
+        {
+          "path": "/media/light-leather-interior-480.webp",
+          "bytes": 47036
+        },
+        {
+          "path": "/media/light-leather-interior-800.avif",
+          "bytes": 61201
+        },
+        {
+          "path": "/media/light-leather-interior-800.webp",
+          "bytes": 131516
+        },
+        {
+          "path": "/media/light-leather-interior-1200.avif",
+          "bytes": 138801
+        },
+        {
+          "path": "/media/light-leather-interior-1200.webp",
+          "bytes": 291152
+        },
+        {
+          "path": "/media/light-leather-interior-1600.avif",
+          "bytes": 242288
+        },
+        {
+          "path": "/media/light-leather-interior-1600.webp",
+          "bytes": 490314
+        }
+      ]
+    },
+    {
+      "name": "range-assessment",
+      "source": "source-photos/range rover sport ceramic-1-001/range rover sport ceramic/PXL_20261016_102733608.mp4",
+      "frameTime": 1.2,
+      "stage": "before",
+      "widths": [
+        480,
+        800,
+        1080
+      ],
+      "note": "Range Rover door during initial assessment, with visible fine marks and droplets. Same documented job as machine-polishing and finished Range Rover photographs. Different surfaces and lighting prohibit an aligned comparison or quantified correction claim.",
+      "width": 1080,
+      "height": 1920,
+      "outputs": [
+        {
+          "path": "/media/range-assessment-480.avif",
+          "bytes": 26690
+        },
+        {
+          "path": "/media/range-assessment-480.webp",
+          "bytes": 52734
+        },
+        {
+          "path": "/media/range-assessment-800.avif",
+          "bytes": 89348
+        },
+        {
+          "path": "/media/range-assessment-800.webp",
+          "bytes": 148894
+        },
+        {
+          "path": "/media/range-assessment-1080.avif",
+          "bytes": 156482
+        },
+        {
+          "path": "/media/range-assessment-1080.webp",
+          "bytes": 228120
+        }
+      ]
+    }
+  ]
+}

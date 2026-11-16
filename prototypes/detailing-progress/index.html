@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Polished &amp; Pristine — silhouette animation preview</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="vendor/gsap.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#controls">Skip to animation controls</a>
+    <header class="preview-header" aria-label="Standalone navbar mock-up">
+      <div class="mock-nav">
+        <div class="wordmark" role="img" aria-label="Polished and Pristine">
+          <svg width="42" height="42" viewBox="0 0 48 46" fill="none" aria-hidden="true">
+            <path
+              d="M7 36V9h14c12 0 12 17 0 17H7M23 36V18h11c10 0 10 15 0 15H23"
+              stroke="currentColor"
+              stroke-width="3.5"
+              stroke-linejoin="round"
+            />
+            <path d="m2 43 43-41" stroke="currentColor" stroke-width="2" />
+          </svg>
+          <span>Polished <span>&amp; Pristine</span><small>Mobile detailing</small></span>
+        </div>
+        <div class="mock-links" aria-hidden="true">
+          <span>Services⌄</span><span>Gallery</span><span>Reviews</span><span>About us</span
+          ><span>Areas we cover</span><span class="quote-label">Get a quote ↗</span>
+        </div>
+        <span class="mock-menu" aria-hidden="true">Menu ☰</span>
+      </div>
+      <div class="nav-lane" role="group" aria-label="Navbar-size animation preview">
+        <div class="nav-actor" data-scene aria-hidden="true"></div>
+        <div class="rail" aria-hidden="true"><span class="rail-fill"></span></div>
+        <span class="nav-stage sr-only" aria-hidden="true">Ready</span
+        ><span class="nav-percent sr-only" aria-hidden="true">0%</span>
+      </div>
+    </header>
+    <main>
+      <section class="intro">
+        <p class="kicker">Separate animation preview · version 02</p>
+        <h1>The detail.<br />In silhouette.</h1>
+        <p>
+          Same movement. Less visual noise. The scene stands on the line inside the navbar above.
+        </p>
+      </section>
+      <section class="animation-study" aria-labelledby="study-title">
+        <div class="study-heading">
+          <h2 id="study-title">A closer look.</h2>
+          <span>Enlarged for reviewing the motion</span>
+        </div>
+        <div
+          class="large-scene"
+          data-scene
+          role="img"
+          aria-label="Silhouettes of a detailer vacuuming, washing and towel-drying a car"
+        ></div>
+        <div class="scene-caption">
+          <span class="stage-label">Ready</span><span class="stage-description" hidden></span
+          ><span class="preview-only-label">Stage names are preview controls only</span>
+        </div>
+      </section>
+      <section class="controls" id="controls" aria-label="Animation controls">
+        <div class="transport">
+          <button id="play" type="button" disabled>Play preview</button
+          ><button id="restart" type="button" disabled>Restart</button
+          ><span class="progress-readout" aria-hidden="true">0%</span>
+        </div>
+        <label class="range-label" for="progress"
+          >Preview progress
+          <small>Drag or use the arrow keys to move forwards and backwards</small></label
+        >
+        <input
+          id="progress"
+          type="range"
+          min="0"
+          max="1000"
+          value="0"
+          disabled
+          aria-valuetext="0%, Ready"
+        />
+        <div class="stage-choices" role="group" aria-label="Preview an animation moment">
+          <button data-seek="0" type="button" disabled>Start</button>
+          <button data-seek=".10" type="button" disabled>Vacuum</button>
+          <button data-seek=".215" type="button" disabled>Wheels</button>
+          <button data-seek=".36" type="button" disabled>Snow foam</button>
+          <button data-seek=".44" type="button" disabled>Rinse</button>
+          <button data-seek=".56" type="button" disabled>Wash</button>
+          <button data-seek=".69" type="button" disabled>Final rinse</button>
+          <button data-seek=".84" type="button" disabled>Dry</button>
+          <button data-seek="1" type="button" disabled>Finished</button>
+        </div>
+        <label class="scroll-toggle"
+          ><input id="follow-scroll" type="checkbox" disabled /> Link the animation to my page
+          scrolling</label
+        >
+        <p class="motion-note" id="motion-note">Loading the local animation…</p>
+        <p id="load-error" role="alert" hidden>
+          The animation could not load. Reload this standalone preview to try again.
+        </p>
+        <noscript
+          ><p>This animation preview needs JavaScript. Your main website is unchanged.</p></noscript
+        >
+      </section>
+      <section class="scroll-demo" aria-labelledby="scroll-title">
+        <h2 id="scroll-title">Try it with a scroll.</h2>
+        <p>
+          Switch on the scroll option, then move down this page. These spaces are just for testing
+          the animation—not proposed website sections.
+        </p>
+        <div class="journey-chapter"><span>Care.</span></div>
+        <div class="journey-chapter"><span>Clean.</span></div>
+        <div class="journey-chapter"><span>Finish.</span></div>
+      </section>
+    </main>
+    <footer>
+      Standalone wash, dry and vacuum montage. No polishing, decontamination or coating is depicted.
+      Your website and service inclusions have not been changed.
+    </footer>
+  </body>
+</html>

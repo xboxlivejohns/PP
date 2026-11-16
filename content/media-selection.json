@@ -1,0 +1,97 @@
+{
+  "reviewDate": "2026-11-12",
+  "method": "All 12 job contact sheets inspected; selected originals and clip samples reviewed. Classification describes visible condition, not measured coating or correction performance.",
+  "assets": [
+    {
+      "name": "porsche",
+      "source": "source-photos/Porsche 911 inside outside-1-001/Porsche 911 inside outside/PXL_20260701_110538397.jpg",
+      "stage": "after",
+      "note": "Blue Porsche front three-quarter; glossy finished bodywork. Keep the portrait composition."
+    },
+    {
+      "name": "porsche-detail",
+      "source": "source-photos/Porsche 911 inside outside-1-001/Porsche 911 inside outside/PXL_20260701_110623841.jpg",
+      "stage": "after",
+      "note": "Clean blue bodywork and carbon mirror; finished detail, not evidence of correction."
+    },
+    {
+      "name": "porsche-interior",
+      "source": "source-photos/Porsche 911 inside outside-1-001/Porsche 911 inside outside/PXL_20260701_110637513.jpg",
+      "stage": "after",
+      "note": "Clean front cabin, original portrait."
+    },
+    {
+      "name": "range-rover",
+      "source": "source-photos/range rover sport ceramic-1-001/range rover sport ceramic/PXL_20261016_152707210.RAW-01.COVER.jpg",
+      "stage": "after",
+      "note": "Finished vehicle in the ceramic job folder; contextual coating caption only."
+    },
+    {
+      "name": "range-detail",
+      "source": "source-photos/range rover sport ceramic-1-001/range rover sport ceramic/PXL_20261016_152747386.RAW-01.COVER.jpg",
+      "stage": "after",
+      "note": "Reflective bonnet and headlight after work; no defect removal percentage asserted."
+    },
+    {
+      "name": "polishing",
+      "source": "source-photos/range rover sport ceramic-1-001/range rover sport ceramic/PXL_20261016_115605087.RAW-01.COVER.jpg",
+      "stage": "during",
+      "note": "Machine polisher visibly contacting paint. Process imagery only."
+    },
+    {
+      "name": "john-on-the-job",
+      "source": "source-photos/owner/PXL_20261016_115614009.RAW-01.COVER.jpg",
+      "stage": "during",
+      "note": "John beside a customer Range Rover holding a polisher. Authentic owner portrait, not a result claim."
+    },
+    {
+      "name": "coating-product",
+      "source": "source-photos/range rover sport ceramic-1-001/range rover sport ceramic/PXL_20261016_140202069.RAW-01.COVER.jpg",
+      "stage": "during",
+      "note": "Matrix Blue bottle held beside vehicle; context, not visible application."
+    },
+    {
+      "name": "honda-interior",
+      "source": "source-photos/finished interiors-1-001/finished interiors/PXL_20250726_114017355.jpg",
+      "stage": "after",
+      "note": "Clean Honda cabin; landscape service image."
+    },
+    {
+      "name": "taycan-interior",
+      "source": "source-photos/finished interiors-1-001/finished interiors/PXL_20261028_145739920.RAW-01.COVER.jpg",
+      "stage": "after",
+      "note": "Clean Taycan front interior."
+    },
+    {
+      "name": "mercedes-interior",
+      "source": "source-photos/finished interiors-1-001/finished interiors/PXL_20261111_150222827.RAW-01.COVER.jpg",
+      "stage": "after",
+      "note": "Finished Mercedes cabin."
+    },
+    {
+      "name": "seat-before",
+      "source": "source-photos/Seat cleaning-1-001/Seat cleaning/video_capture_1785437872407.jpeg",
+      "stage": "before",
+      "note": "Visibly marked passenger seat and debris on rail. Capture timestamp is misleading: this is before-condition imagery."
+    },
+    {
+      "name": "seat-after",
+      "source": "source-photos/Seat cleaning-1-001/Seat cleaning/video_capture_1785437894553.jpeg",
+      "stage": "after",
+      "note": "Same passenger-seat shape, lever, console and blue sill; cleaned fabric and rail. Different light and viewpoint; show side by side, not an aligned slider."
+    },
+    {
+      "name": "bmw",
+      "source": "source-photos/Green BMW ceramic coating -1-001/Green BMW ceramic coating/PXL_20260808_170527676.mp4",
+      "stage": "after",
+      "note": "Frame at 0.68 seconds; glossy green BMW from ceramic job."
+    }
+  ],
+  "video": {
+    "source": "source-photos/Green BMW ceramic coating -1-001/Green BMW ceramic coating/PXL_20260808_170609742.mp4",
+    "stage": "after",
+    "start": 1.04,
+    "end": 4.14,
+    "notes": "Silent side-panel reflection excerpt; no application claim. Playback is user initiated."
+  }
+}

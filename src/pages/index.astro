@@ -1,0 +1,433 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import CTA from '../components/CTA.astro';
+import FAQ from '../components/FAQ.astro';
+import data from '../../content/services.json';
+import '../styles/home.css';
+import { totalReviews } from '../data/reviews';
+import { business } from '../data/business';
+const get = (id: string) => data.services.find((s) => s.id === id)!;
+const ceramic = get('ceramic-coating');
+const pathways = [
+  {
+    title: 'Protect the finish.',
+    label: 'Ceramic coating',
+    image: 'bmw',
+    alt: 'Deep glossy green BMW bonnet after a ceramic coating detail',
+    price: ceramic.price.display,
+    href: '/ceramic-coating/',
+    copy: 'Careful preparation and ceramic coating for gloss and paint protection.',
+  },
+  {
+    title: 'Improve your paintwork.',
+    label: 'Paint enhancement & correction',
+    image: 'porsche-detail',
+    alt: 'Reflective blue Porsche paint and carbon mirror',
+    price: `Enhancement ${get('paint-enhancement').price.display}`,
+    href: '/paint-correction/',
+    copy: 'Machine polishing reduces light marks and swirls to restore gloss and depth.',
+  },
+  {
+    title: 'Keep your car clean.',
+    label: 'Valeting & interior care',
+    image: 'light-leather-interior',
+    alt: 'Clean light-leather passenger seat and door trim',
+    price: get('essential-clean').price.display,
+    href: '/valeting/',
+    copy: 'Choose a thorough clean or regular upkeep for your car.',
+  },
+];
+---
+
+<Layout
+  title="Mobile Car Detailing in Darlington"
+  description="Professional mobile detailing in Darlington. Ceramic coatings, paint correction, valeting and interior deep cleaning. Real care for a finish you’re proud of."
+>
+  <section class="hero-stage" aria-labelledby="hero-title">
+    <div class="hero-art" aria-hidden="true">
+      <Photo name="art-porsche-front" alt="" eager sizes="100vw" />
+    </div>
+    <div class="hero-shade"></div>
+    <div class="container hero-stage-inner">
+      <div class="hero-topline">
+        <span class="live-dot"></span> Mobile detailing in Darlington & the North East.
+      </div>
+      <h1 id="hero-title">
+        <span class="title-mask">
+          <span>Car</span>
+        </span>
+        <span class="title-mask">
+          <span>detailing.</span>
+        </span>
+      </h1>
+      <div class="hero-stance">
+        <span class="stance-line" aria-hidden="true"></span>
+        <p>
+          We clean, polish and protect.
+          <br />
+          At your home or workplace.
+        </p>
+      </div>
+      <div class="actions hero-actions">
+        <a class="button" href="/booking/">
+          Get a quote <Icon name="diagonal" />
+        </a>
+        <a class="text-link light" href="/services/">
+          Services <Icon />
+        </a>
+      </div>
+    </div>
+    <div class="hero-bottomline container">
+      <div class="hero-reputation">
+        <a href="/reviews/">
+          <strong>{totalReviews} customer reviews</strong>
+          <span>Across Google, Clean Me and Facebook</span>
+        </a>
+      </div>
+      <span class="hero-location">
+        Mobile car care.
+        <br />
+        At your home or work.
+      </span>
+      <a class="hero-scroll" href="#the-detail" aria-label="Discover our detailing services">
+        <Icon name="arrow" />
+      </a>
+    </div>
+    <div class="hero-film">
+      <div class="film-media">
+        <video
+          class="finish-loop"
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="/media/art-hero-finish-poster-800.webp"
+          data-src="/media/art-hero-finish.mp4"
+          aria-hidden="true"
+          tabindex="-1"
+        ></video>
+        <button class="motion-control" aria-label="Play finish preview" aria-pressed="false" hidden>
+          <span class="control-symbol" aria-hidden="true">
+            ▶
+          </span>
+        </button>
+      </div>
+      <div class="film-caption">
+        <span>Watch the finish video</span>
+      </div>
+    </div>
+    <span class="hero-side-note" aria-hidden="true">
+      Polished & Pristine / Every detail matters
+    </span>
+  </section>
+  <div class="promise-ribbon">
+    <div class="container">
+      <span>
+        <Icon name="pin" /> At your home or workplace
+      </span>
+      <i aria-hidden="true"></i>
+      <span>
+        <Icon name="shield" /> Fully insured care
+      </span>
+      <i aria-hidden="true"></i>
+      <span>
+        <Icon name="check" /> Our own water & power
+      </span>
+      <i aria-hidden="true"></i>
+      <span>
+        <Icon name="check" /> Quote agreed before booking
+      </span>
+    </div>
+  </div>
+  <section class="service-story section container" id="the-detail">
+    <div class="section-heading" id="services-intro" style="scroll-margin-top: 120px">
+      <div>
+        <h2>
+          Services
+          <br />
+          for your car.
+        </h2>
+      </div>
+      <div>
+        <p>
+          Whether it’s your weekend car, daily drive or a recent purchase, we’ll help you choose
+          the right cleaning, polishing or protection.
+        </p>
+        <a class="text-link" href="/services/">
+          Find your service <Icon name="diagonal" />
+        </a>
+      </div>
+    </div>
+    <div class="pathway-composition">
+      {pathways.map((p, i) => (
+        <article class={`pathway pathway-${i}`}>
+          <a href={p.href} class="pathway-photo">
+            <Photo name={p.image} alt={p.alt} sizes="(max-width: 760px) 100vw, 40vw" />
+            <span class="pathway-price">{p.price}</span>
+            <span class="pathway-heading">
+              <span>{p.label}</span>
+              <h3>{p.title}</h3>
+              <span class="circle-arrow">
+                <Icon name="diagonal" size={26} />
+              </span>
+            </span>
+          </a>
+          <p>{p.copy}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="coating-story">
+    <div class="container coating-story-grid">
+      <div class="coating-collage">
+        <div class="coating-main-image">
+          <Photo
+            name="art-bmw-rear"
+            alt="Emerald green BMW rear quarter with clear reflections after ceramic coating"
+            sizes="(max-width:760px) 78vw, 40vw"
+          />
+        </div>
+        <div class="coating-detail-image">
+          <Photo name="range-detail" alt="Glossy reflections on the Range Rover bonnet" />
+        </div>
+        <span class="coating-seal">
+          <strong>3</strong>
+          <span>
+            year ceramic
+            <br />
+            protection
+          </span>
+        </span>
+        <p class="coating-photo-note">Green BMW and Range Rover. Two real coating details.</p>
+      </div>
+      <div class="coating-story-copy">
+        <p class="eyebrow">Autosmart Matrix Blue</p>
+        <h2>
+          Ceramic
+          <br />
+          paint
+          <br />
+          protection.
+        </h2>
+        <p>
+          Our three-year ceramic coating package includes
+          careful preparation, machine polishing and water-repellent protection.
+        </p>
+        <div class="coating-price">
+          <strong>{ceramic.price.display}</strong>
+          <span>
+            Paint preparation included.
+            <br />
+            Made for easier maintenance.
+          </span>
+        </div>
+        <a class="button" href="/ceramic-coating/">
+          Explore ceramic protection <Icon name="diagonal" />
+        </a>
+        <a class="text-link light coating-story-link" href="/gallery/#range-rover-story">
+          Follow a real coating detail <Icon name="diagonal" />
+        </a>
+        <p class="fine-print">
+          {ceramic.deposit?.description}. Suitable dry weather and curing conditions required.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="work-story section" aria-labelledby="work-heading">
+    <div class="container section-heading">
+      <div>
+        <p class="eyebrow">Real customer cars</p>
+        <h2 id="work-heading">Recent work</h2>
+      </div>
+      <div class="work-navigation">
+        <a class="text-link" href="/gallery/">
+          Explore the gallery <Icon name="diagonal" />
+        </a>
+        <div class="track-controls" hidden>
+          <button data-track-step="-1" aria-label="Previous work photograph">
+            <Icon name="arrow" />
+          </button>
+          <button data-track-step="1" aria-label="Next work photograph">
+            <Icon name="arrow" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="work-track" aria-label="Selected finished detailing work" tabindex="0">
+      <a class="work-frame" href="/gallery/#finished-work">
+        <Photo
+          name="vauxhall-finish"
+          alt="White Vauxhall Insignia with finished paintwork and clean wheels"
+          sizes="(max-width:760px) 85vw, 48vw"
+        />
+        <span class="work-caption">
+          <span>
+            Vauxhall Insignia<small>Finished exterior</small>
+          </span>
+          <Icon name="diagonal" size={25} />
+        </span>
+      </a>
+      <a class="work-frame" href="/gallery/#finished-work">
+        <Photo
+          name="blue-bmw-finish"
+          alt="Blue BMW X5 bonnet and front end with clear reflections, from the later job footage"
+          sizes="(max-width:760px) 85vw, 34vw"
+        />
+        <span class="work-caption">
+          <span>
+            BMW<small>The finished detail</small>
+          </span>
+          <Icon name="diagonal" size={25} />
+        </span>
+      </a>
+      <a class="work-frame" href="/gallery/#finished-work">
+        <Photo
+          name="porsche"
+          alt="Blue Porsche 911 with clean, reflective paintwork"
+          sizes="(max-width:760px) 85vw, 48vw"
+        />
+        <span class="work-caption">
+          <span>
+            Porsche 911<small>Exterior detail</small>
+          </span>
+          <Icon name="diagonal" size={25} />
+        </span>
+      </a>
+      <a class="work-frame" href="/gallery/?filter=interiors#finished-work">
+        <Photo
+          name="taycan-interior"
+          alt="Finished Porsche Taycan leather interior"
+          sizes="(max-width:760px) 85vw, 48vw"
+        />
+        <span class="work-caption">
+          <span>
+            Porsche Taycan<small>Interior care</small>
+          </span>
+          <Icon name="diagonal" size={25} />
+        </span>
+      </a>
+      <a class="work-frame" href="/gallery/#finished-work">
+        <Photo
+          name="audi-wheel-finish"
+          alt="White Audi rear quarter and clean dark alloy wheel"
+          sizes="(max-width:760px) 85vw, 48vw"
+        />
+        <span class="work-caption">
+          <span>
+            Audi<small>Wheel & exterior detail</small>
+          </span>
+          <Icon name="diagonal" size={25} />
+        </span>
+      </a>
+      <a class="work-frame" href="/gallery/?filter=interiors#finished-work">
+        <Photo
+          name="mercedes-interior"
+          alt="Clean Mercedes-Benz cabin and dashboard"
+          sizes="(max-width:760px) 85vw, 48vw"
+        />
+        <span class="work-caption">
+          <span>
+            Mercedes-Benz<small>Interior care</small>
+          </span>
+          <Icon name="diagonal" size={25} />
+        </span>
+      </a>
+    </div>
+  </section>
+  <section class="personal-story">
+    <div class="container personal-story-grid">
+      <div class="personal-image">
+        <Photo
+          name="polishing"
+          alt="Machine polisher at work refining paint on a grey Range Rover"
+        />
+        <span class="personal-image-caption">The care behind the finish.</span>
+      </div>
+      <div class="personal-copy">
+        <h2>
+          Meet your
+          <br />
+          local detailer.
+        </h2>
+        <p>
+          I’m the detailer behind Polished & Pristine. You deal directly with the person caring for
+          your car, from the first conversation to the finishing touches.
+        </p>
+        <p>
+          I bring the equipment, water and power to your home or workplace. You get on with your
+          day. I take care of the detail.
+        </p>
+        <a class="text-link light" href="/about/">
+          Meet your local detailer <Icon name="diagonal" />
+        </a>
+      </div>
+    </div>
+    <div class="container process-route">
+      <ol>
+        <li>
+          <span>01</span>
+          <div>
+            <h3>Let’s talk cars.</h3>
+            <p>Your vehicle, your location, and what you’d like to improve. Photos help, too.</p>
+          </div>
+        </li>
+        <li>
+          <span>02</span>
+          <div>
+            <h3>Make a plan.</h3>
+            <p>We agree the right service, your quote, and a suitable time and place.</p>
+          </div>
+        </li>
+        <li>
+          <span>03</span>
+          <div>
+            <h3>Leave it with us.</h3>
+            <p>We come to your agreed location and carry out the work.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  <section class="section container faq-section">
+    <div>
+      <h2>
+        Common
+        <br />
+        questions
+      </h2>
+      <a class="text-link" href="/booking/">
+        Ask a question <Icon name="diagonal" />
+      </a>
+    </div>
+    <FAQ
+      items={[
+        [
+          'Do you come to me?',
+          'Yes. We’re fully mobile and bring our own water, power and professional equipment to your home or workplace. We’ll confirm the location and suitability when arranging your detail.',
+        ],
+        [
+          'Which areas do you cover?',
+          `${business.coverageSummary} Send your postcode so we can confirm travel availability.`,
+        ],
+        [
+          'Which service is right for my car?',
+          'Tell us what you want to improve and send a few photos. A valet cleans the car inside and out. Paint enhancement uses a single-stage machine polish for light marks. Paint correction uses more intensive polishing for deeper swirls where safe. Ceramic coating adds longer-term protection after the paint has been prepared.',
+        ],
+        [
+          'Are the prices fixed?',
+          'Services marked “From” are starting prices. Vehicle size and condition may affect the final quote. The work and price are agreed before your appointment.',
+        ],
+        [
+          'What if the weather is unsuitable?',
+          'Some work, especially ceramic coating, needs suitable dry weather and curing conditions. We’ll discuss conditions and confirm a suitable arrangement for your booking.',
+        ],
+      ]}
+    />
+  </section>
+  <CTA
+    title="Get a quote"
+    text="Tell us what you drive and what you have in mind. We’ll help you choose the right service."
+  />
+</Layout>

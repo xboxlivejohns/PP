@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import data from '../../content/services.json';
+import { business } from '../data/business';
+---
+
+<Layout
+  title="Get a Car Detailing Quote"
+  description="Tell us about your vehicle and location for a personal detailing quote. Contact Polished & Pristine by WhatsApp, phone or email."
+>
+  <section class="page-intro container booking-intro">
+    <p class="eyebrow">Let’s talk about your car</p>
+    <h1>
+      Get a quote
+      <br />
+      for your car.
+    </h1>
+    <p>
+      Tell us what you drive, where you’re based and what you’d like to improve. We’ll work out the
+      right service together.
+    </p>
+  </section>
+  <section class="container booking-grid">
+    <div class="contact-options">
+      <h2>Let’s talk about your car.</h2>
+      <p>
+        Have a few photos? WhatsApp is a useful way to show the condition and discuss what’s
+        possible.
+      </p>
+      <a class="contact-route" href={business.whatsappHref}>
+        <Icon name="message" size={26} />
+        <span>
+          <strong>Message on WhatsApp</strong>
+          <small>07468 286651</small>
+        </span>
+        <Icon name="diagonal" />
+      </a>
+      <a class="contact-route" href={business.phoneHref}>
+        <Icon name="phone" size={26} />
+        <span>
+          <strong>Give us a call</strong>
+          <small>{business.phone}</small>
+        </span>
+        <Icon name="diagonal" />
+      </a>
+      <a class="contact-route" href={`mailto:${business.email}`}>
+        <Icon name="message" size={26} />
+        <span>
+          <strong>Send an email</strong>
+          <small>{business.email}</small>
+        </span>
+        <Icon name="diagonal" />
+      </a>
+      <div class="what-next">
+        <h3>What happens next?</h3>
+        <p>
+          We’ll discuss your vehicle, confirm the service and quote, then agree a suitable time and
+          location. Your appointment is confirmed only after those details are agreed.
+        </p>
+        <p>{business.coverageSummary}</p>
+        <a class="text-link" href="/areas-covered/">
+          See the areas we cover <Icon name="arrow" />
+        </a>
+      </div>
+    </div>
+    <div class="quote-card" id="quote-builder" hidden>
+      <h2>Start with a few details.</h2>
+      <p>Prepare your message here, then open WhatsApp or email to review and send it.</p>
+      <form id="quote-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input
+              id="name"
+              name="name"
+              autocomplete="given-name"
+              required
+              maxlength="80"
+              placeholder="e.g. Alex…"
+            />
+            <span class="field-error" id="name-error"></span>
+          </div>
+          <div class="field">
+            <label for="postcode">Your postcode</label>
+            <input
+              id="postcode"
+              name="postcode"
+              autocomplete="postal-code"
+              spellcheck="false"
+              autocapitalize="characters"
+              required
+              maxlength="12"
+              placeholder="e.g. DL1 1AA…"
+            />
+            <span class="field-error" id="postcode-error"></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="vehicle">Your vehicle</label>
+          <input
+            id="vehicle"
+            name="vehicle"
+            autocomplete="off"
+            required
+            maxlength="120"
+            placeholder="Make, model and year…"
+          />
+          <span class="field-error" id="vehicle-error"></span>
+        </div>
+        <div class="field">
+          <label for="service">What can we help with?</label>
+          <select id="service" name="service">
+            <option value="not-sure">I’d like some advice</option>
+            {data.services.map((s) => (
+              <option value={s.id}>
+                {s.name} — {s.price.display}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div class="field">
+          <label for="details">
+            Anything else? <span>(optional)</span>
+          </label>
+          <textarea
+            id="details"
+            name="details"
+            rows="4"
+            maxlength="1200"
+            placeholder="Tell us about the condition, the result you want, or a date you have in mind…"
+          ></textarea>
+        </div>
+        <p class="form-privacy">
+          Your details stay on this page until you choose to open WhatsApp or email. Nothing is
+          submitted to this website. <a href="/privacy/">Privacy information</a>.
+        </p>
+        <div class="form-actions">
+          <button class="button" type="submit" name="channel" value="whatsapp">
+            Prepare WhatsApp message <Icon name="message" />
+          </button>
+          <button class="text-button" type="submit" name="channel" value="email">
+            Prepare an email instead
+          </button>
+        </div>
+        <div id="quote-status" role="status" aria-live="polite"></div>
+        <div id="quote-result" hidden>
+          <h3>Your message is ready.</h3>
+          <p>
+            Review the details below. Your enquiry is sent only when you send it in WhatsApp or your
+            email app.
+          </p>
+          <pre id="message-preview"></pre>
+          <a id="send-message" class="button" href={business.whatsappHref}>
+            Open WhatsApp to send <Icon name="diagonal" />
+          </a>
+          <button type="button" id="copy-message" class="text-button">
+            Copy message
+          </button>
+          <p class="small-copy">
+            If your app doesn’t open, copy the message and contact us using the details on this
+            page.
+          </p>
+        </div>
+      </form>
+    </div>
+    <noscript>
+      <div class="quote-card">
+        <h2>Let’s find the right detail.</h2>
+        <p>
+          Contact us using WhatsApp, phone or email. Include your vehicle make and model, postcode
+          and the work you have in mind. If possible, attach a few photos of your vehicle.
+        </p>
+      </div>
+    </noscript>
+  </section>
+</Layout>

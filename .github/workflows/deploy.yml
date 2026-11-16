@@ -1,0 +1,91 @@
+name: Test and deploy website to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - 'README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and test production website
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Google Chrome for Playwright
+        run: npx playwright install --with-deps chrome
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build production website
+        run: npm run build
+
+      - name: Validate static deployment files
+        run: npm run check:site
+
+      - name: Test production website
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:4321
+        run: |
+          npm run preview > "$RUNNER_TEMP/website-preview.log" 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for attempt in {1..60}; do
+            if curl --fail --silent --output /dev/null "$PLAYWRIGHT_BASE_URL/"; then
+              ready=true
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ready" != true ]; then
+            cat "$RUNNER_TEMP/website-preview.log"
+            exit 1
+          fi
+          npm test
+
+      - name: Upload tested website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy tested website
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

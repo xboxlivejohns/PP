@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { business } from '../data/business';
+---
+
+<Layout
+  title="Website Privacy"
+  description="How this website handles enquiry details, local message preparation and links to WhatsApp and email."
+>
+  <article class="section container prose">
+    <p class="eyebrow">Website information</p>
+    <h1>Your privacy.</h1>
+    <p>
+      This website is operated for Polished & Pristine Mobile, based in Darlington. For questions
+      about your information, email <a href={`mailto:${business.email}`}>{business.email}</a>.
+    </p>
+    <h2>Preparing an enquiry</h2>
+    <p>
+      The quote builder prepares a message in your browser. It does not send your details to a
+      website server or save them in browser storage. When you choose to open WhatsApp or email,
+      your message is passed to that service so you can review and send it. Those services process
+      information under their own privacy policies.
+    </p>
+    <h2>When you contact us</h2>
+    <p>
+      Information you choose to send, such as your name, vehicle, location and photographs, is used
+      to respond to your enquiry, discuss a quote and arrange the requested service. Contact us if
+      you want to ask about, correct or request deletion of information you have shared. Some
+      information may need to be retained to meet legal obligations.
+    </p>
+    <h2>Cookies and analytics</h2>
+    <p>
+      This website does not set analytics or advertising cookies. It does not embed social media
+      trackers, external fonts or third-party videos. The hosting provider may process standard
+      technical information, such as IP addresses and request logs, to deliver and secure the
+      website.
+    </p>
+    <h2>External links</h2>
+    <p>
+      The Areas We Cover page offers an optional Google map. No Google Maps embed is requested until
+      you select “Load Google map”. Loading it connects your browser to Google, which receives
+      technical information such as your IP address and may use cookies under its own policies. You
+      can hide the map again or use the external map link instead. See{' '}
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+        Google’s privacy information<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+      .
+    </p>
+    <p>
+      WhatsApp, telephone and email links open services outside this website. Check the relevant
+      provider’s privacy information when using them.
+    </p>
+  </article>
+</Layout>

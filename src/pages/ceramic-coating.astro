@@ -1,0 +1,687 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import PaintProcess from '../components/PaintProcess.astro';
+import CTA from '../components/CTA.astro';
+import data from '../../content/services.json';
+const service = data.services.find((s) => s.id === 'ceramic-coating')!;
+const quoteHref = '/booking/?service=ceramic-coating';
+---
+
+<Layout
+  title="3-Year Ceramic Coating in Darlington"
+  description={`${service.price.display}: Autosmart Matrix Blue ceramic coating with deep cleaning, machine polishing, and protection for the paint, glass and wheel faces. Fully mobile in Darlington.`}
+  image="/media/art-bmw-rear-1080.webp"
+  quoteHref={quoteHref}
+>
+  <section class="coating-hero" aria-labelledby="coating-title">
+    <svg class="coating-hero-matrix" viewBox="0 0 600 700" fill="none" aria-hidden="true">
+      <defs>
+        <pattern id="coating-matrix" width="84" height="146" patternUnits="userSpaceOnUse">
+          <path d="M42 0 84 24v49l-42 24L0 73V24ZM0 73l42 24v49m42-73-42 24" />
+        </pattern>
+      </defs>
+      <path fill="url(#coating-matrix)" d="M0 0h600v700H0z" />
+    </svg>
+    <div class="container coating-hero-grid">
+      <div class="coating-hero-copy">
+        <p class="coating-hero-product">
+          <Icon name="shield" size={20} /> {service.product}
+        </p>
+        <h1 id="coating-title">
+          Ceramic
+          <br />
+          coating.
+        </h1>
+        <p class="coating-hero-description">
+          A deeper gloss. A finish that’s easier to care for. Careful paint preparation meets
+          three-year, water-repellent protection.
+        </p>
+        <div class="coating-hero-price">
+          <strong>{service.price.display}</strong>
+          <span>
+            {service.duration}
+            <br />
+            Preparation &amp; coating included
+          </span>
+        </div>
+        <a class="button" href={quoteHref}>
+          Enquire about ceramic coating <Icon name="diagonal" />
+        </a>
+        <p class="coating-hero-small">
+          {service.deposit?.description}. Final price depends on vehicle size and condition.
+        </p>
+      </div>
+      <figure class="coating-hero-visual">
+        <div class="coating-hero-photo">
+          <Photo
+            name="art-bmw-rear"
+            alt="Glossy emerald green BMW rear quarter, rear lamp and black wheel after ceramic coating"
+            sizes="(max-width: 760px) 90vw, (max-width: 1100px) 44vw, 560px"
+            eager
+          />
+        </div>
+        <div class="coating-hero-protection">
+          <svg viewBox="0 0 152 174" fill="none" aria-hidden="true">
+            <path
+              class="coating-shield-fill"
+              d="m76 5 68 25v54c0 39-36 66-68 83C44 150 8 123 8 84V30L76 5Z"
+            />
+            <path
+              class="coating-shield-line"
+              d="m76 15 58 22v47c0 32-29 57-58 73-29-16-58-41-58-73V37l58-22Z"
+            />
+          </svg>
+          <div>
+            <strong>3</strong>
+            <span>
+              year ceramic
+              <br />
+              protection
+            </span>
+          </div>
+        </div>
+        <div class="coating-hero-coverage">
+          <Icon name="shield" size={24} />
+          <span>
+            <strong>Protection, all round.</strong>Paint, glass &amp; wheel faces
+          </span>
+        </div>
+        <figcaption>
+          <span class="coating-hero-caption-dot" aria-hidden="true"></span>Real customer work ·
+          Emerald BMW
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="container coating-details" aria-labelledby="coating-details-title">
+    <div class="coating-details-media">
+      <figure class="process-photo">
+        <Photo
+          name="polishing"
+          alt="Machine polishing a Range Rover side panel during paint preparation"
+        />
+        <figcaption class="image-note">In progress · Machine polishing</figcaption>
+      </figure>
+      <figure class="process-product">
+        <Photo
+          name="coating-product"
+          alt="Autosmart Matrix Blue ceramic coating bottle held beside the Range Rover"
+          sizes="(max-width:760px) 44vw, 17vw"
+        />
+        <figcaption>Matrix Blue · The coating used</figcaption>
+      </figure>
+    </div>
+    <div class="coating-details-copy">
+      <h2 id="coating-details-title">What’s included.</h2>
+      <p>Paint preparation and {service.product} ceramic coating for your paintwork.</p>
+      <ul class="coating-inclusions">
+        {service.includes.map((item) => (
+          <li>
+            <Icon name="check" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="coating-details-booking">
+        <div class="coating-details-price">
+          <strong>{service.price.display}</strong>
+          <span>{service.duration}</span>
+        </div>
+        <ul class="coating-booking-notes">
+          <li>{service.deposit?.description}.</li>
+          {service.booking_notes?.map((note) => (
+            <li>{note}</li>
+          ))}
+        </ul>
+        <a class="button" href={quoteHref}>
+          Get your coating quote <Icon name="diagonal" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="coating-bmw-story" id="real-results" aria-labelledby="bmw-story-title">
+    <div class="coating-bmw-word" aria-hidden="true">
+      EMERALD.
+    </div>
+    <div class="container coating-bmw-grid">
+      <div class="coating-bmw-collage">
+        <figure class="coating-bmw-still">
+          <Photo
+            name="bmw"
+            alt="Emerald green BMW bonnet and headlight reflecting the sky after ceramic coating"
+            sizes="(max-width: 760px) 72vw, 34vw"
+          />
+          <figcaption>Finished paintwork · Emerald BMW</figcaption>
+        </figure>
+        <figure class="coating-bmw-film" data-video-shell>
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="/media/bmw-finish-poster.webp"
+            aria-label="Silent video showing reflections moving along the emerald BMW after ceramic coating"
+            aria-describedby="bmw-film-note"
+          >
+            <source src="/media/bmw-finish.mp4" type="video/mp4" />
+            <p>
+              Your browser cannot play this video.{' '}
+              <a href="/media/bmw-finish.mp4">Download the BMW finish detail clip</a>.
+            </p>
+          </video>
+          <button
+            class="media-play-button"
+            type="button"
+            data-video-play
+            aria-label="Play the BMW finish video"
+          >
+            <span class="media-play-icon" aria-hidden="true">
+              ▶
+            </span>
+            <span>Play video</span>
+          </button>
+          <figcaption>Video · Finished side panel</figcaption>
+        </figure>
+        <span class="coating-bmw-seal" aria-label="Three-year ceramic coating package">
+          <strong>3</strong>
+          <span>
+            year ceramic
+            <br />
+            protection
+          </span>
+        </span>
+      </div>
+      <div class="coating-bmw-copy">
+        <p class="eyebrow">Emerald BMW · Real customer work</p>
+        <h2 id="bmw-story-title">
+          A finished
+          <br />
+          coating detail.
+        </h2>
+        <p>
+          Careful preparation brought out the colour, clarity and reflections before the Matrix Blue
+          protection was applied.
+        </p>
+        <a class="button" href={quoteHref}>
+          Protect your paintwork <Icon name="diagonal" />
+        </a>
+        <p class="coating-bmw-note" id="bmw-film-note">
+          Real customer car. Real footage. No colour grading or paint retouching.
+        </p>
+      </div>
+    </div>
+  </section>
+  <PaintProcess />
+  <section class="section container faq-section">
+    <div>
+      <p class="eyebrow">Good to know</p>
+      <h2>
+        Coating,
+        <br />
+        explained.
+      </h2>
+      <a class="text-link" href="/paint-correction/">
+        Explore paint correction <Icon name="arrow" />
+      </a>
+    </div>
+    <FAQ
+      items={[
+        [
+          'Does ceramic coating remove scratches?',
+          'No. Ceramic coating protects the surface; it does not remove scratches. The included machine polish can improve light marks and gloss before the coating is applied. Deeper marks may need paint correction, and we’ll first check what is safe for your paint.',
+        ],
+        [
+          'Is my car still going to need washing?',
+          'Yes. Ceramic coating makes ongoing maintenance easier, but your car still needs regular, careful washing. Ask us about suitable aftercare and maintenance visits.',
+        ],
+        [
+          'Can you apply a coating at my home?',
+          'This is a mobile service, but suitable dry weather and curing conditions are required. We’ll discuss your location and the conditions before confirming the arrangement.',
+        ],
+      ]}
+    />
+  </section>
+  <CTA
+    title="Ask about ceramic coating."
+    text="Tell us about your car and where you’re based. We’ll help you plan the right preparation and protection."
+    href={quoteHref}
+  />
+</Layout>
+
+<style>
+  .coating-details {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    column-gap: 8%;
+    align-items: center;
+    padding-block: 48px 32px;
+  }
+  .coating-details-media {
+    position: relative;
+    min-width: 0;
+    margin-bottom: 36px;
+  }
+  .coating-details .process-photo {
+    height: clamp(520px, 45vw, 650px);
+  }
+  .coating-details-copy {
+    min-width: 0;
+  }
+  .coating-details h2 {
+    font-size: clamp(48px, 4.8vw, 68px);
+  }
+  .coating-details-copy > p {
+    margin-block: 20px 24px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .coating-inclusions {
+    padding: 0;
+    margin: 0 0 28px;
+    list-style: none;
+  }
+  .coating-inclusions li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding-block: 15px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .coating-inclusions :global(svg) {
+    margin-top: 3px;
+    color: var(--accent);
+  }
+  .coating-details-booking {
+    padding: 24px;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 16px 16px 0;
+    background: var(--pale);
+  }
+  .coating-details-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .coating-details-price strong {
+    flex-shrink: 0;
+    color: var(--accent);
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .coating-details-price span {
+    max-width: 130px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .coating-booking-notes {
+    padding-left: 18px;
+    margin-block: 20px 24px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .coating-booking-notes li + li {
+    margin-top: 7px;
+  }
+  .coating-details .button {
+    font-size: 14px;
+  }
+  .coating-bmw-story {
+    margin-block: 0;
+    padding-block: 40px 56px;
+  }
+  .coating-bmw-word {
+    margin-bottom: 32px;
+  }
+  .faq-section {
+    padding-top: 48px;
+  }
+  @media (max-width: 760px) {
+    .coating-details {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 48px;
+      padding-block: 32px;
+    }
+    .coating-details-media {
+      margin-bottom: 36px;
+    }
+    .coating-details .process-photo {
+      height: 430px;
+    }
+    .coating-details h2 {
+      font-size: clamp(46px, 10vw, 64px);
+    }
+    .coating-details-booking {
+      padding: 22px;
+    }
+    .coating-details-price strong {
+      font-size: 42px;
+    }
+    .coating-details-price span {
+      max-width: 110px;
+      font-size: 12px;
+    }
+    .coating-bmw-story {
+      padding-block: 36px 48px;
+    }
+    .coating-bmw-word {
+      margin-bottom: 28px;
+    }
+  }
+  .coating-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin: 18px 20px 0;
+    border-radius: 28px;
+    background: var(--night);
+    color: var(--silver);
+  }
+  .coating-hero-matrix {
+    position: absolute;
+    z-index: -1;
+    top: -80px;
+    right: -120px;
+    width: min(55%, 720px);
+    height: calc(100% + 160px);
+    stroke: #a2baff;
+    stroke-width: 1;
+    opacity: 0.12;
+    transform: rotate(-12deg);
+  }
+  .coating-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 7%;
+    align-items: center;
+    padding-block: 48px;
+  }
+  .coating-hero-copy {
+    padding-block: 8px;
+  }
+  .coating-hero-product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    color: #b8caff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .coating-hero h1 {
+    font-size: clamp(84px, 8.8vw, 128px);
+    line-height: 0.86;
+    letter-spacing: -0.015em;
+  }
+  .coating-hero-description {
+    max-width: 420px;
+    margin: 26px 0 0;
+    color: #c3cdd1;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .coating-hero-price {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-block: 26px;
+  }
+  .coating-hero-price strong {
+    flex-shrink: 0;
+    font-family: var(--display);
+    font-size: clamp(36px, 3.4vw, 48px);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .coating-hero-price span {
+    padding-left: 22px;
+    border-left: 1px solid #ffffff30;
+    color: #c3cdd1;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .coating-hero .button {
+    min-height: 56px;
+    gap: 22px;
+    font-size: 14px;
+  }
+  .coating-hero-small {
+    max-width: 400px;
+    margin: 16px 0 0;
+    color: #aab8bf;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .coating-hero-visual {
+    position: relative;
+    min-width: 0;
+    padding-left: 20px;
+  }
+  .coating-hero-photo {
+    height: clamp(480px, 43vw, 600px);
+    overflow: hidden;
+    border-radius: 130px 18px 18px 18px;
+    background: var(--deep);
+  }
+  .coating-hero-photo :global(picture),
+  .coating-hero-photo :global(img) {
+    width: 100%;
+    height: 100%;
+  }
+  .coating-hero-photo :global(img) {
+    object-fit: cover;
+    object-position: 50% 48%;
+  }
+  .coating-hero-protection {
+    position: absolute;
+    top: 10px;
+    left: -36px;
+    width: 152px;
+    height: 174px;
+    filter: drop-shadow(0 12px 20px #090f1340);
+  }
+  .coating-hero-protection svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .coating-shield-fill {
+    fill: var(--accent);
+  }
+  .coating-shield-line {
+    stroke: #b9ccff;
+    stroke-width: 1;
+  }
+  .coating-hero-protection > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+    color: white;
+    text-align: center;
+  }
+  .coating-hero-protection strong {
+    font-family: var(--display);
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 0.95;
+  }
+  .coating-hero-protection span {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .coating-hero-coverage {
+    position: absolute;
+    right: 20px;
+    bottom: 58px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: fit-content;
+    padding: 16px 20px;
+    border-left: 2px solid #a2baff;
+    background: #101619f2;
+    color: #b9ccff;
+  }
+  .coating-hero-coverage span {
+    color: #d6dfe3;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .coating-hero-coverage strong {
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .coating-hero-visual figcaption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 16px;
+    color: #b2c1c8;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .coating-hero-caption-dot {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #a2baff;
+  }
+  @media (min-width: 761px) and (max-width: 1100px) {
+    .coating-hero-grid {
+      gap: 5%;
+      padding-block: 38px;
+    }
+    .coating-hero-visual {
+      padding-left: 8px;
+    }
+    .coating-hero-protection {
+      left: -24px;
+      width: 130px;
+      height: 149px;
+    }
+    .coating-hero-protection > div {
+      padding-top: 24px;
+    }
+    .coating-hero-protection strong {
+      font-size: 60px;
+    }
+    .coating-hero-protection span {
+      font-size: 11px;
+    }
+    .coating-hero-price {
+      gap: 14px;
+    }
+    .coating-hero-price span {
+      padding-left: 14px;
+    }
+    .coating-hero-coverage {
+      left: 24px;
+      right: 16px;
+      padding: 12px 14px;
+    }
+  }
+  @media (max-width: 760px) {
+    .coating-hero {
+      margin: 12px 10px 0;
+      border-radius: 20px;
+    }
+    .coating-hero-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      padding-block: 28px;
+    }
+    .coating-hero-copy {
+      display: contents;
+    }
+    .coating-hero-product {
+      grid-row: 1;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+    .coating-hero h1 {
+      grid-row: 2;
+      font-size: clamp(76px, 17vw, 116px);
+    }
+    .coating-hero-visual {
+      grid-row: 3;
+      margin-top: 28px;
+      padding-left: 0;
+    }
+    .coating-hero-photo {
+      height: clamp(300px, 82vw, 470px);
+      border-radius: 90px 14px 14px 14px;
+    }
+    .coating-hero-photo :global(img) {
+      object-position: 50% 48%;
+    }
+    .coating-hero-protection {
+      top: -12px;
+      left: -10px;
+      width: 112px;
+      height: 128px;
+    }
+    .coating-hero-protection > div {
+      padding-top: 20px;
+    }
+    .coating-hero-protection strong {
+      font-size: 50px;
+    }
+    .coating-hero-protection span {
+      margin-top: 3px;
+      font-size: 10px;
+    }
+    .coating-hero-coverage {
+      right: 12px;
+      bottom: 50px;
+      left: 12px;
+      gap: 10px;
+      padding: 10px 12px;
+    }
+    .coating-hero-visual figcaption {
+      padding-top: 12px;
+      font-size: 11px;
+    }
+    .coating-hero-description {
+      margin-top: 26px;
+    }
+    .coating-hero-price {
+      gap: 16px;
+      margin-block: 24px;
+    }
+    .coating-hero-price span {
+      padding-left: 16px;
+      font-size: 11px;
+    }
+    .coating-hero .button {
+      justify-content: space-between;
+      gap: 12px;
+      padding-inline: 20px;
+      font-size: 12px;
+    }
+    .coating-hero-matrix {
+      top: -40px;
+      right: -70px;
+      width: 90%;
+      height: 700px;
+    }
+  }
+</style>

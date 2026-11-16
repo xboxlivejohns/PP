@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import Photo from './Photo.astro';
+const {
+  title = 'Get a quote for your car.',
+  text = 'Tell us about your vehicle and what you have in mind. We’ll help you find the right service.',
+  href = '/booking/',
+} = Astro.props;
+---
+
+<section class="cta-section">
+  <Photo name="porsche-detail" alt="" class="cta-photo" sizes="100vw" />
+  <div class="container cta-inner">
+    <Icon name="sparkle" size={34} />
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a class="button brass" href={href}>
+      Get a personal quote <Icon />
+    </a>
+    <span class="cta-note">Based in Darlington. Fully mobile.</span>
+  </div>
+</section>
