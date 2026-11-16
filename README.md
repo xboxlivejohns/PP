@@ -68,10 +68,19 @@ Format maintained source with `npm run format`. Shared foundation styles are in 
 
 ## Static hosting
 
-The existing [xboxlivejohns/PP repository](https://github.com/xboxlivejohns/PP) hosts this site for free on GitHub Pages. Push source changes to `main`: [.github/workflows/deploy.yml](.github/workflows/deploy.yml) installs locked dependencies with Node 24, builds, checks the generated files and runs the browser tests before deploying **only the contents of [dist/](dist/)**. GitHub Pages serves directory indexes and the generated `404.html`. No SPA rewrite, database, API key, server adapter or runtime Node process is required on the host.
+The existing [xboxlivejohns/PP repository](https://github.com/xboxlivejohns/PP) hosts this site for free on GitHub Pages. Source lives on `main`; **only the contents of [dist/](dist/)** are published on `gh-pages`. GitHub Pages serves directory indexes and the generated `404.html`. No SPA rewrite, database, API key, server adapter or runtime Node process is required on the host.
+
+After committing and pushing your source changes to `main`, publish from a clean checkout with Node 24 and Google Chrome installed:
+
+```powershell
+npm ci
+npm run deploy
+```
+
+[tools/publish-pages.mjs](tools/publish-pages.mjs) builds, validates the static files and runs all browser tests against the compiled site before making a normal push to `gh-pages`. It checks for uncommitted work and remote changes and leaves your source checkout untouched. GitHub's built-in Pages deployment then publishes the prebuilt branch. If the tested output is identical to the published branch, it reports that no new publication is needed.
 
 The canonical domain, sitemap and metadata use **https://polishedpristinedetailing.co.uk/**. Change [astro.config.mjs](astro.config.mjs), [src/pages/sitemap.xml.ts](src/pages/sitemap.xml.ts) and [public/robots.txt](public/robots.txt) if the production domain changes. Use your host’s private/noindex preview setting for any public staging copy.
 
-[public/CNAME](public/CNAME) preserves the existing domain. Keep Pages configured to deploy with **GitHub Actions** and **Enforce HTTPS** enabled. Historical URLs are mapped in [src/data/legacy-redirects.js](src/data/legacy-redirects.js); static HTML redirects retain old customer links, queries and service anchors. GitHub Pages does not support custom server-side 301 rules.
+[public/CNAME](public/CNAME) preserves the existing domain. Keep Pages configured to **Deploy from a branch**, branch **gh-pages**, folder **/ (root)**, with **Enforce HTTPS** enabled. Historical URLs are mapped in [src/data/legacy-redirects.js](src/data/legacy-redirects.js); static HTML redirects retain old customer links, queries and service anchors. GitHub Pages does not support custom server-side 301 rules. A custom Actions build was blocked by an account billing restriction during migration; built-in Pages publication succeeded, so this setup needs no paid runner or billing change.
 
 The old live version is preserved in the remote branch `backup/live-before-workspace-migration-20261116` and annotated tag `live-before-workspace-migration-20261116`. The original approved workspace also has a local `workspace-before-migration-20261116` branch. See [docs/migration.md](docs/migration.md) for the migration record and recovery procedure. Original media and local review tools are retained; only the compiled website is published.

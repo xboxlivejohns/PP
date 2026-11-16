@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "check:site": "node tools/check-built-site.mjs",
+    "deploy": "node tools/publish-pages.mjs",
     "preview": "astro preview --host 127.0.0.1 --port 4321",
     "media:build": "node tools/build-site-media.mjs",
     "test": "playwright test",
