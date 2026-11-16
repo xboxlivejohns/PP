@@ -2030,7 +2030,7 @@ html:has(dialog[open]) {
   }
   .mobile-contact {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     position: fixed;
     bottom: 0;
     left: 0;
@@ -2044,10 +2044,17 @@ html:has(dialog[open]) {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     min-height: 55px;
     font-size: 12px;
     font-weight: 650;
+  }
+  .mobile-contact a.mobile-contact-whatsapp {
+    background: #e3f4ea;
+    color: #135b36;
+  }
+  .mobile-contact a.mobile-contact-whatsapp:hover {
+    background: #cdefda;
   }
   .mobile-contact a:last-child {
     background: var(--green);

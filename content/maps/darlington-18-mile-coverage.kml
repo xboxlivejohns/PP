@@ -2,7 +2,7 @@
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document>
 <name>Polished &amp; Pristine — 18-mile service area</name>
-<description>18-mile straight-line coverage guide from a public Darlington reference point, not the owner's home. Postcode and service availability must be confirmed. Farther away? Get in touch.</description>
+<description>18-mile straight-line coverage guide from a public Darlington reference point, not the owner's home. Postcode and service availability must be confirmed. Further afield? Get in touch.</description>
 <Style id="coverage"><LineStyle><color>ffe75e31</color><width>3</width></LineStyle><PolyStyle><color>30e75e31</color><fill>1</fill><outline>1</outline></PolyStyle></Style>
 <Placemark>
 <name>18-mile advertised service area</name>

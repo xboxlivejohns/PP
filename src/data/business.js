@@ -17,7 +17,7 @@ export const business = {
   ],
   coverageRadiusMiles: 18,
   coverageSummary:
-    'Our advertised service area is within 18 miles of Darlington. Farther away? Get in touch to discuss your location and service.',
+    'Our advertised service area is within 18 miles of Darlington. Further afield? Get in touch to discuss your location and service.',
   areas: [
     'Darlington',
     'Stockton-on-Tees',

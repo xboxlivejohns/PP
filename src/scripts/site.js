@@ -1,7 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { business } from '../data/business';
-import { initDetailProgress } from './detail-progress';
 
 // The base HTML remains navigable and legible if JavaScript is unavailable.
 const header = document.querySelector('.site-header');
@@ -14,7 +13,7 @@ function syncMenu() {
   menu.hidden = !mobile.matches;
   nav.hidden = mobile.matches;
   menu.setAttribute('aria-expanded', 'false');
-  if (serviceNavigation) serviceNavigation.open = mobile.matches;
+  if (serviceNavigation) serviceNavigation.open = false;
 }
 syncMenu();
 mobile.addEventListener('change', syncMenu);
@@ -22,6 +21,7 @@ menu.addEventListener('click', () => {
   const open = menu.getAttribute('aria-expanded') === 'true';
   menu.setAttribute('aria-expanded', String(!open));
   nav.hidden = open;
+  if (serviceNavigation) serviceNavigation.open = false;
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !mobile.matches && serviceNavigation?.open) {
@@ -40,7 +40,6 @@ document.addEventListener('click', (e) => {
   if (mobile.matches && !nav.hidden && !header.contains(e.target)) syncMenu();
 });
 gsap.registerPlugin(ScrollTrigger);
-initDetailProgress(header);
 const motion = gsap.matchMedia();
 // Category facts remain readable; only the supporting accent moves once.
 motion.add('(prefers-reduced-motion: no-preference)', () => {

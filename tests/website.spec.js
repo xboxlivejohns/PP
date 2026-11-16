@@ -66,7 +66,7 @@ test('Coverage uses the owner-confirmed 18-mile area and is discoverable', async
     await expect(page.locator('.site-footer a[href="/areas-covered/"]')).toBeVisible();
   }
   await expect(page.locator('main')).toContainText('within 18 miles of Darlington');
-  await expect(page.locator('main')).toContainText('Farther away? Get in touch');
+  await expect(page.locator('main')).toContainText('Further afield? Get in touch');
   await page.setViewportSize({ width: 320, height: 740 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.getByRole('link', { name: 'Enquire with your postcode' }).click();
@@ -81,10 +81,9 @@ test('Main Services navigation exposes category pages on desktop and mobile', as
     const navigation = page.getByRole('navigation', { name: 'Main navigation' });
     if (width < 761) await page.locator('.menu-toggle').click();
     const disclosure = navigation.locator('[data-service-navigation]');
-    if (width >= 761) {
-      await disclosure.locator('summary').focus();
-      await page.keyboard.press('Enter');
-    }
+    await expect(disclosure).not.toHaveAttribute('open');
+    await disclosure.locator('summary').focus();
+    await page.keyboard.press('Enter');
     for (const destination of [
       '/services/',
       '/valeting/',

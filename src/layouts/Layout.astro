@@ -8,13 +8,11 @@ import bodyFont from '@fontsource-variable/manrope/files/manrope-latin-wght-norm
 import '../styles/global.css';
 import '../styles/art-direction.css';
 import '../styles/header.css';
-import '../styles/detail-progress.css';
 import Brand from '../components/Brand.astro';
 import { business } from '../data/business';
 import Icon from '../components/Icon.astro';
 import ReviewSummary from '../components/ReviewSummary.astro';
 import ServiceNavigation from '../components/ServiceNavigation.astro';
-import DetailProgress from '../components/DetailProgress.astro';
 const {
   title,
   description,
@@ -99,7 +97,6 @@ const schema = {
           </a>
         </nav>
       </div>
-      <DetailProgress />
     </header>
     <main id="main" tabindex="-1">
       <slot />
@@ -149,6 +146,9 @@ const schema = {
     <div class="mobile-contact">
       <a href={business.phoneHref}>
         <Icon name="phone" size={17} /> Call us
+      </a>
+      <a class="mobile-contact-whatsapp" href={business.whatsapp} aria-label="WhatsApp me">
+        <Icon name="whatsapp" size={17} /> WhatsApp
       </a>
       <a href={quoteHref}>
         Get a quote <Icon name="diagonal" size={17} />
