@@ -285,10 +285,11 @@ body {
   .site-header.is-enhanced #main-nav {
     top: calc(100% + 8px);
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
-    padding: 14px;
-    border-radius: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 16px;
+    border-radius: 10px;
     max-height: calc(100dvh - var(--header-clearance) - 68px);
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -299,44 +300,75 @@ body {
   }
   .service-navigation > summary {
     justify-content: space-between;
-    font-size: 22px;
-    padding-inline: 12px;
+    min-height: 52px;
+    padding: 12px 8px;
+    font-size: 20px;
+    border-bottom: 1px solid #ffffff18;
+  }
+  .service-navigation > summary::after {
+    display: none;
   }
   .service-navigation-links {
     position: static;
     width: 100%;
-    margin-block: 10px 4px;
-    padding: 6px;
-    border-radius: 12px;
+    margin-block: 4px 12px;
+    padding: 0 0 0 8px;
+    border: 0;
+    border-left: 1px solid #91afff55;
+    border-radius: 0;
+    background: transparent;
     box-shadow: none;
   }
   .service-navigation-links a {
-    padding: 12px 10px;
-    gap: 10px;
+    min-height: 48px;
+    padding: 12px;
+    gap: 8px;
+    border-radius: 4px;
+    color: #dbe2e5;
+  }
+  .service-navigation-links a:hover,
+  .service-navigation-links a:focus-visible,
+  .service-navigation-links a[aria-current='page'] {
+    background: #ffffff0d;
+    color: #fff;
+  }
+  .service-navigation-categories {
+    padding-block: 0;
+    margin-block: 0;
+    border: 0;
   }
   .service-navigation-links strong {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
   }
+  .service-navigation-links small,
   .service-navigation-icon {
-    flex-basis: 32px;
-    height: 36px;
-    border: 0;
+    display: none;
   }
   .service-navigation-arrow {
     display: none;
   }
   .site-header #main-nav > a:not(.button) {
-    padding-inline: 5px;
-    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 8px;
+    justify-content: flex-start;
     font-size: 20px;
+    border-bottom: 1px solid #ffffff18;
+  }
+  .site-header #main-nav > a[aria-current='page']:not(.button)::after {
+    left: 8px;
+    right: auto;
+    width: 24px;
   }
   .site-header #main-nav > .button {
-    grid-column: 1 / -1;
-    margin: 5px 0 0;
+    width: 100%;
+    min-height: 56px;
+    margin: 0;
     justify-content: space-between;
-    padding: 14px 12px 4px;
+    padding: 12px 8px;
     border-left: 0;
-    border-top: 1px solid #ffffff30;
+    font-size: 20px;
   }
   .site-header:not(.is-enhanced) #main-nav {
     display: flex;
